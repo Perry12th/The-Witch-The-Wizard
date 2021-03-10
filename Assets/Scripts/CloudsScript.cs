@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CloudsScript : MonoBehaviour
 {
+
+    [SerializeField]
+    MeshRenderer mr;
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("RotateClouds", 0, 0.025f);
     }
 
-    // Update is called once per frame
-    void RotateClouds()
+    private void Update()
     {
-        gameObject.transform.Rotate(Vector3.up, Time.deltaTime * 50);
+        gameObject.transform.Rotate(Vector3.up, Time.deltaTime * 40);
     }
+
+
 }

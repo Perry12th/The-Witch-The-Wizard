@@ -5,6 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lava
+  - DeathZone
+  - FireBall
+  - Checkpoint
+  - Ground
+  - Snowflake
+  - FireElement
+  - WindElement
+  - BreakableIce
+  - Enemy
+  - Pumpkin
+  - TSnowball
+  - Slippery
+  - Vine
+  - Path
   layers:
   - Default
   - TransparentFX

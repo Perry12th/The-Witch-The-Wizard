@@ -6,6 +6,8 @@ public class FireballScript : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
+    public ParticleSystem particleSystem;
+    public GameObject particle;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,13 @@ public class FireballScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+
+            particleSystem.Stop();
+            particle.transform.parent = null;
+            Destroy(particle, 1);
+            Destroy(gameObject);
+        }
     }
 }

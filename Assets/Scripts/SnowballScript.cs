@@ -13,20 +13,24 @@ public class SnowballScript : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 10);
-        rb.velocity = ((gameObject.transform.up + gameObject.transform.right) * speed);
+        rb.velocity = (gameObject.transform.right * speed) + (gameObject.transform.up * (speed/2));
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Lava"))
-        {
-            Instantiate(icePlat, transform.position, icePlat.transform.rotation);
-            Destroy(gameObject);
-        }
-        else
+        if (!collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Lava"))
+        {
+            Instantiate(icePlat, transform.position, icePlat.transform.rotation);
+            //Instantiate(icePlat, transform.position, other.transform.rotation);
+            Destroy(gameObject);
+        }
+    }
 }

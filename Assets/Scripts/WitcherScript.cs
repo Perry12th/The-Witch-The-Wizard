@@ -12,19 +12,37 @@ public class WitcherScript : MonoBehaviour
     public GameObject fireball;
     public Transform spawnPoint;
     public Transform spawnPointLeft;
+    public Vector3 checkpoint;
 
     public float speed;
     public float jumpspeed;
+    public float climbSpeed;
 
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2.5f;
+    public float slipperyFriction;
 
     public bool lookingRight = true;
+    public bool isJumping;
+    public bool isGrounded = true;
+    public bool isSlippery = false;
+    public bool hasSnowball = false;
+    public bool hasFireball = false;
+    public bool canDoubleJump = false;
+    public bool doubleJump = true;
+    public bool isClimbing = false;
+
+    private void Start()
+    {
+        checkpoint = transform.position;
+    }
+
+
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            if(lookingRight)
+            if (lookingRight)
             {
                 lookingRight = false;
                 FlipLeft();
@@ -42,10 +60,41 @@ public class WitcherScript : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            if (!isSlippery)
+            {
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector3(rb.velocity.x * slipperyFriction, rb.velocity.y, 0);
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (isClimbing)
+        {
+            rb.useGravity = false;
+            isGrounded = true;
+            if (Input.GetKey(KeyCode.W))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, climbSpeed, 0);
+            }
+            else
+            if (Input.GetKey(KeyCode.S))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, -climbSpeed, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+            }
+        }
+        else
+        {
+            rb.useGravity = true;
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && hasSnowball)
         {
             if (!lookingRight)
             {
@@ -58,7 +107,7 @@ public class WitcherScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && hasFireball)
         {
             if (!lookingRight)
             {
@@ -71,19 +120,33 @@ public class WitcherScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || doubleJump)))
         {
-            rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
+            if (!isGrounded && !isJumping)
+            {
+                doubleJump = false;
+                isJumping = true;
+                isGrounded = false;
+                rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
+                Invoke("ClearJump", 0.5f);
+            }
+            else
+            {
+                isJumping = true;
+                isGrounded = false;
+                rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
+                Invoke("ClearJump", 0.5f);
+            }
         }
 
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        } else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-
     }
 
     public void FlipLeft()
@@ -96,8 +159,91 @@ public class WitcherScript : MonoBehaviour
         sr.flipX = false;
     }
 
+    public void SetGrounded()
+    {
+        isGrounded = true;
+        doubleJump = canDoubleJump;
+    }
+
     public void ResetPosition()
     {
+        transform.position = checkpoint;
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Vine"))
+        {
+            isClimbing = true;
+        }
+        else
+        if (other.CompareTag("Slippery"))
+        {
+            isSlippery = true;
+        }
+        else
+        if (other.CompareTag("Checkpoint"))
+        {
+            checkpoint = new Vector3(other.transform.position.x, other.transform.position.y, transform.position.z);
+        }
+        else
+        if (other.CompareTag("DeathZone") || other.CompareTag("Lava"))
+        {
+            ResetPosition();
+        }
+        else
+        if (other.CompareTag("Snowflake"))
+        {
+            hasSnowball = true;
+            Destroy(other.gameObject);
+        }
+        else
+        if (other.CompareTag("FireElement"))
+        {
+            hasFireball = true;
+            Destroy(other.gameObject);
+        }
+        else
+        if (other.CompareTag("WindElement"))
+        {
+            canDoubleJump = true;
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Slippery"))
+        {
+            isSlippery = false;
+        }
+        else
+        if (other.CompareTag("Vine"))
+        {
+            isClimbing = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("TSnowball") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Pumpkin"))
+        {
+            ResetPosition();
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (rb.velocity.y > 0.1f && !isJumping)
+            {
+                rb.velocity = (Vector3.up * 0) + rb.velocity.x * Vector3.right;
+            }
+        }
+    }
+
+    public void ClearJump()
+    {
+        isJumping = false;
     }
 }
