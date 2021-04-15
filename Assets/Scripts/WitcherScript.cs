@@ -13,6 +13,8 @@ public class WitcherScript : MonoBehaviour
     public Transform spawnPoint;
     public Transform spawnPointLeft;
     public Vector3 checkpoint;
+    public Animator anim;
+    public GameObject model;
 
     public float speed;
     public float jumpspeed;
@@ -31,6 +33,7 @@ public class WitcherScript : MonoBehaviour
     public bool canDoubleJump = false;
     public bool doubleJump = true;
     public bool isClimbing = false;
+    public bool isAttacking = false;
 
     private void Start()
     {
@@ -40,102 +43,100 @@ public class WitcherScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (!isAttacking)
         {
-            if (lookingRight)
+            if (Input.GetKey(KeyCode.A))
             {
-                lookingRight = false;
-                FlipLeft();
+                if (lookingRight)
+                {
+                    lookingRight = false;
+                    FlipLeft();
+                }
+                rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
             }
-            rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            if (!lookingRight)
+            else if (Input.GetKey(KeyCode.D))
             {
-                lookingRight = true;
-                FlipRight();
-            }
-            rb.velocity = new Vector3(speed, rb.velocity.y, 0);
-        }
-        else
-        {
-            if (!isSlippery)
-            {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                if (!lookingRight)
+                {
+                    lookingRight = true;
+                    FlipRight();
+                }
+                rb.velocity = new Vector3(speed, rb.velocity.y, 0);
             }
             else
             {
-                rb.velocity = new Vector3(rb.velocity.x * slipperyFriction, rb.velocity.y, 0);
+                if (!isSlippery)
+                {
+                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(rb.velocity.x * slipperyFriction, rb.velocity.y, 0);
+                }
             }
-        }
 
-        if (isClimbing)
-        {
-            rb.useGravity = false;
-            isGrounded = true;
-            if (Input.GetKey(KeyCode.W))
+            if (isClimbing)
             {
-                rb.velocity = new Vector3(rb.velocity.x, climbSpeed, 0);
+                rb.useGravity = false;
+                isGrounded = true;
+                if (Input.GetKey(KeyCode.W))
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, climbSpeed, 0);
+                }
+                else
+                if (Input.GetKey(KeyCode.S))
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, -climbSpeed, 0);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                }
             }
             else
-            if (Input.GetKey(KeyCode.S))
             {
-                rb.velocity = new Vector3(rb.velocity.x, -climbSpeed, 0);
+                rb.useGravity = true;
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
             }
-            else
-            {
-                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-            }
-        }
-        else
-        {
-            rb.useGravity = true;
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
-        }
 
-        if (Input.GetKeyDown(KeyCode.Return) && hasSnowball)
-        {
-            if (!lookingRight)
+            if (Input.GetKeyDown(KeyCode.Return) && hasSnowball)
             {
-                GameObject newBall = Instantiate(snowball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
-                newBall.transform.Rotate(Vector3.up, 180);
+                if (!lookingRight)
+                {
+                    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
+                    newBall.transform.Rotate(Vector3.up, 180);
+                }
+                else
+                {
+                    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPoint.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
+                }
             }
-            else
-            {
-                GameObject newBall = Instantiate(snowball, Vector3.up * spawnPoint.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.F) && hasFireball)
-        {
-            if (!lookingRight)
+            if (Input.GetKeyDown(KeyCode.F) && hasFireball)
             {
-                GameObject newBall = Instantiate(fireball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
-                newBall.transform.Rotate(Vector3.up, 180);
+                anim.SetTrigger("Attack");
+                isAttacking = true;
             }
-            else
-            {
-                GameObject newBall = Instantiate(fireball, Vector3.up * spawnPoint.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
-            }
-        }
 
-        if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || doubleJump)))
-        {
-            if (!isGrounded && !isJumping)
+            if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || doubleJump)))
             {
-                doubleJump = false;
-                isJumping = true;
-                isGrounded = false;
-                rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
-                Invoke("ClearJump", 0.5f);
-            }
-            else
-            {
-                isJumping = true;
-                isGrounded = false;
-                rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
-                Invoke("ClearJump", 0.5f);
+                if (!isGrounded && !isJumping)
+                {
+                    doubleJump = false;
+                    isJumping = true;
+                    isGrounded = false;
+                    rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
+                    Invoke("ClearJump", 0.5f);
+                    anim.SetTrigger("Jump");
+                }
+                else
+                {
+                    isJumping = true;
+                    isGrounded = false;
+                    rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
+                    Invoke("ClearJump", 0.5f);
+                    anim.SetTrigger("Jump");
+                }
             }
         }
 
@@ -147,15 +148,21 @@ public class WitcherScript : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("SpeedY", rb.velocity.y);
+        anim.SetBool("Grounded", isGrounded);
     }
 
     public void FlipLeft()
     {
+        model.transform.Rotate(Vector3.up, 180);
         sr.flipX = true;
     }
 
     public void FlipRight()
     {
+        model.transform.Rotate(Vector3.up, 180);
         sr.flipX = false;
     }
 
@@ -168,6 +175,24 @@ public class WitcherScript : MonoBehaviour
     public void ResetPosition()
     {
         transform.position = checkpoint;
+    }
+
+    public void ReleaseFireball()
+    {
+        if (!lookingRight)
+        {
+            GameObject newBall = Instantiate(fireball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
+            newBall.transform.Rotate(Vector3.up, 180);
+        }
+        else
+        {
+            GameObject newBall = Instantiate(fireball, Vector3.up * spawnPoint.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
+        }
+    }
+
+    public void Recover()
+    {
+        isAttacking = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -230,20 +255,31 @@ public class WitcherScript : MonoBehaviour
         {
             ResetPosition();
         }
+
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            SetGrounded();
+        }
     }
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            if (rb.velocity.y > 0.1f && !isJumping)
+            if (rb.velocity.y > 0f && !isJumping)
             {
                 rb.velocity = (Vector3.up * 0) + rb.velocity.x * Vector3.right;
+            }
+            else
+            {
+                isGrounded = false;
             }
         }
     }
 
     public void ClearJump()
     {
+        anim.ResetTrigger("Jump");
         isJumping = false;
     }
 }
