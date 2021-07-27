@@ -18,19 +18,18 @@ public class SnowballScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Lava"))
         {
+            var rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
+            GameObject icePlatform = Instantiate(icePlat, collision.GetContact(0).point, rotation);
+            icePlatform.transform.Rotate(270, icePlatform.transform.rotation.y, icePlatform.transform.rotation.z);
+            //Instantiate(icePlat, transform.position, other.transform.rotation);
             Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Lava"))
-        {
-            Instantiate(icePlat, transform.position, icePlat.transform.rotation);
-            //Instantiate(icePlat, transform.position, other.transform.rotation);
-            Destroy(gameObject);
-        }
+        
     }
 }

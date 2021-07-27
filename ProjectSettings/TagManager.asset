@@ -19,6 +19,7 @@ TagManager:
   - Slippery
   - Vine
   - Path
+  - ThunderElement
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - PatrolPoints
+  - VisualBox
   - 
   - 
   - 

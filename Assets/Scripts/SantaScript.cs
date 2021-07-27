@@ -5,36 +5,51 @@ using UnityEngine;
 public class SantaScript : MonoBehaviour
 {
     [SerializeField]
-    GameObject snowball;
-
+    GameObject snowballPrefab;
     [SerializeField]
-    Transform projPosition, projPosition2;
-
+    Transform projPosition;
     [SerializeField]
-    GameObject path;
-
+    GameObject portalPointA;
     [SerializeField]
-    SpriteRenderer sr;
+    GameObject portalPointB;
+    [SerializeField]
+    Animator animator;
+    [SerializeField]
+    Rigidbody rigidbody;
 
-    public bool isWalkable;
-    public float speed;
-    public bool flipping = false;
-
+    public float runSpeed;
+    public bool isFlipping = false;
+    public bool isSliding = false;
+    public bool isAttacking = false;
+    public bool isPlayerInRange = false;
+    public bool isStunned = false;
     public int life;
 
     private void Start()
     {
-        path.transform.parent = null;
-        InvokeRepeating("SpawnSnowball", 0, 3.5f);
         life = 4;
     }
 
     private void Update()
     {
-        if (isWalkable)
+        if (!isStunned)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            if (isPlayerInRange && !isAttacking)
+            {
+                animator.SetTrigger("IceAttack");
+                isAttacking = true;
+            }
+            if ((!isFlipping && !isAttacking))
+            {
+                rigidbody.velocity = runSpeed * transform.forward;
+            }
         }
+        else
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
+
+        animator.SetFloat("Speed", rigidbody.velocity.magnitude);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -44,44 +59,63 @@ public class SantaScript : MonoBehaviour
             Destroy(collision.gameObject);
             life--;
 
-            if (life <= 0)
+            if (life == 0)
             {
-                Destroy(gameObject);
+                animator.SetTrigger("Death");
+            }
+            else if (life > 0)
+            {
+                isAttacking = false;
+                isStunned = true;
+                animator.SetTrigger("Hit");
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (life > 0)
+            {
+                collision.gameObject.GetComponent<WitcherScript>().ResetPosition();
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Path") && isWalkable && !flipping)
+        if (other.gameObject == portalPointA || other.gameObject == portalPointB)
         {
-            Toggle();
+            isFlipping = true;
+            rigidbody.velocity = Vector3.zero;
+            animator.SetTrigger("Turn");
         }
-    }
-
-    public void Toggle()
-    {
-        flipping = true;
-        speed *= -1;
-        sr.flipX = !sr.flipX;
-        Invoke("ClearFlip", 0.1f);
     }
 
     public void ClearFlip()
     {
-        flipping = false;
+        Debug.Log("ClearFlip");
+        isFlipping = false;
+        rigidbody.constraints = RigidbodyConstraints.None;
+        transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);
+        rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
+    public void ClearAttack()
+    {
+        isAttacking = false;
+    }
+
+    public void ClearStun()
+    {
+        isStunned = false;
+    }
     public void SpawnSnowball()
     {
-        if (speed < 0)
-        {
-            GameObject ball = Instantiate(snowball, projPosition2.position, projPosition2.rotation);
-            ball.transform.Rotate(Vector3.up, 180);
-        }
-        else
-        {
-            GameObject ball = Instantiate(snowball, projPosition.position, projPosition.rotation);
-        }
+        IceMagicScript iceMagic = Instantiate(snowballPrefab, projPosition.position, snowballPrefab.transform.rotation).GetComponent<IceMagicScript>();
+        iceMagic.rb.velocity = Vector3.Normalize(transform.position - iceMagic.gameObject.transform.position) * iceMagic.speed;
+    }
+
+    public void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }

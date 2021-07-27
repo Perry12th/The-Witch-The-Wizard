@@ -7,15 +7,16 @@ public class GrowingSnowballScript : MonoBehaviour
     [SerializeField]
     Rigidbody rb;
 
-    public float speed;
+    [SerializeField]
+    private float speed;
 
-    private void Start()
+    public void Start()
     {
         Destroy(gameObject, 6);
         rb.velocity = ((gameObject.transform.up + gameObject.transform.right) * -speed);
     }
 
-    private void Update()
+    public void Update()
     {
         if(rb.velocity.magnitude > 0.5f)
         {
@@ -26,11 +27,18 @@ public class GrowingSnowballScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("FireBall") || collision.gameObject.CompareTag("Pumpkin") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("TSnowball") || collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
     }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+        rb.velocity = ((gameObject.transform.up + gameObject.transform.right) * -speed);
+    }
 }
+

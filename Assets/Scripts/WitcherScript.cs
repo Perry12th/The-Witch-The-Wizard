@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DigitalRuby.LightningBolt;
 
 public class WitcherScript : MonoBehaviour
 {
@@ -15,6 +16,17 @@ public class WitcherScript : MonoBehaviour
     public Vector3 checkpoint;
     public Animator anim;
     public GameObject model;
+    public CapsuleCollider FeetCollider;
+    public PhysicMaterial FrictionMaterial;
+    public PhysicMaterial FrictionLessMaterial;
+    public LayerMask PlayerCollisionMask;
+
+    public AimLineScript aimLine;
+    public LightningBoltScript thunderLine;
+    public float thunderAngle;
+    public Vector3 lastAimLine;
+    public Vector3 hitPoint;
+    public LayerMask aimLineCollisionMask;
 
     public float speed;
     public float jumpspeed;
@@ -30,10 +42,13 @@ public class WitcherScript : MonoBehaviour
     public bool isSlippery = false;
     public bool hasSnowball = false;
     public bool hasFireball = false;
+    public bool hasLighting = false;
     public bool canDoubleJump = false;
     public bool doubleJump = true;
     public bool isClimbing = false;
     public bool isAttacking = false;
+    public bool isAiming = false;
+    public bool isShootingLighting = false;
 
     private void Start()
     {
@@ -43,7 +58,7 @@ public class WitcherScript : MonoBehaviour
 
     void Update()
     {
-        if (!isAttacking)
+        if (!isAttacking && !isAiming && !isShootingLighting)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -114,20 +129,33 @@ public class WitcherScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && hasFireball)
             {
+                FeetCollider.material = FrictionMaterial;
                 anim.SetTrigger("Attack");
                 isAttacking = true;
             }
 
+            //if (Input.GetKeyDown(KeyCode.F) && hasFireball && !isGrounded)
+            //{
+            //    isAttacking = true;
+            //    ReleaseFireball();
+            //}
+
+            if (Input.GetKeyDown(KeyCode.T) && hasLighting && isGrounded)
+            {
+                aimLine.gameObject.SetActive(true);
+                isAiming = true;
+            }
+
             if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || doubleJump)))
             {
-                if (!isGrounded && !isJumping)
+                if (!isGrounded)
                 {
                     doubleJump = false;
                     isJumping = true;
                     isGrounded = false;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
                     Invoke("ClearJump", 0.5f);
-                    anim.SetTrigger("Jump");
+                    anim.SetTrigger("DoubleJump");
                 }
                 else
                 {
@@ -137,6 +165,21 @@ public class WitcherScript : MonoBehaviour
                     Invoke("ClearJump", 0.5f);
                     anim.SetTrigger("Jump");
                 }
+            }
+
+            
+        }
+
+        if (isAiming)
+        {
+            rb.velocity = Vector3.zero;
+            AimingThunder();
+            if (Input.GetKeyUp(KeyCode.T))
+            {
+                isShootingLighting = true;
+                aimLine.gameObject.SetActive(false);
+                anim.SetBool("Attack2", true);
+                isAiming = false;
             }
         }
 
@@ -149,9 +192,12 @@ public class WitcherScript : MonoBehaviour
             rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
-        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-        anim.SetFloat("SpeedY", rb.velocity.y);
-        anim.SetBool("Grounded", isGrounded);
+        if (!isShootingLighting)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+            anim.SetFloat("SpeedY", rb.velocity.y);
+            anim.SetBool("Grounded", isGrounded);
+        }
     }
 
     public void FlipLeft()
@@ -166,11 +212,39 @@ public class WitcherScript : MonoBehaviour
         sr.flipX = false;
     }
 
-    public void SetGrounded()
+    public void SetGrounded(bool ground)
     {
-        isGrounded = true;
-        doubleJump = canDoubleJump;
+        isGrounded = ground;
+        if (ground)
+        {
+            doubleJump = canDoubleJump;
+        }
     }
+
+    //public void SetIsGrounded()
+    //{
+    //    float distanceToPoints = FeetCollider.height / 2 - FeetCollider.radius;
+
+    //    Vector3 startPoint = FeetCollider.center + Vector3.up * distanceToPoints;
+    //    Vector3 endPoint = FeetCollider.center - Vector3.down * distanceToPoints;
+
+    //    RaycastHit raycast = new RaycastHit();
+            
+    //    Physics.CapsuleCast(startPoint, endPoint, FeetCollider.radius, Vector3.down,  out raycast, 0.1f, PlayerCollisionMask);
+
+    //    if (raycast.collider != null)
+    //    {
+    //        Debug.Log(raycast.collider.name)
+    //    }
+    //    if (raycast.collider != null && raycast.collider.CompareTag("Ground"))
+    //    {
+    //        isGrounded = true;
+    //    }
+    //    else
+    //    {
+    //        isGrounded = false;
+    //    }
+    //}
 
     public void ResetPosition()
     {
@@ -193,6 +267,7 @@ public class WitcherScript : MonoBehaviour
     public void Recover()
     {
         isAttacking = false;
+        FeetCollider.material = FrictionLessMaterial;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -212,7 +287,7 @@ public class WitcherScript : MonoBehaviour
             checkpoint = new Vector3(other.transform.position.x, other.transform.position.y, transform.position.z);
         }
         else
-        if (other.CompareTag("DeathZone") || other.CompareTag("Lava"))
+        if (other.CompareTag("DeathZone"))
         {
             ResetPosition();
         }
@@ -232,6 +307,12 @@ public class WitcherScript : MonoBehaviour
         if (other.CompareTag("WindElement"))
         {
             canDoubleJump = true;
+            Destroy(other.gameObject);
+        }
+        else 
+        if (other.CompareTag("ThunderElement"))
+        {
+            hasLighting = true;
             Destroy(other.gameObject);
         }
     }
@@ -258,7 +339,25 @@ public class WitcherScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ground"))
         {
-            SetGrounded();
+            if (Vector2.Angle(Vector2.up, collision.GetContact(0).normal) <= 45f)
+            {
+                SetGrounded(true);
+            }
+        }
+        if(collision.gameObject.CompareTag("Lava"))
+        {
+            ResetPosition();
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (Vector2.Angle(Vector2.up, collision.GetContact(0).normal) <= 80f)
+            {
+                SetGrounded(true);
+            }
         }
     }
 
@@ -272,14 +371,109 @@ public class WitcherScript : MonoBehaviour
             }
             else
             {
-                isGrounded = false;
+                SetGrounded(false);
             }
         }
     }
+    
+
 
     public void ClearJump()
     {
         anim.ResetTrigger("Jump");
         isJumping = false;
+    }
+
+    private void AimingThunder()
+    {
+        // Get the mouse position of the world via a plane create on the witch model
+        Plane playerPlane = new Plane(Vector3.forward, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, model.transform.position.z));
+        Vector3 mousePos = Input.mousePosition;
+        Ray ray2 = Camera.main.ScreenPointToRay(mousePos);
+        float mouseDistance = 0f;
+        if (playerPlane.Raycast(ray2, out mouseDistance))
+        {
+            mousePos = ray2.GetPoint(mouseDistance);
+        }
+        else
+        {
+            mousePos = model.transform.forward * 1.5f;
+        }
+        //mousePos.z = model.transform.position.z;
+        //mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        Debug.Log(mousePos);
+
+        // Get the forward vector of the player
+        Vector3 forwardVector = model.transform.forward;
+        if (lastAimLine == Vector3.zero)
+            lastAimLine = forwardVector;
+
+        // Set aim line start point
+        aimLine.SetStartPoint(aimLine.transform.position);
+
+        //Calculate shooting line
+        Vector3 thunderShootingLine = mousePos - aimLine.transform.position;
+        thunderShootingLine.Normalize();
+        //Debug.Log(thunderShootingLine);
+
+        // Get the angle between forward player and shooting line
+        float angleBetween = Vector2.Angle(forwardVector, thunderShootingLine);
+        Debug.Log(angleBetween);
+        if (angleBetween <= thunderAngle)
+        {
+            lastAimLine = thunderShootingLine;
+        }          
+
+        // Perform Ray hit against the edges of the screen
+        Ray ray = new Ray(aimLine.transform.position, lastAimLine);
+        float currentMinDistance = float.MaxValue;
+        var planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        for (var i = 0; i < 4; i++)
+        {
+            // Raycast against the plane
+            if (planes[i].Raycast(ray, out var distance))
+            {
+                // Since a plane is mathematical infinite
+                // what you would want is the one that hits with the shortest ray distance
+                if (distance < currentMinDistance)
+                {
+                    hitPoint = ray.GetPoint(distance);
+                    currentMinDistance = distance;
+                }
+            }
+        }
+
+        // Perform Raycast to check if there's any object between the player and the edge of the screen
+        RaycastHit hit;
+        if (Physics.Raycast(aimLine.transform.position, lastAimLine, out hit, currentMinDistance, aimLineCollisionMask))
+        {
+            hitPoint = hit.point;
+        }
+             
+         aimLine.SetEndPoint(hitPoint);    
+    }
+
+    public void FireLighting()
+    {
+        thunderLine.gameObject.SetActive(true);
+        thunderLine.StartPosition = thunderLine.gameObject.transform.position;
+        thunderLine.EndPosition = hitPoint;
+
+        // Perform Raycast
+        RaycastHit hit;
+        if (Physics.Raycast(aimLine.transform.position, lastAimLine, out hit, Vector2.Distance(thunderLine.transform.position, hitPoint), aimLineCollisionMask))
+        {
+            IElectrical electrical = hit.collider.gameObject.GetComponent<IElectrical>();
+            if (electrical != null)
+            {
+                electrical.OnPowered();
+            }
+        }
+    }
+
+    public void RecoverLighting()
+    {
+        thunderLine.gameObject.SetActive(false);
+        isShootingLighting = false;
     }
 }

@@ -5,16 +5,19 @@ using UnityEngine;
 public class SnowmanScript : MonoBehaviour
 {
     [SerializeField]
-    GameObject snowball;
-
+    GameObject snowballPrefab;
     [SerializeField]
     Transform projPosition;
+    [SerializeField]
+    Animator snowpantsAnimator;
+    [SerializeField]
+    private float startingSnowballSpeed = 1f;
 
     public int life;
 
     private void Start()
     {
-        InvokeRepeating("SpawnSnowball", 0, 6);
+        InvokeRepeating("ChargeUpSnowBall", 0, 10);
         life = 2;
     }
 
@@ -27,14 +30,21 @@ public class SnowmanScript : MonoBehaviour
 
             if (life <= 0)
             {
-                Destroy(gameObject);
+                Destroy(gameObject, 1.0f);
+                snowpantsAnimator.SetTrigger("Hurt");
             }
         }
     }
 
+    private void ChargeUpSnowBall()
+    {
+        snowpantsAnimator.SetTrigger("Attack2");
+    }
+
     public void SpawnSnowball()
     {
-        Instantiate(snowball, projPosition.position, projPosition.rotation);
+        GrowingSnowballScript snowball = Instantiate(snowballPrefab, projPosition.position, projPosition.rotation).GetComponent<GrowingSnowballScript>();
+        snowball.SetSpeed(startingSnowballSpeed);
     }
 
 }
