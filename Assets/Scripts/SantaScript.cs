@@ -21,9 +21,11 @@ public class SantaScript : MonoBehaviour
     public bool isFlipping = false;
     public bool isSliding = false;
     public bool isAttacking = false;
+    public bool canAttack = false;
     public bool isPlayerInRange = false;
     public bool isStunned = false;
     public int life;
+    public float attackCooldownTime = 1.0f;
 
     private void Start()
     {
@@ -34,9 +36,10 @@ public class SantaScript : MonoBehaviour
     {
         if (!isStunned)
         {
-            if (isPlayerInRange && !isAttacking)
+            if (isPlayerInRange && !isAttacking && canAttack)
             {
                 animator.SetTrigger("IceAttack");
+                canAttack = false;
                 isAttacking = true;
             }
             if ((!isFlipping && !isAttacking))
@@ -102,6 +105,7 @@ public class SantaScript : MonoBehaviour
     public void ClearAttack()
     {
         isAttacking = false;
+        StartCoroutine(AttackCoolDown());
     }
 
     public void ClearStun()
@@ -112,6 +116,12 @@ public class SantaScript : MonoBehaviour
     {
         IceMagicScript iceMagic = Instantiate(snowballPrefab, projPosition.position, snowballPrefab.transform.rotation).GetComponent<IceMagicScript>();
         iceMagic.rb.velocity = Vector3.Normalize(transform.position - iceMagic.gameObject.transform.position) * iceMagic.speed;
+    }
+
+    public IEnumerator AttackCoolDown()
+    {
+        yield return new WaitForSeconds(attackCooldownTime);
+        canAttack = true;
     }
 
     public void OnDeath()

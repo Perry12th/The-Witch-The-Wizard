@@ -16,7 +16,7 @@ public class WitcherScript : MonoBehaviour
     public Vector3 checkpoint;
     public Animator anim;
     public GameObject model;
-    public CapsuleCollider FeetCollider;
+    public CapsuleCollider characterCollider;
     public PhysicMaterial FrictionMaterial;
     public PhysicMaterial FrictionLessMaterial;
     public LayerMask PlayerCollisionMask;
@@ -116,21 +116,15 @@ public class WitcherScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return) && hasSnowball)
             {
-                if (!lookingRight)
-                {
-                    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
-                    newBall.transform.Rotate(Vector3.up, 180);
-                }
-                else
-                {
-                    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPoint.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
-                }
+                anim.speed = 1.50f;
+                isAttacking = true;
+                anim.SetTrigger("IceSpell");
             }
 
             if (Input.GetKeyDown(KeyCode.F) && hasFireball)
             {
-                FeetCollider.material = FrictionMaterial;
-                anim.SetTrigger("Attack");
+                characterCollider.material = FrictionMaterial;
+                anim.SetTrigger("FireSpell");
                 isAttacking = true;
             }
 
@@ -178,7 +172,8 @@ public class WitcherScript : MonoBehaviour
             {
                 isShootingLighting = true;
                 aimLine.gameObject.SetActive(false);
-                anim.SetBool("Attack2", true);
+                characterCollider.material = FrictionMaterial; 
+                anim.SetBool("ThunderSpell", true);
                 isAiming = false;
             }
         }
@@ -267,7 +262,7 @@ public class WitcherScript : MonoBehaviour
     public void Recover()
     {
         isAttacking = false;
-        FeetCollider.material = FrictionLessMaterial;
+        characterCollider.material = FrictionLessMaterial;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -401,7 +396,7 @@ public class WitcherScript : MonoBehaviour
         }
         //mousePos.z = model.transform.position.z;
         //mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        Debug.Log(mousePos);
+        //Debug.Log(mousePos);
 
         // Get the forward vector of the player
         Vector3 forwardVector = model.transform.forward;
@@ -418,7 +413,7 @@ public class WitcherScript : MonoBehaviour
 
         // Get the angle between forward player and shooting line
         float angleBetween = Vector2.Angle(forwardVector, thunderShootingLine);
-        Debug.Log(angleBetween);
+
         if (angleBetween <= thunderAngle)
         {
             lastAimLine = thunderShootingLine;
@@ -463,6 +458,10 @@ public class WitcherScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(aimLine.transform.position, lastAimLine, out hit, Vector2.Distance(thunderLine.transform.position, hitPoint), aimLineCollisionMask))
         {
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject.name);
+            }
             IElectrical electrical = hit.collider.gameObject.GetComponent<IElectrical>();
             if (electrical != null)
             {
@@ -474,6 +473,26 @@ public class WitcherScript : MonoBehaviour
     public void RecoverLighting()
     {
         thunderLine.gameObject.SetActive(false);
+        characterCollider.material = FrictionLessMaterial;
         isShootingLighting = false;
+    }
+
+    public void FireSnowBall()
+    {
+        if (!lookingRight)
+        {
+            GameObject newBall = Instantiate(snowball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
+            newBall.transform.Rotate(Vector3.up, 180);
+        }
+        else
+        {
+            GameObject newBall = Instantiate(snowball, Vector3.up * spawnPoint.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
+        }
+    }
+
+    public void RecoverSnowBall()
+    {
+        anim.speed = 1.0f;
+        isAttacking = false;
     }
 }

@@ -24,4 +24,14 @@ public class SuzyAnimatorScript : MonoBehaviour
     {
         ws.RecoverLighting();
     }
+
+    public void FireSnowBall()
+    {
+        ws.FireSnowBall();
+    }
+
+    public void RecoverSnowBall()
+    {
+        ws.RecoverSnowBall();
+    }
 }

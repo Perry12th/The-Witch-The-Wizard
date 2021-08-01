@@ -14,4 +14,9 @@ public class IcePlatScript : MonoBehaviour
     {
         gameObject.transform.Rotate(Vector3.up, Time.deltaTime * 40);
     }
+
+    public void DestroyPlatform()
+    {
+        Destroy(gameObject);
+    }
 }

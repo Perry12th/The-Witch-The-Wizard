@@ -20,12 +20,14 @@ public class SnowballScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Lava"))
         {
+            Debug.Log(transform.position);
+            Debug.Log(collision.GetContact(0).point);
             var rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
             GameObject icePlatform = Instantiate(icePlat, collision.GetContact(0).point, rotation);
             icePlatform.transform.Rotate(270, icePlatform.transform.rotation.y, icePlatform.transform.rotation.z);
             //Instantiate(icePlat, transform.position, other.transform.rotation);
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

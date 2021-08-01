@@ -6,13 +6,12 @@ public class IceMagicScript : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
-    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DestroyPlatform());
-        //rb.velocity = (gameObject.transform.right * speed) + (gameObject.transform.up * (speed / 2));
+        Destroy(gameObject, 10);
+        rb.velocity = (gameObject.transform.right * speed) + (gameObject.transform.up * (speed / 2));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,10 +20,5 @@ public class IceMagicScript : MonoBehaviour
         {
             collision.gameObject.GetComponent<WitcherScript>().ResetPosition();
         }
-    }
-    public IEnumerator DestroyPlatform()
-    {
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        Destroy(gameObject);
     }
 }
