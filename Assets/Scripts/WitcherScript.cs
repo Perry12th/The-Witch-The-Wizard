@@ -6,7 +6,6 @@ using DigitalRuby.LightningBolt;
 public class WitcherScript : MonoBehaviour
 {
     public Rigidbody rb;
-    public SpriteRenderer sr;
     public Material matr;
     public Material matl;
     public GameObject snowball;
@@ -16,6 +15,7 @@ public class WitcherScript : MonoBehaviour
     public Vector3 checkpoint;
     public Animator anim;
     public GameObject model;
+    public GameObject background;
     public CapsuleCollider characterCollider;
     public PhysicMaterial FrictionMaterial;
     public PhysicMaterial FrictionLessMaterial;
@@ -49,6 +49,7 @@ public class WitcherScript : MonoBehaviour
     public bool isAttacking = false;
     public bool isAiming = false;
     public bool isShootingLighting = false;
+    public bool canMove = true;
 
     private void Start()
     {
@@ -58,7 +59,7 @@ public class WitcherScript : MonoBehaviour
 
     void Update()
     {
-        if (!isAttacking && !isAiming && !isShootingLighting)
+        if (canMove && !isAttacking && !isAiming && !isShootingLighting)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -116,7 +117,7 @@ public class WitcherScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return) && hasSnowball)
             {
-                anim.speed = 1.50f;
+                anim.speed = 2.0f;
                 isAttacking = true;
                 anim.SetTrigger("IceSpell");
             }
@@ -193,18 +194,18 @@ public class WitcherScript : MonoBehaviour
             anim.SetFloat("SpeedY", rb.velocity.y);
             anim.SetBool("Grounded", isGrounded);
         }
+
+        background.transform.position = new Vector3(transform.position.x, transform.position.y + 4.0f, background.transform.position.z);
     }
 
     public void FlipLeft()
     {
         model.transform.Rotate(Vector3.up, 180);
-        sr.flipX = true;
     }
 
     public void FlipRight()
     {
         model.transform.Rotate(Vector3.up, 180);
-        sr.flipX = false;
     }
 
     public void SetGrounded(bool ground)
