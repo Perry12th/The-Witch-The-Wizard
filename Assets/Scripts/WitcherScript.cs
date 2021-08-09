@@ -124,7 +124,7 @@ public class WitcherScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && hasFireball)
             {
-                characterCollider.material = FrictionMaterial;
+                //characterCollider.material = FrictionMaterial;
                 anim.SetTrigger("FireSpell");
                 isAttacking = true;
             }
@@ -457,12 +457,8 @@ public class WitcherScript : MonoBehaviour
 
         // Perform Raycast
         RaycastHit hit;
-        if (Physics.Raycast(aimLine.transform.position, lastAimLine, out hit, Vector2.Distance(thunderLine.transform.position, hitPoint), aimLineCollisionMask))
+        if (Physics.Raycast(aimLine.transform.position, lastAimLine, out hit, Vector2.Distance(thunderLine.transform.position, hitPoint) * 1.2f, aimLineCollisionMask))
         {
-            if (hit.collider != null)
-            {
-                Debug.Log(hit.collider.gameObject.name);
-            }
             IElectrical electrical = hit.collider.gameObject.GetComponent<IElectrical>();
             if (electrical != null)
             {

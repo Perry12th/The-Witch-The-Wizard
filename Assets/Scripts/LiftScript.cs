@@ -8,7 +8,14 @@ public class LiftScript : MonoBehaviour
     private List<LiftTowerScript> liftTowers = new List<LiftTowerScript>();
     [SerializeField]
     private float chairLiftSpeed;
+    [SerializeField]
+    private bool isGoingLeft = true;
+    [SerializeField]
+    private LiftRoofScript liftRoof;
     private bool isPowered = false;
+    private bool canTurn = false;
+    [SerializeField]
+    private float turnRefreshTime = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +25,14 @@ public class LiftScript : MonoBehaviour
 
         foreach(CandyChairLiftScript candyChairLift in candyChairLifts)
         {
-            candyChairLift.onLiftTowerPowered.AddListener(OnPoweredUp);
+            liftRoof.onLiftTowerPowered.AddListener(OnPoweredUp);
         }
     }
 
     private void OnPoweredUp()
     {
+        Debug.Log("OnPoweredUp");
+
         if (!isPowered)
         {
             foreach (CandyChairLiftScript candyChairLift in candyChairLifts)
@@ -37,7 +46,31 @@ public class LiftScript : MonoBehaviour
                 liftTower.OnPowered();
             }
                 isPowered = true;
+            StartCoroutine(RefreshTurn());
+            return;
         }
+        else if (isPowered && canTurn)
+        {
+            isGoingLeft = !isGoingLeft;
+            canTurn = false;
+            StartCoroutine(RefreshTurn());
+
+            foreach (CandyChairLiftScript candyChairLift in candyChairLifts)
+            {
+                candyChairLift.FlipChair();
+            }
+
+            foreach (LiftTowerScript liftTower in liftTowers)
+            {
+                liftTower.SwitchLighting();
+            }
+        }
+    }
+
+    private IEnumerator RefreshTurn()
+    {
+        yield return new WaitForSeconds(turnRefreshTime);
+        canTurn = true;
     }
    
 }

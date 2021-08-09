@@ -95,7 +95,6 @@ public class SantaScript : MonoBehaviour
 
     public void ClearFlip()
     {
-        Debug.Log("ClearFlip");
         isFlipping = false;
         rigidbody.constraints = RigidbodyConstraints.None;
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);

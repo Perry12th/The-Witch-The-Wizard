@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5272286301458689859}
   m_LocalRotation: {x: 0.03953203, y: 0.039532032, z: 0.706001, w: -0.7060008}
-  m_LocalPosition: {x: 0.087, y: 0.244, z: 0.44}
-  m_LocalScale: {x: 25.4, y: 25.4, z: 25.4}
+  m_LocalPosition: {x: 0.011, y: 0.243, z: 0.598}
+  m_LocalScale: {x: 25.4, y: 25.4, z: 31.158178}
   m_Children: []
   m_Father: {fileID: 6014185264330955587}
   m_RootOrder: 0
@@ -92,11 +92,12 @@ GameObject:
   - component: {fileID: 6014185264330955587}
   - component: {fileID: 7266969454009570534}
   - component: {fileID: 4845171154598109228}
-  - component: {fileID: 4684770432646495709}
   - component: {fileID: 254275374350183648}
+  - component: {fileID: 7175295529941459153}
+  - component: {fileID: 4349068189624836208}
   m_Layer: 0
   m_Name: CandyChair
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,20 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4684770432646495709
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6358375751211123193}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: ba1f8bd65df9a2e47a4ce2805e53ccdf, type: 2}
 --- !u!114 &254275374350183648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,4 +178,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0380c5766b13549856e6aae39bda17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGoingLeft: 1
+  leftDropPoint: {fileID: 0}
+  rightDropPoint: {fileID: 0}
+  chairColliderA: {fileID: 7175295529941459153}
+  chairColliderB: {fileID: 4349068189624836208}
+  zCorrection: 0
+  chairMaterial: {fileID: 2100000, guid: ac81577e76d2ad743987aee1a75e058a, type: 2}
+  fadeMaterial: {fileID: 2100000, guid: 4b87e3ed4eec77e4bb825929c0cc6f1e, type: 2}
+  meshRenderer: {fileID: 4845171154598109228}
   pathFollower: {fileID: 0}
+--- !u!65 &7175295529941459153
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6358375751211123193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.90730083, y: 0.4286054, z: 0.039853774}
+  m_Center: {x: 0.00017431378, y: -0.043403625, z: -0.1597349}
+--- !u!65 &4349068189624836208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6358375751211123193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.90730083, y: 0.11470159, z: 0.35718822}
+  m_Center: {x: 0.00017431378, y: 0.19381015, z: -0.00039370856}

@@ -10,6 +10,7 @@ namespace PathCreation.Examples
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
         float distanceTravelled;
+        public bool isGoingLeft = true;
 
         void Start() {
             if (pathCreator != null)
@@ -27,7 +28,10 @@ namespace PathCreation.Examples
                 distanceTravelled += speed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-                transform.eulerAngles = new Vector3(-90.0f, transform.eulerAngles.y, transform.eulerAngles.z);
+                if (isGoingLeft)
+                    transform.eulerAngles = new Vector3(-90.0f, transform.eulerAngles.y, transform.eulerAngles.z);
+                else
+                    transform.eulerAngles = new Vector3(90.0f, transform.eulerAngles.y, transform.eulerAngles.z);
             }
         }
 
