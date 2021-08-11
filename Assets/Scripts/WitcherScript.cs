@@ -120,12 +120,14 @@ public class WitcherScript : MonoBehaviour
                 anim.speed = 2.0f;
                 isAttacking = true;
                 anim.SetTrigger("IceSpell");
+                characterCollider.material = FrictionMaterial;
             }
 
             if (Input.GetKeyDown(KeyCode.F) && hasFireball)
             {
                 //characterCollider.material = FrictionMaterial;
                 anim.SetTrigger("FireSpell");
+                characterCollider.material = FrictionMaterial;
                 isAttacking = true;
             }
 
@@ -491,5 +493,6 @@ public class WitcherScript : MonoBehaviour
     {
         anim.speed = 1.0f;
         isAttacking = false;
+        characterCollider.material = FrictionLessMaterial;
     }
 }

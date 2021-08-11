@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6603365280967851148}
   - component: {fileID: 5170811296193222339}
   - component: {fileID: 803871124394486131}
+  - component: {fileID: 3471205588985085910}
   m_Layer: 0
   m_Name: Cone02
   m_TagString: Ground
@@ -96,3 +97,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: afe64c966438d6d45bf511b5689f4114, type: 2}
+--- !u!65 &3471205588985085910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131634006724880524}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2013779, y: 1.0641266, z: 0.03592348}
+  m_Center: {x: 0.2530315, y: 0.43581402, z: 3.1073205}
