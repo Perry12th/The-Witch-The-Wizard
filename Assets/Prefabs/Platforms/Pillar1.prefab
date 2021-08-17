@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2578815184296565051}
   - component: {fileID: 2578815184296565048}
   - component: {fileID: 2578815184296565046}
-  - component: {fileID: 7160504764195156917}
   m_Layer: 0
   m_Name: Pillar1
   m_TagString: Ground
@@ -97,16 +96,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e0cd577339a565d4395d7e57b359b671, type: 2}
---- !u!65 &7160504764195156917
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578815184296565047}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.11827, y: 1.5795932, z: 0.018887367}
-  m_Center: {x: 0.17149518, y: 0.49712828, z: 3.0131161}

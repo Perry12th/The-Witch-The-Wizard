@@ -12,6 +12,8 @@ public class SnowmanScript : MonoBehaviour
     Animator snowpantsAnimator;
     [SerializeField]
     private float startingSnowballSpeed = 1f;
+    [SerializeField]
+    private GameObject snowballHolder;
 
     public int life;
 
@@ -41,9 +43,16 @@ public class SnowmanScript : MonoBehaviour
         snowpantsAnimator.SetTrigger("Attack2");
     }
 
+    public void ShowSnowballHand()
+    {
+        snowballHolder.SetActive(true);
+    }
+
+
     public void SpawnSnowball()
     {
-        GrowingSnowballScript snowball = Instantiate(snowballPrefab, projPosition.position, projPosition.rotation).GetComponent<GrowingSnowballScript>();
+        snowballHolder.SetActive(false);
+        GrowingSnowballScript snowball = Instantiate(snowballPrefab, snowballHolder.transform.position, snowballPrefab.transform.rotation).GetComponent<GrowingSnowballScript>();
         snowball.SetSpeed(startingSnowballSpeed);
     }
 

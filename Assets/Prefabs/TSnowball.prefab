@@ -4907,7 +4907,7 @@ GameObject:
   - component: {fileID: 7180062532299160068}
   - component: {fileID: 7180062532299160067}
   - component: {fileID: 2142500812906136255}
-  - component: {fileID: 6439362408415078628}
+  - component: {fileID: 5719133770425366040}
   m_Layer: 0
   m_Name: TSnowball
   m_TagString: TSnowball
@@ -4924,7 +4924,7 @@ Transform:
   m_GameObject: {fileID: 7180062532299160089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1644832336778824824}
   - {fileID: 7423169877461921911}
@@ -5010,8 +5010,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7180062532299160067}
   speed: 1
---- !u!64 &6439362408415078628
-MeshCollider:
+  growSpeedThershold: 0.5
+  growSpeed: 0.01
+  maxSize: 6
+--- !u!135 &5719133770425366040
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5020,7 +5023,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: fafc67241bec34e48a83318878943140, type: 2}
+  serializedVersion: 2
+  m_Radius: 0.33551824
+  m_Center: {x: 0.0010362864, y: -0.0004530847, z: 0.001857847}

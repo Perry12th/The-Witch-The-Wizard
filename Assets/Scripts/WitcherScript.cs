@@ -6,12 +6,9 @@ using DigitalRuby.LightningBolt;
 public class WitcherScript : MonoBehaviour
 {
     public Rigidbody rb;
-    public Material matr;
-    public Material matl;
     public GameObject snowball;
     public GameObject fireball;
     public Transform spawnPoint;
-    public Transform spawnPointLeft;
     public Vector3 checkpoint;
     public Animator anim;
     public GameObject model;
@@ -181,11 +178,11 @@ public class WitcherScript : MonoBehaviour
             }
         }
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 && !isGrounded)
         {
             rb.velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump") && !isGrounded)
         {
             rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
@@ -251,15 +248,18 @@ public class WitcherScript : MonoBehaviour
 
     public void ReleaseFireball()
     {
-        if (!lookingRight)
-        {
-            GameObject newBall = Instantiate(fireball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
-            newBall.transform.Rotate(Vector3.up, 180);
-        }
-        else
-        {
-            GameObject newBall = Instantiate(fireball, Vector3.up * spawnPoint.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
-        }
+        //if (!lookingRight)
+        //{
+        //    GameObject newBall = Instantiate(fireball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
+        //    newBall.transform.Rotate(Vector3.up, 180);
+        //}
+        //else
+        //{
+        //    GameObject newBall = Instantiate(fireball, Vector3.up * spawnPoint.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
+        //}
+
+        Debug.Log("ReleaseFireball");
+        GameObject newBall = Instantiate(fireball, spawnPoint.transform.position, lookingRight ? fireball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 
     public void Recover()
@@ -478,15 +478,16 @@ public class WitcherScript : MonoBehaviour
 
     public void FireSnowBall()
     {
-        if (!lookingRight)
-        {
-            GameObject newBall = Instantiate(snowball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
-            newBall.transform.Rotate(Vector3.up, 180);
-        }
-        else
-        {
-            GameObject newBall = Instantiate(snowball, Vector3.up * spawnPoint.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
-        }
+        //if (!lookingRight)
+        //{
+        //    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
+        //    newBall.transform.Rotate(Vector3.up, 180);
+        //}
+        //else
+        //{
+        //    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPoint.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
+        //}
+        GameObject newBall = Instantiate(snowball, spawnPoint.transform.position, lookingRight? snowball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 
     public void RecoverSnowBall()

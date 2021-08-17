@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 3201918006621399224}
   - component: {fileID: 831908362534296690}
   - component: {fileID: 2038474345809884396}
-  - component: {fileID: 7488486056978941227}
-  - component: {fileID: 2729599018433498756}
-  - component: {fileID: 2536649642319502517}
   m_Layer: 0
   m_Name: Cave1
   m_TagString: Ground
@@ -99,42 +96,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 16aff0c7dd3e20d42b6de14d5470c369, type: 2}
---- !u!65 &7488486056978941227
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192174412043337127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.0757866, y: 1.8453882, z: 0.020889772}
-  m_Center: {x: -0.037893184, y: -1.1338803, z: 2.1479356}
---- !u!65 &2729599018433498756
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192174412043337127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.0757866, y: 1.8453882, z: 0.020889772}
-  m_Center: {x: -0.037893184, y: 1, z: 2.1479356}
---- !u!65 &2536649642319502517
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192174412043337127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.8412392, y: 1.5464094, z: 0.022416348}
-  m_Center: {x: 0.037340496, y: -0.16631025, z: 0.7925075}

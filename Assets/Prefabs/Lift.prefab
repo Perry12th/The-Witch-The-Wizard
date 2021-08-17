@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f66c7f566db9e46bab68af860f8276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chairLiftSpeed: 5
+  chairLiftSpeed: 3
   isGoingLeft: 1
   liftRoof: {fileID: 0}
   turnRefreshTime: 1
@@ -483,35 +483,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!65 &107298769151009826
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431226750072067430}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.8, z: 0.48195833}
-  m_Center: {x: 0.00017431378, y: 0.024499252, z: -0.009982012}
---- !u!114 &107298767260914842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431226750072067430}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathCreator: {fileID: 107298767093918106}
-  endOfPathInstruction: 0
-  speed: 5
-  isGoingLeft: 1
 --- !u!64 &7799247109131680833
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -590,7 +561,7 @@ PrefabInstance:
     - target: {fileID: 254275374350183648, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: pathFollower
       value: 
-      objectReference: {fileID: 107298767260914842}
+      objectReference: {fileID: 0}
     - target: {fileID: 254275374350183648, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: chairCollider
       value: 
@@ -615,6 +586,10 @@ PrefabInstance:
       propertyPath: dropOffPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1287721948}
+    - target: {fileID: 4042249433784531740, guid: 19718fc369754254faa190d9b11fd583, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5272286301458689859, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -685,11 +660,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19718fc369754254faa190d9b11fd583, type: 3}
---- !u!1 &6431226750072067430 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6358375751211123193, guid: 19718fc369754254faa190d9b11fd583, type: 3}
-  m_PrefabInstance: {fileID: 107298767260914847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5911992706719633372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6014185264330955587, guid: 19718fc369754254faa190d9b11fd583, type: 3}
@@ -834,11 +804,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 387791649, guid: b3273dbe13b039146b83a40b88f40c2c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b3273dbe13b039146b83a40b88f40c2c, type: 3}
---- !u!1 &7533468600729418949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7634008661033388622, guid: b3273dbe13b039146b83a40b88f40c2c, type: 3}
-  m_PrefabInstance: {fileID: 107298769018533515}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1302411396193829348 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1400104821832447855, guid: b3273dbe13b039146b83a40b88f40c2c, type: 3}
@@ -847,5 +812,10 @@ Animator:
 --- !u!4 &7189875222554175103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7114177518438371572, guid: b3273dbe13b039146b83a40b88f40c2c, type: 3}
+  m_PrefabInstance: {fileID: 107298769018533515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7533468600729418949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7634008661033388622, guid: b3273dbe13b039146b83a40b88f40c2c, type: 3}
   m_PrefabInstance: {fileID: 107298769018533515}
   m_PrefabAsset: {fileID: 0}

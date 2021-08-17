@@ -9,6 +9,12 @@ public class GrowingSnowballScript : MonoBehaviour
 
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float growSpeedThershold = 0.5f;
+    [SerializeField]
+    private float growSpeed= 0.01f;
+    [SerializeField]
+    private float maxSize = 6.0f;
 
     public void Start()
     {
@@ -18,11 +24,11 @@ public class GrowingSnowballScript : MonoBehaviour
 
     public void Update()
     {
-        if(rb.velocity.magnitude > 0.5f)
+        if(rb.velocity.magnitude > growSpeedThershold)
         {
-            if (transform.localScale.x < 6)
+            if (transform.localScale.x < maxSize)
             {
-                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z) + new Vector3(0.008f, 0.008f, 0);
+                transform.localScale += (Vector3.one * growSpeed);
             }
         }
     }

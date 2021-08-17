@@ -31,7 +31,6 @@ public class LiftScript : MonoBehaviour
 
     private void OnPoweredUp()
     {
-        Debug.Log("OnPoweredUp");
 
         if (!isPowered)
         {
