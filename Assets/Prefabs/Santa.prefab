@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2042992865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2042992866}
+  - component: {fileID: 2042992867}
+  m_Layer: 0
+  m_Name: Path
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2042992866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042992865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5074026823845384855}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2042992867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042992865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.586792, z: 4.7508526}
+  m_Center: {x: 6.543104e-16, y: 0.6902893, z: 0.08633118}
 --- !u!1 &3026501317554288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   santa: {fileID: 5557793989159798831}
+  pumpkin: {fileID: 0}
 --- !u!1 &3708620017108118290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,8 +2039,8 @@ GameObject:
   - component: {fileID: 5074026823845384855}
   - component: {fileID: 5557793989159798831}
   - component: {fileID: 5557793989159798825}
-  - component: {fileID: 5557793989159798824}
   - component: {fileID: 5557793989159798830}
+  - component: {fileID: 9103721456935130330}
   m_Layer: 0
   m_Name: Santa
   m_TagString: Untagged
@@ -2025,6 +2070,7 @@ Transform:
   - {fileID: 5062999432932141713}
   - {fileID: 3708620017108118291}
   - {fileID: 3708620016890260589}
+  - {fileID: 2042992866}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -2041,18 +2087,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snowballPrefab: {fileID: 9087989135458950589, guid: fb721cea54eb5e34aa14ddc190494a9a, type: 3}
-  projPosition: {fileID: 3708620017108118291}
-  portalPointA: {fileID: 0}
-  portalPointB: {fileID: 0}
+  path: {fileID: 0}
+  projPosition: {fileID: 3708620017108118290}
   animator: {fileID: 5557793989159798825}
   rigidbody: {fileID: 5557793989159798830}
-  runSpeed: 2
-  isFlipping: 0
-  isSliding: 0
-  isAttacking: 0
-  isPlayerInRange: 0
-  isStunned: 0
+  runSpeed: 10
   life: 4
+  attackCooldownTime: 1
+  isPlayerInRange: 0
 --- !u!95 &5557793989159798825
 Animator:
   serializedVersion: 3
@@ -2072,20 +2114,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &5557793989159798824
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5557793989159798829}
-  m_Material: {fileID: 13400000, guid: 6e313b72928c0504699f6b6810ce8f1c, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!54 &5557793989159798830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2102,6 +2130,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &9103721456935130330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557793989159798829}
+  m_Material: {fileID: 13400000, guid: 6e313b72928c0504699f6b6810ce8f1c, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.3, z: 0.6}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!1 &5580707619429212504
 GameObject:
   m_ObjectHideFlags: 0

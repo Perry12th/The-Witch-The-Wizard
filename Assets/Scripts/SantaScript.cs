@@ -5,44 +5,53 @@ using UnityEngine;
 public class SantaScript : MonoBehaviour
 {
     [SerializeField]
-    GameObject snowballPrefab;
+    private GameObject snowballPrefab;
     [SerializeField]
-    Transform projPosition;
+    private GameObject path;
     [SerializeField]
-    GameObject portalPointA;
+    private GameObject projPosition;
     [SerializeField]
-    GameObject portalPointB;
+    private Animator animator;
     [SerializeField]
-    Animator animator;
+    private Rigidbody rigidbody;
     [SerializeField]
-    Rigidbody rigidbody;
+    private float runSpeed;
+    [SerializeField]
+    private int life = 4;
+    [SerializeField]
+    private float attackCooldownTime = 1.0f;
+    private bool canAttack = true;
+    public bool isPlayerInRange;
+    private SantaStates santaState = SantaStates.MOVING;
 
-    public float runSpeed;
-    public bool isFlipping = false;
-    public bool isSliding = false;
-    public bool isAttacking = false;
-    public bool canAttack = false;
-    public bool isPlayerInRange = false;
-    public bool isStunned = false;
-    public int life;
-    public float attackCooldownTime = 1.0f;
+    private enum SantaStates
+    { 
+        MOVING,
+        FLIPPING,
+        SLIDING,
+        ATTACKING,
+        HURT,
+        DYING,
+    }
+
+    
 
     private void Start()
     {
-        life = 4;
+        path.transform.parent = null;
     }
 
     private void Update()
     {
-        if (!isStunned)
+        if (santaState != SantaStates.HURT)
         {
-            if (isPlayerInRange && !isAttacking && canAttack)
+            if (isPlayerInRange && santaState != SantaStates.ATTACKING && canAttack)
             {
                 animator.SetTrigger("IceAttack");
                 canAttack = false;
-                isAttacking = true;
+                santaState = SantaStates.ATTACKING;
             }
-            if ((!isFlipping && !isAttacking))
+            if ((santaState == SantaStates.MOVING))
             {
                 rigidbody.velocity = runSpeed * transform.forward;
             }
@@ -65,11 +74,11 @@ public class SantaScript : MonoBehaviour
             if (life == 0)
             {
                 animator.SetTrigger("Death");
+                santaState = SantaStates.DYING;
             }
             else if (life > 0)
             {
-                isAttacking = false;
-                isStunned = true;
+                santaState = SantaStates.HURT;
                 animator.SetTrigger("Hit");
             }
         }
@@ -83,11 +92,11 @@ public class SantaScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == portalPointA || other.gameObject == portalPointB)
+        if (other.CompareTag("Path") && santaState == SantaStates.MOVING)
         {
-            isFlipping = true;
+            santaState = SantaStates.FLIPPING;
             rigidbody.velocity = Vector3.zero;
             animator.SetTrigger("Turn");
         }
@@ -95,7 +104,7 @@ public class SantaScript : MonoBehaviour
 
     public void ClearFlip()
     {
-        isFlipping = false;
+        santaState = SantaStates.MOVING;
         rigidbody.constraints = RigidbodyConstraints.None;
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);
         rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
@@ -103,17 +112,17 @@ public class SantaScript : MonoBehaviour
 
     public void ClearAttack()
     {
-        isAttacking = false;
+        santaState = SantaStates.MOVING;
         StartCoroutine(AttackCoolDown());
     }
 
     public void ClearStun()
     {
-        isStunned = false;
+        santaState = SantaStates.MOVING;
     }
     public void SpawnSnowball()
     {
-        IceMagicScript iceMagic = Instantiate(snowballPrefab, projPosition.position, snowballPrefab.transform.rotation).GetComponent<IceMagicScript>();
+        IceMagicScript iceMagic = Instantiate(snowballPrefab, projPosition.transform.position, snowballPrefab.transform.rotation).GetComponent<IceMagicScript>();
         iceMagic.rb.velocity = Vector3.Normalize(transform.position - iceMagic.gameObject.transform.position) * iceMagic.speed;
     }
 

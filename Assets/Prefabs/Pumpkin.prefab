@@ -1,0 +1,2953 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6703973141698823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3764342687107242493}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm5_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3764342687107242493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703973141698823}
+  m_LocalRotation: {x: -0.00012242788, y: 0.10970792, z: 0.0003005739, w: 0.99396384}
+  m_LocalPosition: {x: 0.24617049, y: 0.00000045694424, z: 0.0000000032387524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6302527008306293118}
+  m_Father: {fileID: 9222585504914751424}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 4.7828894, y: -16.342928, z: 28.886295}
+--- !u!1 &175513414534708089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7732856654690050885}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Back3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7732856654690050885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175513414534708089}
+  m_LocalRotation: {x: 0.059001233, y: 0.07641969, z: 0.043015726, w: 0.9943986}
+  m_LocalPosition: {x: 0.097695254, y: 0.00000040888654, z: 0.0000005498419}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6728847355636919874}
+  m_Father: {fileID: 1063924488795708388}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 6.3595304, y: 9.092666, z: 24.812084}
+--- !u!1 &315205318286728802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 169654700272002712}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideLeg2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &169654700272002712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315205318286728802}
+  m_LocalRotation: {x: 0.012886079, y: 0.01125466, z: 0.09414948, w: 0.9954111}
+  m_LocalPosition: {x: -0.059657767, y: 7.6765736e-18, z: -2.5863735e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5190637641267807937}
+  m_Father: {fileID: 2777212560156819266}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.234084, y: 20.136152, z: 10.676466}
+--- !u!1 &400718398798850891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8493578993718074680}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_BackLeg3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8493578993718074680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400718398798850891}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05867478, y: -4.4977043e-17, z: -2.6502914e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1815122087134819560}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403234936748125886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2910312403065902976}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideBack2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2910312403065902976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403234936748125886}
+  m_LocalRotation: {x: 0.00008484982, y: 0.026062936, z: 0.03163721, w: 0.9991596}
+  m_LocalPosition: {x: 0.14119332, y: 0.003658499, z: -0.0012250154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5076379185035035611}
+  m_Father: {fileID: 11444445579641517}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.08477368, y: 2.8657336, z: 3.624985}
+--- !u!1 &1073008266432139832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7308163895599864706}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:BackLeg1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7308163895599864706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073008266432139832}
+  m_LocalRotation: {x: 0.48488107, y: -0.5140636, z: -0.4875956, w: 0.5127179}
+  m_LocalPosition: {x: -0.00036444215, y: 0.13334271, z: -0.007462921}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8470210832446577851}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.23467536, y: -89.92791, z: -86.88832}
+--- !u!1 &1232051697298570948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815122087134819560}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_BackLeg2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1815122087134819560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232051697298570948}
+  m_LocalRotation: {x: 0.021169515, y: -0.011387266, z: 0.0032556048, w: 0.9997058}
+  m_LocalPosition: {x: -0.05349528, y: 1.74714e-17, z: 4.41322e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8493578993718074680}
+  m_Father: {fileID: 5720005189439795625}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.4301102, y: -1.2978809, z: 0.34564433}
+--- !u!1 &1433848683032305023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3131483521925871189}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm7_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3131483521925871189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433848683032305023}
+  m_LocalRotation: {x: -0.0005448496, y: 0.29991898, z: -0.001734615, w: 0.9539629}
+  m_LocalPosition: {x: 0.30636004, y: -5.2402528e-15, z: -0.00000003505554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3720042689688372502}
+  m_Father: {fileID: 6302527008306293118}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 17.672537, y: 2.172592, z: 23.981398}
+--- !u!1 &1584924530908903784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4017531953828508915}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_BackLeg2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4017531953828508915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584924530908903784}
+  m_LocalRotation: {x: 0.021169515, y: -0.011387266, z: 0.0032556048, w: 0.9997058}
+  m_LocalPosition: {x: 0.053495105, y: 0.00000008970247, z: -0.0000000026943123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3821717462839649363}
+  m_Father: {fileID: 8696214253982402370}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.4301102, y: -1.2978809, z: 0.34564433}
+--- !u!1 &1722060449047364376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6848652984928416016}
+  - component: {fileID: 8109053941453468223}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Pumpkinhead:Pumpkinhead_Vines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6848652984928416016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722060449047364376}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6912874579420719491}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &8109053941453468223
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722060449047364376}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3bdf09ef0d2581d44837b87329c61684, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 035e98479557ab94ebc967a6c5d44351, type: 2}
+  m_Bones:
+  - {fileID: 3474937936718438571}
+  - {fileID: 1289074521732753316}
+  - {fileID: 4590633753128821399}
+  - {fileID: 4205485820064297619}
+  - {fileID: 7415240133010789477}
+  - {fileID: 3318334492414783547}
+  - {fileID: 7691303420113579329}
+  - {fileID: 4178782994107235134}
+  - {fileID: 3670811258255637842}
+  - {fileID: 1016008203130944734}
+  - {fileID: 6871112650466072443}
+  - {fileID: 8977916798728803722}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 3474937936718438571}
+  m_AABB:
+    m_Center: {x: -0.1430333, y: 0.0003517866, z: -0.0003759861}
+    m_Extent: {x: 0.21982992, y: 0.19582166, z: 0.21717031}
+  m_DirtyAABB: 0
+--- !u!1 &1976422992005883482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063924488795708388}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Back2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1063924488795708388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976422992005883482}
+  m_LocalRotation: {x: 0.011519713, y: 0.055316344, z: 0.13038121, w: 0.9898526}
+  m_LocalPosition: {x: 0.14294258, y: -0.00000029747426, z: 0.00000028141508}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7732856654690050885}
+  m_Father: {fileID: 8410980860209623640}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.4802146, y: 6.460482, z: 28.764595}
+--- !u!1 &1992865273781953072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289074521732753316}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1289074521732753316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992865273781953072}
+  m_LocalRotation: {x: -0.00091563386, y: 0.018667165, z: -0.059369784, w: 0.9980611}
+  m_LocalPosition: {x: -0.1982505, y: 0.0020133199, z: 0.000631003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4590633753128821399}
+  m_Father: {fileID: 3474937936718438571}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.02227737, y: 2.1416802, z: -6.808052}
+--- !u!1 &2241054880119970078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3318334492414783547}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head5_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3318334492414783547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241054880119970078}
+  m_LocalRotation: {x: -0.012845867, y: -0.4964672, z: 0.03808271, w: 0.86712456}
+  m_LocalPosition: {x: -0.03131433, y: -1.2767564e-17, z: -1.7763567e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7691303420113579329}
+  m_Father: {fileID: 7415240133010789477}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 11.817047, y: -48.285133, z: 4.7688217}
+--- !u!1 &2259757568472372343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9222585504914751424}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm4_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9222585504914751424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259757568472372343}
+  m_LocalRotation: {x: 0.0070473896, y: 0.15324667, z: -0.04402315, w: 0.9871817}
+  m_LocalPosition: {x: 0.21294431, y: -0.0000005245918, z: 0.000000025663343}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3764342687107242493}
+  m_Father: {fileID: 7882205038913123678}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.4204845, y: -15.463361, z: 25.490355}
+--- !u!1 &2368239396533655765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3999437196214530811}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Back2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3999437196214530811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2368239396533655765}
+  m_LocalRotation: {x: 0.011519713, y: 0.055316344, z: 0.13038121, w: 0.9898526}
+  m_LocalPosition: {x: -0.14294235, y: -1.2434498e-16, z: -8.881784e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7334173204893995059}
+  m_Father: {fileID: 346787217973156063}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.48021454, y: 6.460482, z: 28.623245}
+--- !u!1 &2374725474750708806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3187372543510672943}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Back5_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3187372543510672943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374725474750708806}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0759189, y: -0.00000072925116, z: 0.0000007053763}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6728847355636919874}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2448160101704441874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121347852400120875}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121347852400120875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448160101704441874}
+  m_LocalRotation: {x: -0.7179423, y: 0.03463722, z: -0.027440654, w: 0.69469863}
+  m_LocalPosition: {x: -0.061075743, y: -0.0043039517, z: 0.05229411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7353182723815838140}
+  m_Father: {fileID: 2800287709162232272}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -82.55371, y: 175.21976, z: -155.07181}
+--- !u!1 &2551514017280995867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7882205038913123678}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7882205038913123678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551514017280995867}
+  m_LocalRotation: {x: -0.004507068, y: 0.093489476, z: 0.029571233, w: 0.99517083}
+  m_LocalPosition: {x: 0.22585423, y: 0.000000011347735, z: -0.000000038442657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9222585504914751424}
+  m_Father: {fileID: 6939172729473397121}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -8.427075, y: -12.880081, z: 23.093037}
+--- !u!1 &2656986741076521129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8470210832446577851}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:BackLeg2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8470210832446577851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656986741076521129}
+  m_LocalRotation: {x: 0.0000147192995, y: 0.002536319, z: 0.00817036, w: 0.9999634}
+  m_LocalPosition: {x: -0.038671006, y: 9.338409e-19, z: 1.7978271e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1515899354705659672}
+  m_Father: {fileID: 7308163895599864706}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00068809575, y: 0.2906448, z: 0.93626595}
+--- !u!1 &2787219157520557553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6302527008306293118}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm6_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6302527008306293118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787219157520557553}
+  m_LocalRotation: {x: 0.0008629704, y: 0.2381855, z: -0.0035188042, w: 0.971213}
+  m_LocalPosition: {x: 0.22488128, y: 0.0000004854946, z: 0.000000001585886}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3131483521925871189}
+  m_Father: {fileID: 3764342687107242493}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 15.120764, y: -9.723807, z: 21.794018}
+--- !u!1 &2836955507851546786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11444445579641517}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideBack1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &11444445579641517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836955507851546786}
+  m_LocalRotation: {x: 0.50979805, y: 0.02492406, z: 0.8590954, w: 0.037947197}
+  m_LocalPosition: {x: -0.022664713, y: 0.040185478, z: 0.19669744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2910312403065902976}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0.81648844, y: 72.9838, z: 174.84972}
+--- !u!1 &3069008292004214685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805878441538172159}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Back5_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1805878441538172159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069008292004214685}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.07591848, y: -2.842171e-16, z: 1.5987211e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2957447851002383933}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3214327294916790698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3670811258255637842}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head8_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3670811258255637842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214327294916790698}
+  m_LocalRotation: {x: -0.020811506, y: -0.39060202, z: -0.020856842, w: 0.920088}
+  m_LocalPosition: {x: -0.03267665, y: -8.881784e-18, z: -4.4408918e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1016008203130944734}
+  m_Father: {fileID: 4178782994107235134}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 9.003822, y: -33.85545, z: -1.8755038}
+--- !u!1 &3272319439956869934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5190637641267807937}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideLeg3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5190637641267807937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272319439956869934}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05831339, y: 0, z: 2.4980017e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 169654700272002712}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3282406455159101530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8430370119738631520}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideLeg1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8430370119738631520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282406455159101530}
+  m_LocalRotation: {x: 0.6544928, y: -0.24898478, z: 0.67341983, w: -0.23696311}
+  m_LocalPosition: {x: -0.0077798073, y: -0.0939692, z: 0.0944176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3728935831955778406}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 7.10956, y: 82.11985, z: -140.30794}
+--- !u!1 &3494212067154211412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8212736757477827840}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideBack2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8212736757477827840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494212067154211412}
+  m_LocalRotation: {x: 0.00008484982, y: 0.026062936, z: 0.03163721, w: 0.9991596}
+  m_LocalPosition: {x: -0.14119302, y: -0.003658454, z: 0.0012250984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6833920464684199283}
+  m_Father: {fileID: 6027823722931197735}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.08477285, y: 3.1785688, z: 3.6249857}
+--- !u!1 &3672635371720424243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997043611169867163}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideBack4_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997043611169867163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3672635371720424243}
+  m_LocalRotation: {x: -0.059644822, y: -0.28839695, z: 0.0779215, w: 0.9524694}
+  m_LocalPosition: {x: -0.09673229, y: 2.6645352e-17, z: 3.1974422e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 368947911780532709}
+  m_Father: {fileID: 6833920464684199283}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -6.011472, y: -22.400024, z: 9.568547}
+--- !u!1 &3679161836128721687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7353182723815838140}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7353182723815838140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679161836128721687}
+  m_LocalRotation: {x: -0.005771129, y: 0.15112099, z: 0.029502142, w: 0.9880581}
+  m_LocalPosition: {x: -0.22585453, y: -3.649883e-17, z: -4.953015e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8400167836304112713}
+  m_Father: {fileID: 121347852400120875}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -14.481627, y: -10.493238, z: 24.289375}
+--- !u!1 &3689629873583940039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3474937936718438571}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Spine1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3474937936718438571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3689629873583940039}
+  m_LocalRotation: {x: -0.02837574, y: -0.0014832276, z: -0.007869873, w: 0.99956524}
+  m_LocalPosition: {x: -0.08332973, y: -7.077672e-18, z: -7.290175e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1289074521732753316}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: -3.2532918, y: -0.14453472, z: -0.89809036}
+--- !u!1 &3758053537451061727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7691303420113579329}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head6_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7691303420113579329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758053537451061727}
+  m_LocalRotation: {x: -0.027936872, y: -0.35460442, z: 0.008282162, w: 0.93456227}
+  m_LocalPosition: {x: -0.03707945, y: 4.9960034e-18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4178782994107235134}
+  m_Father: {fileID: 3318334492414783547}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 8.755976, y: -28.804775, z: 1.4785184}
+--- !u!1 &3908882950115405917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5076379185035035611}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideBack3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5076379185035035611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3908882950115405917}
+  m_LocalRotation: {x: -0.0051072366, y: -0.064835265, z: 0.043594982, w: 0.9969302}
+  m_LocalPosition: {x: 0.12082493, y: 0.0000000019786903, z: 0.000000115452146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8998258540384304523}
+  m_Father: {fileID: 2910312403065902976}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.045886, y: -22.4187, z: 4.921429}
+--- !u!1 &3941394992018214898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448714793936891179}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_FrontLeg1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448714793936891179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941394992018214898}
+  m_LocalRotation: {x: 0.5485788, y: -0.40323782, z: 0.59960085, w: -0.42064163}
+  m_LocalPosition: {x: -0.0083310725, y: -0.12126601, z: 0.040027566}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5409665166213962653}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 4.0886884, y: 84.89897, z: -108.76172}
+--- !u!1 &4782673116377504106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6273263864542803542}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_FrontLeg2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6273263864542803542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782673116377504106}
+  m_LocalRotation: {x: -0.027395766, y: -0.009653947, z: -0.07038952, w: 0.9970966}
+  m_LocalPosition: {x: -0.053006314, y: 2.220446e-18, z: 3.191891e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5226085472934859422}
+  m_Father: {fileID: 7302295317154846283}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.8992941, y: 1.5352721, z: -8.050717}
+--- !u!1 &4985478072733565207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4178782994107235134}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head7_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4178782994107235134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985478072733565207}
+  m_LocalRotation: {x: -0.02956548, y: -0.36112338, z: -0.0054002497, w: 0.93203366}
+  m_LocalPosition: {x: -0.03137854, y: -6.661338e-18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3670811258255637842}
+  m_Father: {fileID: 7691303420113579329}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 8.347973, y: -29.876804, z: -0.03879165}
+--- !u!1 &5001633061774879810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6728847355636919874}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Back4_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6728847355636919874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001633061774879810}
+  m_LocalRotation: {x: -0.019708954, y: 0.027826814, z: 0.047805145, w: 0.99827445}
+  m_LocalPosition: {x: 0.08150429, y: -0.0000001644739, z: -0.0000009580614}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3187372543510672943}
+  m_Father: {fileID: 7732856654690050885}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.407729, y: 3.0794492, z: 24.621416}
+--- !u!1 &5081725528019063465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368947911780532709}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideBack5_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368947911780532709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081725528019063465}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.110929094, y: -5.3290704e-17, z: -7.105427e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 997043611169867163}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5161292198438081280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5226085472934859422}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_FrontLeg3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5226085472934859422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161292198438081280}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.042579606, y: 6.661338e-18, z: 4.510281e-19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6273263864542803542}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5282413075544438553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346787217973156063}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Back1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &346787217973156063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282413075544438553}
+  m_LocalRotation: {x: -0.36764657, y: -0.21299946, z: -0.21759264, w: 0.87870395}
+  m_LocalPosition: {x: -0.0012555873, y: 0.10757653, z: -0.1504648}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3999437196214530811}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -47.62924, y: -18.544191, z: -5.985277}
+--- !u!1 &5290291048075660263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8977916798728803722}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head11_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8977916798728803722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290291048075660263}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.017653221, y: 8.881784e-18, z: 3.5527136e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6871112650466072443}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5536292867329254113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7415240133010789477}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head4_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7415240133010789477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536292867329254113}
+  m_LocalRotation: {x: 0.0013141056, y: -0.04398975, z: 0.011830972, w: 0.9989611}
+  m_LocalPosition: {x: -0.042826883, y: 4.440892e-18, z: -7.105427e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3318334492414783547}
+  m_Father: {fileID: 4205485820064297619}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 11.751652, y: 5.5792656, z: 1.4565055}
+--- !u!1 &5559042260595525796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8410980860209623640}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Back1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8410980860209623640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559042260595525796}
+  m_LocalRotation: {x: 0.2016392, y: -0.3169576, z: 0.8978006, w: 0.22985555}
+  m_LocalPosition: {x: -0.00082662946, y: 0.12390544, z: 0.13733421}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1063924488795708388}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 41.43922, y: 16.774418, z: 171.39342}
+--- !u!1 &5598103657070904496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7334173204893995059}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Back3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7334173204893995059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598103657070904496}
+  m_LocalRotation: {x: 0.059001233, y: 0.07641969, z: 0.043015726, w: 0.9943986}
+  m_LocalPosition: {x: -0.09769572, y: -1.4210854e-16, z: 5.3290704e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2957447851002383933}
+  m_Father: {fileID: 3999437196214530811}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 6.3595304, y: 9.092667, z: 24.811913}
+--- !u!1 &5779252015080840039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4205485820064297619}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4205485820064297619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779252015080840039}
+  m_LocalRotation: {x: 0.030937139, y: -0.51379055, z: 0.015803698, w: 0.857212}
+  m_LocalPosition: {x: -0.04643785, y: 8.881784e-18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7415240133010789477}
+  m_Father: {fileID: 4590633753128821399}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 15.729356, y: -49.65624, z: 0.6527996}
+--- !u!1 &5923594514323887541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5923594514323887546}
+  - component: {fileID: 5923594514323887547}
+  - component: {fileID: 5923594514323887544}
+  m_Layer: 9
+  m_Name: PumpkinVisualSense
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5923594514323887546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594514323887541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.532, z: 0.727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6912874579420719491}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5923594514323887547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594514323887541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b75c3a3b7bd05479b6fae446af135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  santa: {fileID: 0}
+  pumpkin: {fileID: 6099182732141884222}
+--- !u!65 &5923594514323887544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594514323887541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5923594514994034734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5923594514994034735}
+  - component: {fileID: 5923594514994034733}
+  m_Layer: 0
+  m_Name: PumpkinPath
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5923594514994034735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594514994034734}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_Children: []
+  m_Father: {fileID: 6912874579420719491}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5923594514994034733
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594514994034734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.69029284, z: 4.10462}
+  m_Center: {x: -3.3120343e-15, y: 0.20055032, z: 1.7669358}
+--- !u!1 &5923594515659815358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5923594515659815359}
+  - component: {fileID: 5923594515659815356}
+  m_Layer: 0
+  m_Name: PumpkinLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5923594515659815359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594515659815358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.116, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2917857836188948129}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &5923594515659815356
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594515659815358}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.8321044, b: 0.2783019, a: 1}
+  m_Intensity: 4
+  m_Range: 4
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &6099182732141884217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6912874579420719491}
+  - component: {fileID: 6099182732141884222}
+  - component: {fileID: 6099182732141884220}
+  - component: {fileID: 6099182732141884223}
+  - component: {fileID: 6099182732141884162}
+  - component: {fileID: 6099182732141884221}
+  m_Layer: 0
+  m_Name: Pumpkin
+  m_TagString: Pumpkin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6912874579420719491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099182732141884217}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.81, y: -10.55, z: -8.77}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children:
+  - {fileID: 8049046285734724942}
+  - {fileID: 2917857836188948129}
+  - {fileID: 8375070095006282364}
+  - {fileID: 6848652984928416016}
+  - {fileID: 5923594514323887546}
+  - {fileID: 5923594514994034735}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &6099182732141884222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099182732141884217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e575f0dc41160647b47f95b392d7312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 5923594514994034734}
+  animator: {fileID: 6099182732141884223}
+  life: 3
+  attackCollider: {fileID: 6099182732141884220}
+  speed: 5
+  playerWithinRange: 0
+--- !u!65 &6099182732141884220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099182732141884217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.6113148, z: 0.8315411}
+  m_Center: {x: 1.9488094e-15, y: 0.19434261, z: 0.63713515}
+--- !u!95 &6099182732141884223
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099182732141884217}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc2c0fdd11efe0a4da98124825ecfda2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &6099182732141884162
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099182732141884217}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!135 &6099182732141884221
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099182732141884217}
+  m_Material: {fileID: 13400000, guid: 6e313b72928c0504699f6b6810ce8f1c, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!1 &6137721280645452642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3821717462839649363}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_BackLeg3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3821717462839649363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137721280645452642}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.058674168, y: 0.00000008841357, z: -0.000000009725789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4017531953828508915}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6336574456377671128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2917857836188948129}
+  - component: {fileID: 7360341766725183310}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Pumpkinhead:Pumpkinhead_Candle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2917857836188948129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336574456377671128}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5923594515659815359}
+  m_Father: {fileID: 6912874579420719491}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &7360341766725183310
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336574456377671128}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3bdf09ef0d2581d44837b87329c61684, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 671fb8f4b1b62aa4ea2f706e451397b8, type: 2}
+  m_Bones:
+  - {fileID: 3694855014684830400}
+  - {fileID: 7302295317154846283}
+  - {fileID: 6273263864542803542}
+  - {fileID: 2777212560156819266}
+  - {fileID: 169654700272002712}
+  - {fileID: 2800287709162232272}
+  - {fileID: 6027823722931197735}
+  - {fileID: 346787217973156063}
+  - {fileID: 5720005189439795625}
+  - {fileID: 1815122087134819560}
+  - {fileID: 7308163895599864706}
+  - {fileID: 8470210832446577851}
+  - {fileID: 1448714793936891179}
+  - {fileID: 5409665166213962653}
+  - {fileID: 8430370119738631520}
+  - {fileID: 3728935831955778406}
+  - {fileID: 887970784103488565}
+  - {fileID: 11444445579641517}
+  - {fileID: 8410980860209623640}
+  - {fileID: 8696214253982402370}
+  - {fileID: 4017531953828508915}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 3694855014684830400}
+  m_AABB:
+    m_Center: {x: -0.053261027, y: -0.00035464764, z: -0.0008643642}
+    m_Extent: {x: 0.04484354, y: 0.07485412, z: 0.075234935}
+  m_DirtyAABB: 0
+--- !u!1 &6357332690115077474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8998258540384304523}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideBack4_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8998258540384304523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357332690115077474}
+  m_LocalRotation: {x: -0.059644822, y: -0.28839695, z: 0.0779215, w: 0.9524694}
+  m_LocalPosition: {x: 0.09673236, y: -0.0000000103555, z: -0.00000018329511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3042267422902202445}
+  m_Father: {fileID: 5076379185035035611}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -3.1519313, y: -38.1699, z: 10.78085}
+--- !u!1 &6504998914102463171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545794957777126162}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm9_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545794957777126162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504998914102463171}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11164807, y: -4.7184477e-17, z: 2.172741e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9093800720461143008}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6564363955422995501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5720005189439795625}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_BackLeg1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5720005189439795625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564363955422995501}
+  m_LocalRotation: {x: 0.31854585, y: -0.5890997, z: -0.37403667, w: 0.6415503}
+  m_LocalPosition: {x: -0.0013055017, y: 0.10928571, z: -0.065284714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1815122087134819560}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -1.8316822, y: -84.08614, z: -58.834312}
+--- !u!1 &6630800423377697110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5028543915260046473}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm5_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5028543915260046473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630800423377697110}
+  m_LocalRotation: {x: -0.00013308745, y: 0.14251828, z: 0.00030217716, w: 0.98979217}
+  m_LocalPosition: {x: -0.2461706, y: -1.05471186e-16, z: -6.123574e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1435544507565548515}
+  m_Father: {fileID: 8400167836304112713}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.2091343, y: -14.429709, z: 22.678545}
+--- !u!1 &6644920600760989857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2957447851002383933}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Back4_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2957447851002383933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644920600760989857}
+  m_LocalRotation: {x: -0.019708954, y: 0.027826814, z: 0.047805145, w: 0.99827445}
+  m_LocalPosition: {x: -0.081504285, y: 1.4210854e-16, z: -3.5527136e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1805878441538172159}
+  m_Father: {fileID: 7334173204893995059}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.407729, y: 3.0794492, z: 24.621218}
+--- !u!1 &6698895989760490814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2996552263966282719}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_FrontLeg3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2996552263966282719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698895989760490814}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0425797, y: 0.00000008404043, z: -0.000000009196538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5409665166213962653}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6730892314178865939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6833920464684199283}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideBack3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6833920464684199283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730892314178865939}
+  m_LocalRotation: {x: -0.0051072366, y: -0.064835265, z: 0.043594982, w: 0.9969302}
+  m_LocalPosition: {x: -0.12082499, y: -1.7763568e-17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 997043611169867163}
+  m_Father: {fileID: 8212736757477827840}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.152349, y: -12.148471, z: 5.029111}
+--- !u!1 &6769597572045475689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1435544507565548515}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm6_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1435544507565548515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769597572045475689}
+  m_LocalRotation: {x: 0.0009495414, y: 0.26207963, z: -0.0034964373, w: 0.9650395}
+  m_LocalPosition: {x: -0.2248853, y: -1.4432899e-17, z: 2.534431e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6595905539412269467}
+  m_Father: {fileID: 5028543915260046473}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 14.309785, y: -7.256991, z: 23.952133}
+--- !u!1 &6871961775007813105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4508105506721713751}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideLeg3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4508105506721713751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6871961775007813105}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.058313403, y: -0.00000020289245, z: 0.000000009176537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3728935831955778406}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6882967682563224206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016008203130944734}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head9_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016008203130944734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882967682563224206}
+  m_LocalRotation: {x: 0.038067397, y: 0.6292116, z: 0.023177432, w: 0.7759552}
+  m_LocalPosition: {x: -0.017345658, y: 1.2212453e-17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6871112650466072443}
+  m_Father: {fileID: 3670811258255637842}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 12.376114, y: 91.663345, z: 5.251659}
+--- !u!1 &6886364230866932390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3720042689688372502}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm8_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3720042689688372502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886364230866932390}
+  m_LocalRotation: {x: 0.0018703684, y: 0.30007944, z: 0.0094227595, w: 0.9538659}
+  m_LocalPosition: {x: 0.22406158, y: -0.00000023636204, z: -0.000000009675096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2638012892941342266}
+  m_Father: {fileID: 3131483521925871189}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 12.149149, y: 7.039303, z: 23.344875}
+--- !u!1 &6903921955886645588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2638012892941342266}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm9_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2638012892941342266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903921955886645588}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11164466, y: -0.00000051443436, z: -0.0000000048534057}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3720042689688372502}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6905995016795679008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9093800720461143008}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm8_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9093800720461143008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905995016795679008}
+  m_LocalRotation: {x: 0.0014774883, y: 0.23714212, z: 0.009596125, w: 0.9714265}
+  m_LocalPosition: {x: -0.22406383, y: 2.1538326e-16, z: 3.3445466e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1545794957777126162}
+  m_Father: {fileID: 6595905539412269467}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 10.948162, y: 1.3313793, z: 23.261108}
+--- !u!1 &7095302813044755470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6871112650466072443}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head10_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6871112650466072443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095302813044755470}
+  m_LocalRotation: {x: -0.039226834, y: -0.61598635, z: -0.020998012, w: 0.7864993}
+  m_LocalPosition: {x: -0.025501287, y: 0, z: 3.5527136e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8977916798728803722}
+  m_Father: {fileID: 1016008203130944734}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 6.6948824, y: -64.09107, z: -0.13119663}
+--- !u!1 &7302116539209830805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515899354705659672}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:BackLeg3_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1515899354705659672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302116539209830805}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.046331972, y: -1.5917822e-16, z: 5.0272286e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8470210832446577851}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7429715753374454503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3694855014684830400}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Hips_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3694855014684830400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429715753374454503}
+  m_LocalRotation: {x: -0.4792083, y: 0.49196234, z: -0.50717753, w: 0.52067596}
+  m_LocalPosition: {x: 0.000049, y: -0.0038659999, z: -0.000767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7308163895599864706}
+  - {fileID: 2800287709162232272}
+  - {fileID: 346787217973156063}
+  - {fileID: 5720005189439795625}
+  - {fileID: 7302295317154846283}
+  - {fileID: 6027823722931197735}
+  - {fileID: 2777212560156819266}
+  - {fileID: 887970784103488565}
+  - {fileID: 8410980860209623640}
+  - {fileID: 8696214253982402370}
+  - {fileID: 1448714793936891179}
+  - {fileID: 11444445579641517}
+  - {fileID: 8430370119738631520}
+  - {fileID: 3474937936718438571}
+  m_Father: {fileID: 8049046285734724942}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 86.751595, z: -88.49519}
+--- !u!1 &7475063431712562925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4590633753128821399}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Head2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4590633753128821399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7475063431712562925}
+  m_LocalRotation: {x: -0.01939387, y: 0.20681481, z: 0.01459957, w: 0.97807896}
+  m_LocalPosition: {x: -0.036488812, y: 3.9968027e-17, z: 1.4432899e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4205485820064297619}
+  m_Father: {fileID: 1289074521732753316}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 9.079108, y: 36.069744, z: 0.69417757}
+--- !u!1 &7479248562601425515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7302295317154846283}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_FrontLeg1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7302295317154846283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479248562601425515}
+  m_LocalRotation: {x: -0.43592858, y: -0.52297777, z: 0.45164022, w: 0.57661223}
+  m_LocalPosition: {x: -0.008429534, y: -0.12501399, z: -0.026029564}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6273263864542803542}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -4.121006, y: -85.29805, z: 77.73148}
+--- !u!1 &7635870858682218833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887970784103488565}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887970784103488565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635870858682218833}
+  m_LocalRotation: {x: 0.5010582, y: 0.5151824, z: 0.49522212, w: -0.48814225}
+  m_LocalPosition: {x: -0.022141902, y: -0.027518826, z: 0.17123188}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6939172729473397121}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: -88.07348, y: -168.51385, z: 77.29876}
+--- !u!1 &7745523887926573022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8696214253982402370}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_BackLeg1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8696214253982402370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7745523887926573022}
+  m_LocalRotation: {x: 0.5679203, y: 0.35493144, z: 0.62159866, w: 0.40633145}
+  m_LocalPosition: {x: -0.0011299266, y: 0.115969256, z: 0.05250813}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4017531953828508915}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 1.1619217, y: 84.08796, z: 114.7035}
+--- !u!1 &7758148579309388858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6595905539412269467}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm7_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6595905539412269467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758148579309388858}
+  m_LocalRotation: {x: -0.00043041506, y: 0.23697747, z: -0.0017664918, w: 0.97151345}
+  m_LocalPosition: {x: -0.30635422, y: 1.8007817e-15, z: -1.0338952e-15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9093800720461143008}
+  m_Father: {fileID: 1435544507565548515}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 12.345528, y: 0.124730796, z: 20.457155}
+--- !u!1 &7956659958141227566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3042267422902202445}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideBack5_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3042267422902202445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7956659958141227566}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11092909, y: 0.0000000011842597, z: 0.0000001248744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8998258540384304523}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7960688745537089986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5409665166213962653}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_FrontLeg2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5409665166213962653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960688745537089986}
+  m_LocalRotation: {x: -0.027395766, y: -0.009653947, z: -0.07038952, w: 0.9970966}
+  m_LocalPosition: {x: 0.05300674, y: 0.00000005713831, z: 0.000000007238653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2996552263966282719}
+  m_Father: {fileID: 1448714793936891179}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.8700948, y: 2.0671644, z: -8.049579}
+--- !u!1 &8119255737814774607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2800287709162232272}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2800287709162232272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119255737814774607}
+  m_LocalRotation: {x: 0.487029, y: -0.47186524, z: 0.5149739, w: 0.5243547}
+  m_LocalPosition: {x: -0.022645975, y: -0.04670632, z: -0.16695358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 121347852400120875}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 85.37826, y: 4.8160057, z: 93.40852}
+--- !u!1 &8130253039726743071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8400167836304112713}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_Arm4_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8400167836304112713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8130253039726743071}
+  m_LocalRotation: {x: 0.0061816103, y: 0.13374704, z: -0.044195935, w: 0.99001026}
+  m_LocalPosition: {x: -0.21294403, y: -6.883383e-17, z: -7.8062556e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5028543915260046473}
+  m_Father: {fileID: 7353182723815838140}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -3.6936378, y: -13.172485, z: 25.306023}
+--- !u!1 &8235021914913967059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8375070095006282364}
+  - component: {fileID: 3886641270849813447}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Pumpkinhead:Pumpkinhead_Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8375070095006282364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235021914913967059}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6912874579420719491}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &3886641270849813447
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235021914913967059}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3bdf09ef0d2581d44837b87329c61684, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: ec06adbf7689ec84dbf38bbd4f690ced, type: 2}
+  m_Bones:
+  - {fileID: 3694855014684830400}
+  - {fileID: 7302295317154846283}
+  - {fileID: 6273263864542803542}
+  - {fileID: 5226085472934859422}
+  - {fileID: 2777212560156819266}
+  - {fileID: 169654700272002712}
+  - {fileID: 5190637641267807937}
+  - {fileID: 2800287709162232272}
+  - {fileID: 121347852400120875}
+  - {fileID: 7353182723815838140}
+  - {fileID: 8400167836304112713}
+  - {fileID: 5028543915260046473}
+  - {fileID: 1435544507565548515}
+  - {fileID: 6595905539412269467}
+  - {fileID: 9093800720461143008}
+  - {fileID: 1545794957777126162}
+  - {fileID: 6027823722931197735}
+  - {fileID: 8212736757477827840}
+  - {fileID: 6833920464684199283}
+  - {fileID: 997043611169867163}
+  - {fileID: 368947911780532709}
+  - {fileID: 346787217973156063}
+  - {fileID: 3999437196214530811}
+  - {fileID: 7334173204893995059}
+  - {fileID: 2957447851002383933}
+  - {fileID: 1805878441538172159}
+  - {fileID: 5720005189439795625}
+  - {fileID: 1815122087134819560}
+  - {fileID: 8493578993718074680}
+  - {fileID: 7308163895599864706}
+  - {fileID: 8470210832446577851}
+  - {fileID: 1515899354705659672}
+  - {fileID: 1448714793936891179}
+  - {fileID: 5409665166213962653}
+  - {fileID: 2996552263966282719}
+  - {fileID: 8430370119738631520}
+  - {fileID: 3728935831955778406}
+  - {fileID: 4508105506721713751}
+  - {fileID: 887970784103488565}
+  - {fileID: 6939172729473397121}
+  - {fileID: 7882205038913123678}
+  - {fileID: 9222585504914751424}
+  - {fileID: 3764342687107242493}
+  - {fileID: 6302527008306293118}
+  - {fileID: 3131483521925871189}
+  - {fileID: 3720042689688372502}
+  - {fileID: 2638012892941342266}
+  - {fileID: 11444445579641517}
+  - {fileID: 2910312403065902976}
+  - {fileID: 5076379185035035611}
+  - {fileID: 8998258540384304523}
+  - {fileID: 3042267422902202445}
+  - {fileID: 8410980860209623640}
+  - {fileID: 1063924488795708388}
+  - {fileID: 7732856654690050885}
+  - {fileID: 6728847355636919874}
+  - {fileID: 3187372543510672943}
+  - {fileID: 8696214253982402370}
+  - {fileID: 4017531953828508915}
+  - {fileID: 3821717462839649363}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 3694855014684830400}
+  m_AABB:
+    m_Center: {x: -0.48645592, y: 0.030170336, z: 0.058062434}
+    m_Extent: {x: 0.57579935, y: 0.25461614, z: 1.0584065}
+  m_DirtyAABB: 0
+--- !u!1 &8334829679776626658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3728935831955778406}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_SideLeg2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3728935831955778406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334829679776626658}
+  m_LocalRotation: {x: 0.012886079, y: 0.01125466, z: 0.09414948, w: 0.9954111}
+  m_LocalPosition: {x: 0.059657913, y: 0.00000023312911, z: 0.0000000024967015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4508105506721713751}
+  m_Father: {fileID: 8430370119738631520}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.26846832, y: 10.07767, z: 10.418819}
+--- !u!1 &8559761430914874239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2777212560156819266}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideLeg1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2777212560156819266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8559761430914874239}
+  m_LocalRotation: {x: -0.2863782, y: -0.6390162, z: 0.27402684, w: 0.65920794}
+  m_LocalPosition: {x: -0.0080444785, y: -0.10404428, z: -0.08315937}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 169654700272002712}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: -15.255965, y: -75.4637, z: 44.690025}
+--- !u!1 &8670919292870115946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3481866207462782632}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Hips_CTRL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3481866207462782632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8670919292870115946}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000049, y: -0.0038659999, z: -0.000767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8049046285734724942}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8697550557689564368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8049046285734724942}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Pumpkin_Head_GRP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8049046285734724942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697550557689564368}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3481866207462782632}
+  - {fileID: 3694855014684830400}
+  m_Father: {fileID: 6912874579420719491}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8901795732767791338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6027823722931197735}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Left_SideBack1_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6027823722931197735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901795732767791338}
+  m_LocalRotation: {x: -0.023836182, y: -0.50985, z: -0.009045573, w: 0.85988545}
+  m_LocalPosition: {x: -0.02325587, y: 0.017683176, z: -0.19991256}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8212736757477827840}
+  m_Father: {fileID: 3694855014684830400}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -2.7211692, y: -73.07149, z: 1.076586}
+--- !u!1 &9196309997522608848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6939172729473397121}
+  m_Layer: 0
+  m_Name: Pumpkin25_Actual_Final:Right_Arm2_JNT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6939172729473397121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196309997522608848}
+  m_LocalRotation: {x: -0.7179423, y: 0.03463722, z: -0.027440654, w: 0.69469863}
+  m_LocalPosition: {x: 0.061075456, y: 0.004303944, z: -0.052294157}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7882205038913123678}
+  m_Father: {fileID: 887970784103488565}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -73.11469, y: -165.06065, z: 2.1809235}
