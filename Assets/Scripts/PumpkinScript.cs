@@ -18,7 +18,7 @@ public class PumpkinScript : MonoBehaviour
     private PumpkinStates pumpkinState = PumpkinStates.MOVING;
     public bool playerWithinRange;
 
-    enum PumpkinStates
+    private enum PumpkinStates
     {
         IDLE,
         MOVING,
