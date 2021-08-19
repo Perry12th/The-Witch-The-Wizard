@@ -60,7 +60,7 @@ public class WitcherScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A))
             {
-                if (lookingRight)
+                if (lookingRight && !isClimbing)
                 {
                     lookingRight = false;
                     FlipLeft();
@@ -69,7 +69,7 @@ public class WitcherScript : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                if (!lookingRight)
+                if (!lookingRight && !isClimbing)
                 {
                     lookingRight = true;
                     FlipRight();
@@ -91,19 +91,33 @@ public class WitcherScript : MonoBehaviour
             if (isClimbing)
             {
                 rb.useGravity = false;
-                isGrounded = true;
                 if (Input.GetKey(KeyCode.W))
                 {
                     rb.velocity = new Vector3(rb.velocity.x, climbSpeed, 0);
+                    if (!lookingRight)
+                    {
+                        FlipRight();
+                        lookingRight = true;
+                    }
                 }
                 else
                 if (Input.GetKey(KeyCode.S))
                 {
                     rb.velocity = new Vector3(rb.velocity.x, -climbSpeed, 0);
+                    if (!lookingRight)
+                    {
+                        FlipRight();
+                        lookingRight = true;
+                    }
                 }
                 else
                 {
                     rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                    if (!lookingRight && !isGrounded)
+                    {
+                        FlipRight();
+                        lookingRight = true;
+                    }
                 }
             }
             else
@@ -190,7 +204,7 @@ public class WitcherScript : MonoBehaviour
         if (!isShootingLighting)
         {
             anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-            anim.SetFloat("SpeedY", rb.velocity.y);
+            anim.SetFloat("SpeedY", Mathf.Abs(rb.velocity.y));
             anim.SetBool("Grounded", isGrounded);
         }
 
@@ -241,9 +255,19 @@ public class WitcherScript : MonoBehaviour
     //    }
     //}
 
-    public void ResetPosition()
+    public void PlayerDeath()
+    {
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SuzyDeath"))
+        {
+            anim.SetTrigger("Death");
+            canMove = false;
+        }
+    }
+
+    public void ResetPlayer()
     {
         transform.position = checkpoint;
+        canMove = true;
     }
 
     public void ReleaseFireball()
@@ -273,6 +297,7 @@ public class WitcherScript : MonoBehaviour
         if (other.CompareTag("Vine"))
         {
             isClimbing = true;
+            anim.SetBool("IsClimbing", true);
         }
         else
         if (other.CompareTag("Slippery"))
@@ -287,7 +312,7 @@ public class WitcherScript : MonoBehaviour
         else
         if (other.CompareTag("DeathZone"))
         {
-            ResetPosition();
+            ResetPlayer();
         }
         else
         if (other.CompareTag("Snowflake"))
@@ -325,14 +350,16 @@ public class WitcherScript : MonoBehaviour
         if (other.CompareTag("Vine"))
         {
             isClimbing = false;
+            anim.speed = 1;
+            anim.SetBool("IsClimbing", false);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("TSnowball") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Pumpkin"))
+        if (collision.gameObject.CompareTag("TSnowball") || collision.gameObject.CompareTag("Pumpkin"))
         {
-            ResetPosition();
+            PlayerDeath();
         }
 
         if (collision.gameObject.CompareTag("Ground"))
@@ -344,7 +371,7 @@ public class WitcherScript : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("Lava"))
         {
-            ResetPosition();
+            PlayerDeath();
         }
     }
 

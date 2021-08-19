@@ -36,7 +36,7 @@ public class PumpkinScript : MonoBehaviour
 
     private void Update()
     {
-        if (playerWithinRange)
+        if (playerWithinRange && !animator.GetCurrentAnimatorStateInfo(0).IsName("Pumpkin_Attack"))
         {
             AttackPlayer();
         }
@@ -62,12 +62,12 @@ public class PumpkinScript : MonoBehaviour
             if (life == 0)
             {
                 pumpkinState = PumpkinStates.DYING;
-                DestroySelf();
+                animator.SetTrigger("Death");
             }
             else if (life > 0)
             {
-                pumpkinState = PumpkinStates.HURTING;
                 animator.SetTrigger("Hurt");
+                pumpkinState = PumpkinStates.HURTING;
             }
         }
     }

@@ -11,14 +11,19 @@ public class IceMagicScript : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 10);
-        rb.velocity = (gameObject.transform.right * speed) + (gameObject.transform.up * (speed / 2));
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<WitcherScript>().ResetPosition();
+            collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
         }
+        Destroy(gameObject);
+    }
+
+    public void SetDirection(Vector3 direction)
+    {
+        rb.velocity = (direction * speed);
     }
 }

@@ -30,16 +30,28 @@ public class SnowmanScript : MonoBehaviour
             Destroy(collision.gameObject);
             life--;
 
-            if (life <= 0)
+            if (life > 0)
             {
-                Destroy(gameObject, 1.0f);
                 snowpantsAnimator.SetTrigger("Hurt");
+            }
+            if (life == 0)
+            {
+                snowpantsAnimator.SetTrigger("Death");
+            }
+
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (life > 0)
+                {
+                    collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
+                }
             }
         }
     }
 
     private void ChargeUpSnowBall()
     {
+        if (!snowpantsAnimator.GetCurrentAnimatorStateInfo(0).IsName("Snowpants_Death"))
         snowpantsAnimator.SetTrigger("Attack2");
     }
 
@@ -54,6 +66,11 @@ public class SnowmanScript : MonoBehaviour
         snowballHolder.SetActive(false);
         GrowingSnowballScript snowball = Instantiate(snowballPrefab, snowballHolder.transform.position, snowballPrefab.transform.rotation).GetComponent<GrowingSnowballScript>();
         snowball.SetSpeed(startingSnowballSpeed);
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 
 }

@@ -27,9 +27,20 @@ public class LiftTowerScript : MonoBehaviour
         isPowered = true;
     }
 
-    public void SwitchLighting()
+    public void OnPowerDown()
     {
-        isGoingLeft = !isGoingLeft;
+        if (isPowered)
+        {
+            light.enabled = false;
+            animator.enabled = false;
+        }
+
+        isPowered = false;
+    }
+
+    public void SwitchLighting(bool goingLeft)
+    {
+        isGoingLeft = goingLeft;
 
         if (isGoingLeft)
         {

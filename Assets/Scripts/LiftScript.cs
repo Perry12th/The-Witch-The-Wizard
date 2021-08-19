@@ -7,15 +7,16 @@ public class LiftScript : MonoBehaviour
     private List<CandyChairLiftScript> candyChairLifts = new List<CandyChairLiftScript>();
     private List<LiftTowerScript> liftTowers = new List<LiftTowerScript>();
     [SerializeField]
-    private float chairLiftSpeed;
+    private float chairLiftSpeed = 6.0f;
     [SerializeField]
-    private bool isGoingLeft = true;
+    public bool isGoingLeft = true;
     [SerializeField]
     private LiftRoofScript liftRoof;
-    private bool isPowered = false;
-    private bool canTurn = false;
     [SerializeField]
-    private float turnRefreshTime = 1.0f;
+    private LiftDropPointScript LeftliftDropPoint;
+    [SerializeField]
+    private LiftDropPointScript RightliftDropPoint;
+    public bool isPowered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,45 +32,50 @@ public class LiftScript : MonoBehaviour
 
     private void OnPoweredUp()
     {
-
         if (!isPowered)
         {
+            WitcherScript player = FindObjectOfType<WitcherScript>();
+
+            if (Vector3.Distance(player.transform.position, LeftliftDropPoint.transform.position) > Vector3.Distance(player.transform.position, RightliftDropPoint.transform.position))
+            {
+                isGoingLeft = true;
+            }
+            else
+            {
+                isGoingLeft = false;
+            }
             foreach (CandyChairLiftScript candyChairLift in candyChairLifts)
             {
                 candyChairLift.pathFollower.enabled = true;
                 candyChairLift.pathFollower.speed = chairLiftSpeed;
+                candyChairLift.FlipChair(isGoingLeft);
             }
 
             foreach (LiftTowerScript liftTower in liftTowers)
             {
                 liftTower.OnPowered();
+                liftTower.SwitchLighting(isGoingLeft);
             }
                 isPowered = true;
-            StartCoroutine(RefreshTurn());
-            return;
         }
-        else if (isPowered && canTurn)
-        {
-            isGoingLeft = !isGoingLeft;
-            canTurn = false;
-            StartCoroutine(RefreshTurn());
+    }
 
+    public void PowerOff()
+    {
+        if (isPowered)
+        {
             foreach (CandyChairLiftScript candyChairLift in candyChairLifts)
             {
-                candyChairLift.FlipChair();
+                candyChairLift.pathFollower.enabled = false;
             }
 
             foreach (LiftTowerScript liftTower in liftTowers)
             {
-                liftTower.SwitchLighting();
+                liftTower.OnPowerDown();
             }
+            isPowered = false;
         }
     }
 
-    private IEnumerator RefreshTurn()
-    {
-        yield return new WaitForSeconds(turnRefreshTime);
-        canTurn = true;
-    }
    
 }

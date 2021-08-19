@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class CandyChairLiftScript : MonoBehaviour
 {
-    WitcherScript player;
     [SerializeField]
-    bool isGoingLeft = true;
-    [SerializeField]
-    GameObject leftDropPoint;
-    [SerializeField]
-    GameObject rightDropPoint;
-    [SerializeField] 
-    float zCorrection;
-    [SerializeField]
-    Material chairMaterial;
-    [SerializeField]
-    Material fadeMaterial;
-    [SerializeField]
-    MeshRenderer meshRenderer;
+    private float zCorrection = -8;
+    private WitcherScript player;
     public PathCreation.Examples.PathFollower pathFollower;
+    public bool isGoingLeft = true;
 
     public void Update()
     {
@@ -71,12 +60,12 @@ public class CandyChairLiftScript : MonoBehaviour
         }
     }
 
-    public void FlipChair()
+    public void FlipChair(bool goingLeft)
     {
 
-        isGoingLeft = !isGoingLeft;
-        pathFollower.isGoingLeft = isGoingLeft;
-        pathFollower.speed = -pathFollower.speed;
+        isGoingLeft = goingLeft;
+        pathFollower.isGoingLeft = goingLeft;
+        pathFollower.speed = goingLeft? Mathf.Abs(pathFollower.speed) : -Mathf.Abs(pathFollower.speed);
         if (isGoingLeft)
         {
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0.0f);
@@ -85,8 +74,5 @@ public class CandyChairLiftScript : MonoBehaviour
         {
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 180.0f);
         }
-
-        Debug.Log(transform.localEulerAngles);
-
     }
 }
