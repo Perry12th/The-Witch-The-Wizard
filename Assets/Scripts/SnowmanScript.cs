@@ -14,6 +14,8 @@ public class SnowmanScript : MonoBehaviour
     private float startingSnowballSpeed = 1f;
     [SerializeField]
     private GameObject snowballHolder;
+    [SerializeField]
+    private float maxSnowBallSize = 6.0f;
 
     public int life;
 
@@ -66,6 +68,7 @@ public class SnowmanScript : MonoBehaviour
         snowballHolder.SetActive(false);
         GrowingSnowballScript snowball = Instantiate(snowballPrefab, snowballHolder.transform.position, snowballPrefab.transform.rotation).GetComponent<GrowingSnowballScript>();
         snowball.SetSpeed(startingSnowballSpeed);
+        snowball.SetMaxSize(maxSnowBallSize);
     }
 
     public void DestroySelf()

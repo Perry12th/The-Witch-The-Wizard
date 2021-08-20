@@ -46,5 +46,16 @@ public class GrowingSnowballScript : MonoBehaviour
         speed = newSpeed;
         rb.velocity = ((gameObject.transform.up + gameObject.transform.right) * -speed);
     }
+
+    public void SetMaxSize(float newMaxSize)
+    {
+        maxSize = newMaxSize;
+
+        if (transform.localScale.x > maxSize)
+        {
+            Debug.Log("Resize");
+            transform.localScale = new Vector3(maxSize, maxSize, maxSize);
+        }
+    }
 }
 
