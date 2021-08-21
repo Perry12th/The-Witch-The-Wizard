@@ -282,7 +282,7 @@ public class WitcherScript : MonoBehaviour
         //    GameObject newBall = Instantiate(fireball, Vector3.up * spawnPoint.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
         //}
 
-        Debug.Log("ReleaseFireball");
+        //Debug.Log("ReleaseFireball");
         GameObject newBall = Instantiate(fireball, spawnPoint.transform.position, lookingRight ? fireball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 

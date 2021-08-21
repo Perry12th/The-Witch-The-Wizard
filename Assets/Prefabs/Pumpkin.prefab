@@ -305,9 +305,10 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5923594515659815359}
   m_Father: {fileID: 6912874579420719491}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &8109053941453468223
 SkinnedMeshRenderer:
@@ -1517,11 +1518,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5923594515659815358}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.116, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.15500031, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2917857836188948129}
+  m_Father: {fileID: 6848652984928416016}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &5923594515659815356
@@ -1536,13 +1537,13 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8321044, b: 0.2783019, a: 1}
-  m_Intensity: 10
+  m_Intensity: 7
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1619,8 +1620,8 @@ Transform:
   m_Children:
   - {fileID: 8049046285734724942}
   - {fileID: 2917857836188948129}
-  - {fileID: 8375070095006282364}
   - {fileID: 6848652984928416016}
+  - {fileID: 8375070095006282364}
   - {fileID: 5923594514323887546}
   - {fileID: 5923594514994034735}
   m_Father: {fileID: 0}
@@ -1643,7 +1644,14 @@ MonoBehaviour:
   life: 3
   attackCollider: {fileID: 6099182732141884220}
   speed: 5
+  headRenderer: {fileID: 8109053941453468223}
+  leafRenderer: {fileID: 3886641270849813447}
+  candleRenderer: {fileID: 7360341766725183310}
+  candleLight: {fileID: 5923594515659815358}
+  deathColor: {r: 0, g: 0, b: 0, a: 0}
+  flashTimeRate: 0.1
   playerWithinRange: 0
+  outsidePath: 0
 --- !u!65 &6099182732141884220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1762,8 +1770,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5923594515659815359}
+  m_Children: []
   m_Father: {fileID: 6912874579420719491}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2647,11 +2654,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8235021914913967059}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6912874579420719491}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &3886641270849813447
 SkinnedMeshRenderer:

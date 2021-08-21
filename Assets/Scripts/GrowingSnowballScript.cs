@@ -28,7 +28,7 @@ public class GrowingSnowballScript : MonoBehaviour
         {
             if (transform.localScale.x < maxSize)
             {
-                transform.localScale += (Vector3.one * growSpeed);
+                transform.localScale += (Vector3.one * growSpeed * Time.deltaTime);
             }
         }
     }
@@ -56,6 +56,11 @@ public class GrowingSnowballScript : MonoBehaviour
             Debug.Log("Resize");
             transform.localScale = new Vector3(maxSize, maxSize, maxSize);
         }
+    }
+
+    public void setGrowthSpeed(float newGrowthSpeed)
+    {
+        growSpeed = newGrowthSpeed;
     }
 }
 

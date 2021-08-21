@@ -20,8 +20,8 @@ public class FireballScript : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(collision.gameObject.name);
-            Debug.Log(collision.transform.position);
+            //Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.transform.position);
             particleSystem.Stop();
             particle.transform.parent = null;
             Destroy(particle, 1);

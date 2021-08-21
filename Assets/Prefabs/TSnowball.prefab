@@ -4928,7 +4928,7 @@ MonoBehaviour:
   rb: {fileID: 7180062532299160067}
   speed: 1
   growSpeedThershold: 0.5
-  growSpeed: 0.01
+  growSpeed: 1
   maxSize: 6
 --- !u!135 &5719133770425366040
 SphereCollider:

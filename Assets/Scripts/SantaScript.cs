@@ -46,15 +46,15 @@ public class SantaScript : MonoBehaviour
 
     private void Update()
     {
-        if (santaState != SantaStates.HURT)
+        if (santaState != SantaStates.HURT || life > 0)
         {
-            if (isPlayerInRange && santaState != SantaStates.ATTACKING && canAttack)
-            {
-                animator.SetTrigger("IceAttack");
-                canAttack = false;
-                santaState = SantaStates.ATTACKING;
-            }
-            else if (isPlayerInRange && santaState != SantaStates.ATTACKING && !canAttack && !animator.GetCurrentAnimatorStateInfo(0).IsName("SantaIdle"))
+            //if (isPlayerInRange && santaState != SantaStates.ATTACKING && canAttack)
+            //{
+            //    animator.SetTrigger("IceAttack");
+            //    canAttack = false;
+            //    santaState = SantaStates.ATTACKING;
+            //}
+            if (isPlayerInRange && santaState != SantaStates.ATTACKING && !canAttack && !animator.GetCurrentAnimatorStateInfo(0).IsName("SantaIdle"))
             {
                 animator.SetTrigger("Idle");
                 santaState = SantaStates.IDLE;
@@ -103,7 +103,7 @@ public class SantaScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Path") && santaState == SantaStates.MOVING)
+        if (other.CompareTag("Path") && santaState == SantaStates.MOVING && life > 0)
         {
             santaState = SantaStates.FLIPPING;
             rigidbody.velocity = Vector3.zero;

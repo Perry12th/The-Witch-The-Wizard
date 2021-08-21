@@ -6382,6 +6382,9 @@ MonoBehaviour:
   startingSnowballSpeed: 2
   snowballHolder: {fileID: 2326816957026472026}
   maxSnowBallSize: 6
+  deathColor: {r: 0, g: 0, b: 0, a: 0}
+  snowPantsRenderer: {fileID: 441426832856856735}
+  flashTimeRate: 0.1
   life: 2
 --- !u!1 &6284659872381010368
 GameObject:
@@ -6501,7 +6504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6364694079157078203}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6505676518740796192}

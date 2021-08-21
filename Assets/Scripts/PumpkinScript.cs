@@ -15,9 +15,22 @@ public class PumpkinScript : MonoBehaviour
     private Collider attackCollider;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private Renderer headRenderer;
+    [SerializeField]
+    private Renderer leafRenderer;
+    [SerializeField]
+    private Renderer candleRenderer;
+    [SerializeField]
+    private GameObject candleLight;
+    [SerializeField]
+    private Color deathColor;
+    [SerializeField]
+    private float flashTimeRate = 0.2f;
+    private float timer = 0;
     private PumpkinStates pumpkinState = PumpkinStates.MOVING;
     public bool playerWithinRange;
-
+    public bool outsidePath = false;
     private enum PumpkinStates
     {
         IDLE,
@@ -36,7 +49,7 @@ public class PumpkinScript : MonoBehaviour
 
     private void Update()
     {
-        if (playerWithinRange && !animator.GetCurrentAnimatorStateInfo(0).IsName("Pumpkin_Attack"))
+        if (playerWithinRange && life > 0 && !animator.GetCurrentAnimatorStateInfo(0).IsName("Pumpkin_Attack"))
         {
             AttackPlayer();
         }
@@ -74,7 +87,7 @@ public class PumpkinScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Path") && pumpkinState == PumpkinStates.MOVING)
+        if (other.CompareTag("Path") && life > 0)
         {
             pumpkinState = PumpkinStates.FLIPPING;
             animator.SetTrigger("Flip");
@@ -89,6 +102,7 @@ public class PumpkinScript : MonoBehaviour
 
     public void ReturnToMoving()
     {
+        StopAllCoroutines();
         if (!playerWithinRange)
         animator.SetTrigger("Move");
         pumpkinState = PumpkinStates.MOVING;
@@ -109,5 +123,72 @@ public class PumpkinScript : MonoBehaviour
     public void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+    public void TurnToBlack()
+    {
+        StartCoroutine(TurningToBlack());
+    }
+
+    public void StartFlashing()
+    {
+        StartCoroutine(Flashing());
+    }
+
+    private IEnumerator Flashing()
+    {
+        float flashTime = animator.GetCurrentAnimatorStateInfo(0).length;
+        bool flashing = false;
+        timer = 0;
+        float flashTimer = 0;
+
+        while (timer < flashTime)
+        {
+            timer += Time.deltaTime;
+            flashTimer += Time.deltaTime;
+
+            if (flashTimer >= flashTimeRate)
+            {
+                flashTimer = 0;
+                flashing = !flashing;
+
+                // Flashing = true means the renderers are disabled
+                headRenderer.enabled = !flashing;
+                leafRenderer.enabled = !flashing;
+                candleRenderer.enabled = !flashing;
+                candleLight.SetActive(!flashing);
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    public void StopFlashing()
+    {
+        StopAllCoroutines();
+        headRenderer.enabled = true;
+        leafRenderer.enabled = true;
+        candleRenderer.enabled = true;
+        candleLight.SetActive(true);
+    }
+
+    IEnumerator TurningToBlack()
+    {
+        Color headStartColor = headRenderer.material.color;
+        Color leafStartColor = leafRenderer.material.color;
+        Color candleStartColor = candleRenderer.material.color;
+        float animTime = (animator.GetCurrentAnimatorStateInfo(0).length * 0.5f);
+        timer = 0;
+
+        Debug.Log("Turn To Black");        
+        while (timer < animTime)
+        {
+            timer += Time.deltaTime;
+            headRenderer.material.SetColor("_Color", Color.Lerp(headStartColor, deathColor, timer / animTime));
+            leafRenderer.material.SetColor("_Color", Color.Lerp(leafStartColor, deathColor, timer / animTime));
+            candleRenderer.material.SetColor("_Color", Color.Lerp(candleStartColor, deathColor, timer / animTime));
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
