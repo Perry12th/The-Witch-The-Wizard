@@ -12,7 +12,6 @@ public class WitcherScript : MonoBehaviour
     public Vector3 checkpoint;
     public Animator anim;
     public GameObject model;
-    public GameObject background;
     public CapsuleCollider characterCollider;
     public PhysicMaterial FrictionMaterial;
     public PhysicMaterial FrictionLessMaterial;
@@ -230,8 +229,6 @@ public class WitcherScript : MonoBehaviour
             anim.SetFloat("SpeedY", Mathf.Abs(rb.velocity.y));
             anim.SetBool("Grounded", isGrounded);
         }
-
-        background.transform.position = new Vector3(transform.position.x, transform.position.y + 4.0f, background.transform.position.z);
     }
 
     public void FlipLeft()
