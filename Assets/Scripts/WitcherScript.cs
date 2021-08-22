@@ -47,6 +47,8 @@ public class WitcherScript : MonoBehaviour
     public bool isAiming = false;
     public bool isShootingLighting = false;
     public bool canMove = true;
+    public bool isReading = false;
+    private Dialogue dialogue = null;
 
     private void Start()
     {
@@ -175,7 +177,28 @@ public class WitcherScript : MonoBehaviour
                 }
             }
 
+            if (isGrounded && dialogue != null && dialogue.sentences.Length > 0 && !isReading)
+            {
+                rb.velocity = Vector3.zero;
+                canMove = false;
+                isReading = true;
+                DialogueManager.instance.StartDialogue(dialogue);
+                dialogue = null;
+            }
+
             
+
+            
+        }
+
+        if (isReading && Input.GetKeyDown(KeyCode.Return))
+        {
+             DialogueManager.instance.AdvanceSentence();
+             if (!DialogueManager.instance.isOpen)
+             {
+                 isReading = false;
+                 canMove = true;
+             }
         }
 
         if (isAiming)
@@ -259,8 +282,10 @@ public class WitcherScript : MonoBehaviour
     {
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SuzyDeath"))
         {
+            DialogueManager.instance.EndDialogue();
             anim.SetTrigger("Death");
             canMove = false;
+            isReading = false;
         }
     }
 
@@ -522,5 +547,10 @@ public class WitcherScript : MonoBehaviour
         anim.speed = 1.0f;
         isAttacking = false;
         characterCollider.material = FrictionLessMaterial;
+    }
+
+    public void SetDialogue(Dialogue newDialogue)
+    {
+        dialogue = newDialogue;
     }
 }

@@ -8,6 +8,8 @@ public class CollectableScript : MonoBehaviour
     private float amplitude = 0.2f;
     [SerializeField]
     private float frequency = 1.0f;
+    [SerializeField]
+    private Dialogue dialogue;
 
     // Position Storage Variables
     Vector3 posOffest = new Vector3();
@@ -29,6 +31,10 @@ public class CollectableScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (dialogue.sentences.Length > 0)
+            {
+                other.GetComponent<WitcherScript>().SetDialogue(dialogue);
+            }
             Destroy(gameObject);
         }
     }
