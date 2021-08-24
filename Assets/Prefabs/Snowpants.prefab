@@ -5513,7 +5513,7 @@ SphereCollider:
   m_GameObject: {fileID: 2326816957026472026}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0.0010362864, y: -0.0004530847, z: 0.001857847}
@@ -6382,6 +6382,7 @@ MonoBehaviour:
   startingSnowballSpeed: 2
   snowballHolder: {fileID: 2326816957026472026}
   maxSnowBallSize: 6
+  snowBallgrowSpeed: 0.01
   deathColor: {r: 0, g: 0, b: 0, a: 0}
   snowPantsRenderer: {fileID: 441426832856856735}
   flashTimeRate: 0.1

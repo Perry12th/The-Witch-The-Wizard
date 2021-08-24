@@ -24,6 +24,7 @@ public class SantaScript : MonoBehaviour
     private GameObject santaCoat;
     private bool canAttack = true;
     public bool isPlayerInRange;
+    public bool outsidePath = false;
     private SantaStates santaState = SantaStates.MOVING;
 
     private enum SantaStates
@@ -54,7 +55,14 @@ public class SantaScript : MonoBehaviour
             //    canAttack = false;
             //    santaState = SantaStates.ATTACKING;
             //}
-            if (isPlayerInRange && santaState != SantaStates.ATTACKING && !canAttack && !animator.GetCurrentAnimatorStateInfo(0).IsName("SantaIdle"))
+            if (outsidePath)
+            {
+                outsidePath = false;
+                santaState = SantaStates.FLIPPING;
+                rigidbody.velocity = Vector3.zero;
+                animator.SetTrigger("Turn");
+            }
+            else if (isPlayerInRange && santaState != SantaStates.ATTACKING && santaState != SantaStates.FLIPPING && !canAttack && !animator.GetCurrentAnimatorStateInfo(0).IsName("SantaIdle"))
             {
                 animator.SetTrigger("Idle");
                 santaState = SantaStates.IDLE;
@@ -105,9 +113,7 @@ public class SantaScript : MonoBehaviour
     {
         if (other.CompareTag("Path") && santaState == SantaStates.MOVING && life > 0)
         {
-            santaState = SantaStates.FLIPPING;
-            rigidbody.velocity = Vector3.zero;
-            animator.SetTrigger("Turn");
+            outsidePath = true;
         }
     }
 

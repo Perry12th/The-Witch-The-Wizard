@@ -379,7 +379,7 @@ public class WitcherScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("TSnowball") || collision.gameObject.CompareTag("Pumpkin"))
+        if (collision.gameObject.CompareTag("TSnowball"))
         {
             PlayerDeath();
         }

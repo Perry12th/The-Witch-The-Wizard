@@ -83,7 +83,16 @@ public class PumpkinScript : MonoBehaviour
                 pumpkinState = PumpkinStates.HURTING;
             }
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (life > 0)
+            {
+                collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
+            }
+        }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
