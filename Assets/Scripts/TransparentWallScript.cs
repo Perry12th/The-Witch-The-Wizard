@@ -6,10 +6,9 @@ public class TransparentWallScript : MonoBehaviour
 {
 
     [SerializeField]
-    Material transparentM, opaqueM;
-
+    private Material transparentM, opaqueM;
     [SerializeField]
-    MeshRenderer meshR;
+    private MeshRenderer meshR;
 
     private void OnTriggerEnter(Collider other)
     {

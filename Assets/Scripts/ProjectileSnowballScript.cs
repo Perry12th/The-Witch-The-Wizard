@@ -6,8 +6,8 @@ public class ProjectileSnowballScript : MonoBehaviour
 {
     [SerializeField]
     Rigidbody rb;
-
-    public float speed;
+    [SerializeField]
+    private float speed;
 
     private void Start()
     {

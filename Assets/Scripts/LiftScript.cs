@@ -46,8 +46,8 @@ public class LiftScript : MonoBehaviour
             }
             foreach (CandyChairLiftScript candyChairLift in candyChairLifts)
             {
-                candyChairLift.pathFollower.enabled = true;
-                candyChairLift.pathFollower.speed = chairLiftSpeed;
+                candyChairLift.GetPathFollower().enabled = true;
+                candyChairLift.GetPathFollower().SetSpeed(chairLiftSpeed);
                 candyChairLift.FlipChair(isGoingLeft);
             }
 
@@ -66,7 +66,7 @@ public class LiftScript : MonoBehaviour
         {
             foreach (CandyChairLiftScript candyChairLift in candyChairLifts)
             {
-                candyChairLift.pathFollower.enabled = false;
+                candyChairLift.GetPathFollower().enabled = false;
             }
 
             foreach (LiftTowerScript liftTower in liftTowers)

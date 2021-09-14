@@ -6,9 +6,13 @@ public class CandyChairLiftScript : MonoBehaviour
 {
     [SerializeField]
     private float zCorrection = -8;
+    [SerializeField]
+    private GameObject candyCaneParent;
     private WitcherScript player;
-    public PathCreation.Examples.PathFollower pathFollower;
-    public bool isGoingLeft = true;
+    [SerializeField]
+    private PathCreation.Examples.PathFollower pathFollower;
+    [SerializeField]
+    private bool isGoingLeft = true;
 
     public void Update()
     {
@@ -64,15 +68,21 @@ public class CandyChairLiftScript : MonoBehaviour
     {
 
         isGoingLeft = goingLeft;
-        pathFollower.isGoingLeft = goingLeft;
-        pathFollower.speed = goingLeft? Mathf.Abs(pathFollower.speed) : -Mathf.Abs(pathFollower.speed);
+        pathFollower.SetIsGoingLeft(goingLeft);
+        float pathSpeed = pathFollower.GetSpeed();
+        pathFollower.SetSpeed(goingLeft? Mathf.Abs(pathSpeed) : -Mathf.Abs(pathSpeed));
         if (isGoingLeft)
         {
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0.0f);
+            candyCaneParent.transform.localEulerAngles = new Vector3(candyCaneParent.transform.localEulerAngles.x, 270.0f, candyCaneParent.transform.localEulerAngles.z);
         }
         else if (!isGoingLeft)
         {
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 180.0f);
+            candyCaneParent.transform.localEulerAngles = new Vector3(candyCaneParent.transform.localEulerAngles.x, 90.0f, candyCaneParent.transform.localEulerAngles.z);
         }
+    }
+
+    public PathCreation.Examples.PathFollower GetPathFollower()
+    {
+        return pathFollower;
     }
 }

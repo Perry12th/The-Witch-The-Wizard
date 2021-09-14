@@ -25,13 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5272286301458689859}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: -0, y: 0.181, z: 0.644}
-  m_LocalScale: {x: 24.87436, y: 25.400005, z: 29.71499}
-  m_Children: []
-  m_Father: {fileID: 4042249433784531740}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: -0.5}
+  m_LocalPosition: {x: 0, y: -0.5259997, z: 0.053000137}
+  m_LocalScale: {x: 24.874369, y: 25.400015, z: 31.78613}
+  m_Children:
+  - {fileID: 4042249433784531740}
+  m_Father: {fileID: 6014185264330955587}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 270}
 --- !u!33 &8488976664534268508
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -109,7 +110,7 @@ Transform:
   m_LocalPosition: {x: -33.003197, y: -9.871, z: -6.3226767}
   m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
   m_Children:
-  - {fileID: 4042249433784531740}
+  - {fileID: 4783171184133551609}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -129,6 +130,7 @@ MonoBehaviour:
   endOfPathInstruction: 0
   speed: 5
   isGoingLeft: 1
+  usingPathRotation: 0
 --- !u!1 &7079011832563427864
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,14 +159,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7079011832563427864}
-  m_LocalRotation: {x: -0.5224984, y: 0, z: 0, w: 0.8526403}
-  m_LocalPosition: {x: 0, y: -1.209, z: -0.347}
-  m_LocalScale: {x: 1, y: 1, z: 1.0697}
-  m_Children:
-  - {fileID: 4783171184133551609}
-  m_Father: {fileID: 6014185264330955587}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 0.008402211, y: 0, z: -0.023028903}
+  m_LocalScale: {x: 0.03937005, y: 0.040202033, z: 0.033653043}
+  m_Children: []
+  m_Father: {fileID: 4783171184133551609}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -63, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &2184425261964024313
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -226,14 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0380c5766b13549856e6aae39bda17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGoingLeft: 1
-  leftDropPoint: {fileID: 0}
-  rightDropPoint: {fileID: 0}
   zCorrection: -8
-  chairMaterial: {fileID: 2100000, guid: ac81577e76d2ad743987aee1a75e058a, type: 2}
-  fadeMaterial: {fileID: 2100000, guid: 4b87e3ed4eec77e4bb825929c0cc6f1e, type: 2}
-  meshRenderer: {fileID: 5494569655949220331}
+  candyCaneParent: {fileID: 5272286301458689859}
   pathFollower: {fileID: 2420317058640794659}
+  isGoingLeft: 1
 --- !u!65 &9018617928069974025
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SnowballScript : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody rb;
-
-    public GameObject icePlat;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private Rigidbody rb;
+    [SerializeField]
+    private GameObject icePlat;
 
     // Start is called before the first frame update
     void Start()

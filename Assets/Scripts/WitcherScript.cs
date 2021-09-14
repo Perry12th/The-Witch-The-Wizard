@@ -372,7 +372,6 @@ public class WitcherScript : MonoBehaviour
         if (other.CompareTag("Vine"))
         {
             isClimbing = false;
-            anim.speed = 1;
             anim.SetBool("IsClimbing", false);
         }
     }
@@ -412,7 +411,7 @@ public class WitcherScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            if (rb.velocity.y > 0f && !isJumping)
+            if (!isClimbing & rb.velocity.y > 0f && !isJumping)
             {
                 rb.velocity = (Vector3.up * 0) + rb.velocity.x * Vector3.right;
             }

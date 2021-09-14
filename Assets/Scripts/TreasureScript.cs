@@ -5,12 +5,11 @@ using UnityEngine;
 public class TreasureScript : MonoBehaviour
 {
     [SerializeField]
-    Animator anim;
-
+    private Animator anim;
     [SerializeField]
-    GameObject drop;
-
-    int life = 2;
+    private GameObject drop;
+    [SerializeField]
+    private int life = 2;
 
     private void OnTriggerEnter(Collider other)
     {

@@ -24,7 +24,7 @@ public class SantaScript : MonoBehaviour
     private GameObject santaCoat;
     private bool canAttack = true;
     public bool isPlayerInRange;
-    public bool outsidePath = false;
+    private bool outsidePath = false;
     private SantaStates santaState = SantaStates.MOVING;
 
     private enum SantaStates

@@ -24,9 +24,9 @@ public class SnowmanScript : MonoBehaviour
     private Renderer snowPantsRenderer;
     [SerializeField]
     private float flashTimeRate = 0.2f;
-    private float timer = 0;
     [SerializeField]
     private int life;
+    private float timer = 0;
 
     private void Start()
     {

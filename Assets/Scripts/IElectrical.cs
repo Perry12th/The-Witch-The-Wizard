@@ -6,6 +6,5 @@ public interface IElectrical
 {
     void OnPowered();
 
-
     void OnPowerDown();
 }

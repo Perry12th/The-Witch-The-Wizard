@@ -25,13 +25,18 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    public TextMeshProUGUI dialogueText;
-    public bool isOpen;
-    public bool isWriting;
-    public Animator animator;
-    public GameObject continueTextObject;
-    public bool instantText = true;
-    public float letterRate = 10.0f;
+    [SerializeField]
+    private TextMeshProUGUI dialogueText;
+    public bool isOpen { get; private set; }
+    private bool isWriting;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private GameObject continueTextObject;
+    [SerializeField]
+    private bool instantText = true;
+    [SerializeField]
+    private float letterRate = 10.0f;
 
 
     private Queue<string> sentences = new Queue<string>();

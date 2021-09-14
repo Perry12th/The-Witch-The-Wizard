@@ -31,6 +31,7 @@ public class PumpkinScript : MonoBehaviour
     private PumpkinStates pumpkinState = PumpkinStates.MOVING;
     public bool playerWithinRange;
     public bool outsidePath = false;
+    public bool mustPerformFlip = false;
     private enum PumpkinStates
     {
         IDLE,
@@ -53,7 +54,7 @@ public class PumpkinScript : MonoBehaviour
         {
             AttackPlayer();
         }
-        if (pumpkinState == PumpkinStates.MOVING)
+        else if (pumpkinState == PumpkinStates.MOVING)
         {
             transform.Translate(transform.InverseTransformDirection(transform.forward) * speed * Time.deltaTime);
         }
@@ -72,7 +73,7 @@ public class PumpkinScript : MonoBehaviour
             Destroy(collision.gameObject);
             life--;
 
-            if (life == 0)
+            if (life <= 0 && pumpkinState != PumpkinStates.DYING)
             {
                 pumpkinState = PumpkinStates.DYING;
                 animator.SetTrigger("Death");
@@ -98,23 +99,46 @@ public class PumpkinScript : MonoBehaviour
     {
         if (other.CompareTag("Path") && life > 0)
         {
+            outsidePath = true;
+            mustPerformFlip = true;
             pumpkinState = PumpkinStates.FLIPPING;
             animator.SetTrigger("Flip");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Path") && life > 0)
+        {
+            outsidePath = false;
         }
     }
 
     public void FinishFlip()
     {
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);
-        ReturnToMoving();
+        mustPerformFlip = false;
+        if (life > 0)
+        {
+            ReturnToMoving();
+        }
     }
 
     public void ReturnToMoving()
     {
         StopAllCoroutines();
-        if (!playerWithinRange)
-        animator.SetTrigger("Move");
-        pumpkinState = PumpkinStates.MOVING;
+        if (mustPerformFlip)
+        {
+            pumpkinState = PumpkinStates.FLIPPING;
+            animator.SetTrigger("Flip");
+            return;
+        }
+        else if (!playerWithinRange)
+        {
+            animator.SetTrigger("Move");
+        }
+            pumpkinState = PumpkinStates.MOVING;
+        
     }
 
 

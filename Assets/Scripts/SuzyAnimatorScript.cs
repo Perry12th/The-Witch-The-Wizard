@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SuzyAnimatorScript : MonoBehaviour
 {
-    public WitcherScript ws;
+    [SerializeField]
+    private WitcherScript ws;
     public void ReleaseFireball()
     {
         ws.ReleaseFireball();

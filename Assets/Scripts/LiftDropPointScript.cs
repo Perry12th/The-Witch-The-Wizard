@@ -5,9 +5,11 @@ using UnityEngine;
 public class LiftDropPointScript : MonoBehaviour
 {
     [SerializeField]
-    LiftScript liftScript;
+    private LiftScript liftScript;
     [SerializeField]
     private bool isLeftDropPoint;
+    [SerializeField]
+    private Vector3 defaultChairLiftRotation;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +18,23 @@ public class LiftDropPointScript : MonoBehaviour
             if (liftScript.isPowered && (isLeftDropPoint == liftScript.isGoingLeft))
             {
                 liftScript.PowerOff();
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        CandyChairLiftScript candyChairLift = other.gameObject.GetComponent<CandyChairLiftScript>();
+        if (candyChairLift != null && liftScript.isPowered)
+        {
+            if (isLeftDropPoint == liftScript.isGoingLeft)
+            {
+                candyChairLift.GetPathFollower().SetUsingPathRotation(true);
+            }
+            else
+            {
+                candyChairLift.GetPathFollower().SetUsingPathRotation(false);
+                candyChairLift.GetPathFollower().transform.eulerAngles = new Vector3(defaultChairLiftRotation.x, candyChairLift.GetPathFollower().transform.eulerAngles.y, defaultChairLiftRotation.z);
             }
         }
     }

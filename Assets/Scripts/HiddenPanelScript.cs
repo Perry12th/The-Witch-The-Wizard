@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class HiddenPanelScript : MonoBehaviour
 {
-    public MeshRenderer mr;
+    [SerializeField]
+    private MeshRenderer meshRenderer;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            mr.enabled = false;
+            meshRenderer.enabled = false;
         }
     }
 
@@ -17,7 +18,7 @@ public class HiddenPanelScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            mr.enabled = true;
+            meshRenderer.enabled = true;
         }
     }
 }

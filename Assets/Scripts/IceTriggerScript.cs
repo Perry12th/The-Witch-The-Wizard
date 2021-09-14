@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class IceTriggerScript : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
 
     private void OnCollisionEnter(Collision collision)
     {

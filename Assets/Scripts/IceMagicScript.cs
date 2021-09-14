@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class IceMagicScript : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody rb;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()

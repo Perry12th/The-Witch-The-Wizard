@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class FireballScript : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody rb;
-    public ParticleSystem particleSystem;
-    public GameObject particle;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private Rigidbody rb;
+    [SerializeField]
+    private ParticleSystem particleSystem;
+    [SerializeField]
+    private GameObject particle;
 
     // Start is called before the first frame update
     void Start()

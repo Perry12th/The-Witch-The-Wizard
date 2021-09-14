@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LogoScript : MonoBehaviour
 {
-
-    public void LoadMainMenu()
+   public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
