@@ -84,7 +84,7 @@ namespace PathCreation.Examples
 
         public void SetSpeed(float newSpeed)
         {
-            newSpeed = speed;
+            speed = newSpeed;
         }
 
         public float GetSpeed()

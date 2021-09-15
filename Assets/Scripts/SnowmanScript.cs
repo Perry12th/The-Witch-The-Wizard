@@ -25,15 +25,31 @@ public class SnowmanScript : MonoBehaviour
     [SerializeField]
     private float flashTimeRate = 0.2f;
     [SerializeField]
-    private int life;
-    private float timer = 0;
+    private int life = 2;
+    [SerializeField]
+    private float attackTime = 5.0f;
+    private float chargeTimer = 0.0f;
+    private SnowpantsStates snowpantsState = SnowpantsStates.IDLE;
 
-    private void Start()
-    {
-        InvokeRepeating("ChargeUpSnowBall", 0, 10);
-        life = 2;
+    private enum SnowpantsStates
+    { 
+        IDLE,
+        ATTACKING,
+        HURTING,
+        DYING,
     }
 
+    private void Update()
+    {
+        if (snowpantsState == SnowpantsStates.IDLE)
+        {
+            chargeTimer += Time.deltaTime;
+            if (attackTime < chargeTimer)
+            {
+                ChargeUpSnowBall();
+            }
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("FireBall"))
@@ -44,15 +60,18 @@ public class SnowmanScript : MonoBehaviour
             if (life > 0)
             {
                 snowpantsAnimator.SetTrigger("Hurt");
+                snowballHolder.SetActive(false);
+                snowpantsState = SnowpantsStates.HURTING;
             }
             if (life == 0)
             {
+                snowpantsState = SnowpantsStates.DYING;
                 snowpantsAnimator.SetTrigger("Death");
             }
 
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (life > 0)
+                if (snowpantsState != SnowpantsStates.DYING)
                 {
                     collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
                 }
@@ -62,8 +81,11 @@ public class SnowmanScript : MonoBehaviour
 
     private void ChargeUpSnowBall()
     {
-        if (!snowpantsAnimator.GetCurrentAnimatorStateInfo(0).IsName("Snowpants_Death") || life > 0)
-        snowpantsAnimator.SetTrigger("Attack2");
+        if (snowpantsState != SnowpantsStates.HURTING || snowpantsState != SnowpantsStates.DYING)
+        {
+            snowpantsAnimator.SetTrigger("Attack2");
+            snowpantsState = SnowpantsStates.ATTACKING;
+        }
     }
 
     public void ShowSnowballHand()
@@ -74,6 +96,7 @@ public class SnowmanScript : MonoBehaviour
 
     public void SpawnSnowball()
     {
+        chargeTimer = 0;
         snowballHolder.SetActive(false);
         GrowingSnowballScript snowball = Instantiate(snowballPrefab, snowballHolder.transform.position, snowballPrefab.transform.rotation).GetComponent<GrowingSnowballScript>();
         snowball.SetSpeed(startingSnowballSpeed);
@@ -86,10 +109,14 @@ public class SnowmanScript : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void ReturnToIdle()
+    {
+        snowpantsState = SnowpantsStates.IDLE;
+    }
+
     public void TurnToBlack()
     {
         StartCoroutine(TurningToBlack());
-        snowballHolder.SetActive(false);
     }
 
     public void StartFlashing()
@@ -102,12 +129,12 @@ public class SnowmanScript : MonoBehaviour
     {
         float flashTime = snowpantsAnimator.GetCurrentAnimatorStateInfo(0).length;
         bool flashing = false;
-        timer = 0;
+        chargeTimer = 0;
         float flashTimer = 0;
 
-        while (timer < flashTime)
+        while (chargeTimer < flashTime)
         {
-            timer += Time.deltaTime;
+            chargeTimer += Time.deltaTime;
             flashTimer += Time.deltaTime;
 
             if (flashTimer >= flashTimeRate)
@@ -131,9 +158,10 @@ public class SnowmanScript : MonoBehaviour
 
     IEnumerator TurningToBlack()
     {
+        snowballHolder.SetActive(false);
         Color snowPantsColor = snowPantsRenderer.material.color;
         float animTime = (snowpantsAnimator.GetCurrentAnimatorStateInfo(0).length * 0.2f);
-        timer = 0;
+        float timer = 0;
 
         Debug.Log("Turn To Black");
         while (timer < animTime)
