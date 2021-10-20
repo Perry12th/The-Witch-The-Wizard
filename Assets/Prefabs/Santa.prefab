@@ -1552,9 +1552,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3708620016890260589}
   - component: {fileID: 3708620016890260591}
-  - component: {fileID: 3708620016890260590}
+  - component: {fileID: 9087664980604517392}
   m_Layer: 9
-  m_Name: SantaVisualBox
+  m_Name: SantaVisualSense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1587,7 +1587,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3708620016890260590
+--- !u!114 &9087664980604517392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1596,11 +1596,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3708620016890260588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2b75c3a3b7bd05479b6fae446af135e, type: 3}
+  m_Script: {fileID: 11500000, guid: 814414a6ac7a84d4b9cfdef750cfbe85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  santa: {fileID: 5557793989159798831}
-  pumpkin: {fileID: 0}
 --- !u!1 &3708620017108118290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,11 +2088,12 @@ MonoBehaviour:
   path: {fileID: 0}
   projPosition: {fileID: 3708620017108118290}
   animator: {fileID: 5557793989159798825}
-  rigidbody: {fileID: 5557793989159798830}
+  rigBody: {fileID: 5557793989159798830}
   runSpeed: 10
   life: 4
   attackCooldownTime: 1
-  isPlayerInRange: 0
+  santaCoat: {fileID: 0}
+  playerSpotter: {fileID: 9087664980604517392}
 --- !u!95 &5557793989159798825
 Animator:
   serializedVersion: 3

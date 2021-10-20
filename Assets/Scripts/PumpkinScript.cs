@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PumpkinScript : MonoBehaviour
+public class PumpkinScript : MonoBehaviour, IDamagable
 {
     [SerializeField]
     private GameObject path;
@@ -27,11 +27,12 @@ public class PumpkinScript : MonoBehaviour
     private Color deathColor;
     [SerializeField]
     private float flashTimeRate = 0.2f;
+    [SerializeField]
+    private PlayerSpotter playerSpotter;
     private float timer = 0;
     private PumpkinStates pumpkinState = PumpkinStates.MOVING;
-    public bool playerWithinRange;
-    public bool outsidePath = false;
-    public bool mustPerformFlip = false;
+    private bool outsidePath = false;
+    private bool mustPerformFlip = false;
     private enum PumpkinStates
     {
         IDLE,
@@ -50,7 +51,7 @@ public class PumpkinScript : MonoBehaviour
 
     private void Update()
     {
-        if (playerWithinRange && life > 0 && !animator.GetCurrentAnimatorStateInfo(0).IsName("Pumpkin_Attack"))
+        if (playerSpotter.playerWithinRange && life > 0 && pumpkinState != PumpkinStates.ATTACKING)
         {
             AttackPlayer();
         }
@@ -68,23 +69,6 @@ public class PumpkinScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("FireBall"))
-        {
-            Destroy(collision.gameObject);
-            life--;
-
-            if (life <= 0 && pumpkinState != PumpkinStates.DYING)
-            {
-                pumpkinState = PumpkinStates.DYING;
-                animator.SetTrigger("Death");
-            }
-            else if (life > 0)
-            {
-                animator.SetTrigger("Hurt");
-                pumpkinState = PumpkinStates.HURTING;
-            }
-        }
-
         if (collision.gameObject.CompareTag("Player"))
         {
             if (life > 0)
@@ -116,7 +100,9 @@ public class PumpkinScript : MonoBehaviour
 
     public void FinishFlip()
     {
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);
+        //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);
+        transform.Rotate(Vector2.up, 180.0f);
+        //animator.enabled = false;
         mustPerformFlip = false;
         if (life > 0)
         {
@@ -126,19 +112,19 @@ public class PumpkinScript : MonoBehaviour
 
     public void ReturnToMoving()
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         if (mustPerformFlip)
         {
             pumpkinState = PumpkinStates.FLIPPING;
             animator.SetTrigger("Flip");
             return;
         }
-        else if (!playerWithinRange)
+        else 
         {
             animator.SetTrigger("Move");
-        }
             pumpkinState = PumpkinStates.MOVING;
-        
+        }
+          
     }
 
 
@@ -222,6 +208,22 @@ public class PumpkinScript : MonoBehaviour
             candleRenderer.material.SetColor("_Color", Color.Lerp(candleStartColor, deathColor, timer / animTime));
 
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    public void ApplyDamage(int damageTaken = 1)
+    {
+        life -= damageTaken;
+
+        if (life <= 0 && pumpkinState != PumpkinStates.DYING)
+        {
+            pumpkinState = PumpkinStates.DYING;
+            animator.SetTrigger("Death");
+        }
+        else if (life > 0)
+        {
+            animator.SetTrigger("Hurt");
+            pumpkinState = PumpkinStates.HURTING;
         }
     }
 }

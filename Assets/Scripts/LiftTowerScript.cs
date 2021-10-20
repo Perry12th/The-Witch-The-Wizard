@@ -8,7 +8,7 @@ public class LiftTowerScript : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
-    private Light light;
+    private Light towerLight;
     [SerializeField]
     private Color greenLight;
     [SerializeField]
@@ -20,7 +20,7 @@ public class LiftTowerScript : MonoBehaviour
     {
         if (!isPowered)
         {
-            light.enabled = true;
+            towerLight.enabled = true;
             animator.enabled = true;
         }
 
@@ -31,7 +31,7 @@ public class LiftTowerScript : MonoBehaviour
     {
         if (isPowered)
         {
-            light.enabled = false;
+            towerLight.enabled = false;
             animator.enabled = false;
         }
 
@@ -44,11 +44,11 @@ public class LiftTowerScript : MonoBehaviour
 
         if (isGoingLeft)
         {
-            light.color = greenLight;
+            towerLight.color = greenLight;
         } 
         else
         {
-            light.color = redLight;
+            towerLight.color = redLight;
         }
     }
 

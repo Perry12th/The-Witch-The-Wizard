@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SantaScript : MonoBehaviour
+public class SantaScript : MonoBehaviour, IDamagable
 {
     [SerializeField]
     private GameObject snowballPrefab;
@@ -13,7 +13,7 @@ public class SantaScript : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
-    private Rigidbody rigidbody;
+    private Rigidbody rigBody;
     [SerializeField]
     private float runSpeed;
     [SerializeField]
@@ -22,8 +22,9 @@ public class SantaScript : MonoBehaviour
     private float attackCooldownTime = 1.0f;
     [SerializeField]
     private GameObject santaCoat;
+    [SerializeField]
+    private PlayerSpotter playerSpotter;
     private bool canAttack = true;
-    public bool isPlayerInRange;
     private bool outsidePath = false;
     private SantaStates santaState = SantaStates.MOVING;
 
@@ -59,50 +60,33 @@ public class SantaScript : MonoBehaviour
             {
                 outsidePath = false;
                 santaState = SantaStates.FLIPPING;
-                rigidbody.velocity = Vector3.zero;
+                rigBody.velocity = Vector3.zero;
                 animator.SetTrigger("Turn");
             }
-            else if (isPlayerInRange && santaState != SantaStates.ATTACKING && santaState != SantaStates.FLIPPING && !canAttack && !animator.GetCurrentAnimatorStateInfo(0).IsName("SantaIdle"))
+            else if (playerSpotter.playerWithinRange && santaState != SantaStates.ATTACKING && santaState != SantaStates.FLIPPING && !canAttack && !animator.GetCurrentAnimatorStateInfo(0).IsName("SantaIdle"))
             {
                 animator.SetTrigger("Idle");
                 santaState = SantaStates.IDLE;
-                rigidbody.velocity = Vector3.zero;
+                rigBody.velocity = Vector3.zero;
             }
             else if ((santaState == SantaStates.MOVING))
             {
-                rigidbody.velocity = runSpeed * transform.forward;
+                rigBody.velocity = runSpeed * transform.forward;
             }
         }
         else
         {
-            rigidbody.velocity = Vector3.zero;
+            rigBody.velocity = Vector3.zero;
         }
 
-        animator.SetFloat("Speed", rigidbody.velocity.magnitude);
+        animator.SetFloat("Speed", rigBody.velocity.magnitude);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("FireBall"))
-        {
-            Destroy(collision.gameObject);
-            life--;
-
-            if (life == 0)
-            {
-                animator.SetTrigger("Death");
-                santaState = SantaStates.DYING;
-            }
-            else if (life > 0)
-            {
-                santaState = SantaStates.HURT;
-                animator.SetTrigger("Hit");
-            }
-        }
-
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (life > 0 && collision.gameObject.GetComponent<WitcherScript>().isGrounded)
+            if (life > 0 && collision.gameObject.GetComponent<WitcherScript>().GetIsGround())
             {
                 collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
             }
@@ -120,9 +104,9 @@ public class SantaScript : MonoBehaviour
     public void ClearFlip()
     {
         santaState = SantaStates.MOVING;
-        rigidbody.constraints = RigidbodyConstraints.None;
+        rigBody.constraints = RigidbodyConstraints.None;
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);
-        rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        rigBody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     public void ClearAttack()
@@ -151,5 +135,21 @@ public class SantaScript : MonoBehaviour
     public void OnDeath()
     {
         Destroy(gameObject);
+    }
+
+    public void ApplyDamage(int damageTaken = 1)
+    {
+        life -= damageTaken; 
+
+        if (life == 0)
+        {
+            animator.SetTrigger("Death");
+            santaState = SantaStates.DYING;
+        }
+        else if (life > 0)
+        {
+            santaState = SantaStates.HURT;
+            animator.SetTrigger("Hit");
+        }
     }
 }

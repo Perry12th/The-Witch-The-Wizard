@@ -5,59 +5,95 @@ using DigitalRuby.LightningBolt;
 
 public class WitcherScript : MonoBehaviour
 {
-    public Rigidbody rb;
-    public GameObject snowball;
-    public GameObject fireball;
-    public Transform spawnPoint;
-    public Vector3 checkpoint;
-    public Animator anim;
-    public GameObject model;
-    public CapsuleCollider characterCollider;
-    public PhysicMaterial FrictionMaterial;
-    public PhysicMaterial FrictionLessMaterial;
-    public LayerMask PlayerCollisionMask;
-
-    public AimLineScript aimLine;
-    public LightningBoltScript thunderLine;
-    public float thunderAngle;
-    public Vector3 lastAimLine;
-    public Vector3 hitPoint;
-    public LayerMask aimLineCollisionMask;
-
-    public float speed;
-    public float jumpspeed;
-    public float climbSpeed;
-
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2.5f;
-    public float slipperyFriction;
-
-    public bool lookingRight = true;
-    public bool isJumping;
-    public bool isGrounded = true;
-    public bool isSlippery = false;
-    public bool hasSnowball = false;
-    public bool hasFireball = false;
-    public bool hasLighting = false;
-    public bool canDoubleJump = false;
-    public bool doubleJump = true;
-    public bool isClimbing = false;
-    public bool isAttacking = false;
-    public bool isAiming = false;
-    public bool isShootingLighting = false;
-    public bool canMove = true;
-    public bool isReading = false;
+    [Header("Comp & Object Refs")]
+    [SerializeField]
+    private Rigidbody rb;
+    [SerializeField]
+    private GameObject snowball;
+    [SerializeField]
+    private GameObject fireball;
+    [SerializeField]
+    private Transform spawnPoint;
+    [SerializeField]
+    private Animator anim;
+    [SerializeField]
+    private GameObject model;
+    [SerializeField]
+    private CapsuleCollider characterCollider;
+    [SerializeField]
+    private AimLineScript aimLine;
+    [SerializeField]
+    private LightningBoltScript thunderLine;
+    [Header("Mats and Layers")]
+    [SerializeField]
+    private PhysicMaterial FrictionMaterial;
+    [SerializeField]
+    private PhysicMaterial FrictionLessMaterial;
+    [SerializeField]
+    private LayerMask aimLineCollisionMask;
+    [SerializeField]
+    private LayerMask groundCollisionMask;
+    [Header("Movement")]
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float jumpspeed;
+    [SerializeField]
+    private float climbSpeed;
+    [SerializeField]
+    private float fallMultiplier = 2.5f;
+    [SerializeField]
+    private float lowJumpMultiplier = 2.5f;
+    [SerializeField]
+    private float slipperyFriction;
+    [SerializeField]
+    private float maxThunderAngle;
+    [SerializeField]
+    private float groundDistanceCheck = 0.2f;
+    [SerializeField]
+    private float disableGroundCheckTime = 0.2f;
+    [SerializeField]
+    private bool enableFullPower = false;
+    private bool lookingRight = true;
+    private bool isJumping;
+    private bool isGrounded = true;
+    private bool isSlippery = false;
+    private bool hasSnowball = false;
+    private bool hasFireball = false;
+    private bool hasLighting = false;
+    private bool doubleJumpEnabled = false;
+    private bool canDoubleJump = true;
+    private bool canJump = true;
+    private bool isClimbing = false;
+    private bool isAttacking = false;
+    private bool isAiming = false;
+    private bool isShootingLighting = false;
+    private bool canMove = true;
+    private bool isReading = false;
+    private bool performGroundCheck = true;
     private Dialogue dialogue = null;
+    private Vector3 lastAimLine;
+    private Vector3 hitPoint;
+    private Vector3 checkpoint;
+
 
     private void Start()
     {
         checkpoint = transform.position;
+
+        if (enableFullPower)
+        {
+            hasSnowball = true;
+            hasFireball = true;
+            hasLighting = true;
+            doubleJumpEnabled = true;
+        }
     }
 
 
-    void Update()
+    private void Update()
     {
-        if (canMove && !isAttacking && !isAiming && !isShootingLighting)
+        if (canMove && !isAttacking)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -143,51 +179,42 @@ public class WitcherScript : MonoBehaviour
                 isAttacking = true;
             }
 
-            //if (Input.GetKeyDown(KeyCode.F) && hasFireball && !isGrounded)
-            //{
-            //    isAttacking = true;
-            //    ReleaseFireball();
-            //}
-
             if (Input.GetKeyDown(KeyCode.T) && hasLighting && isGrounded)
             {
                 aimLine.gameObject.SetActive(true);
                 isAiming = true;
+                canMove = false;
             }
 
-            if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || doubleJump)))
+            if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || canDoubleJump)))
             {
                 if (!isGrounded)
                 {
-                    doubleJump = false;
+                    StopAllCoroutines();
+                    StartCoroutine(DisableGroundCheck());
+                    canDoubleJump = false;
                     isJumping = true;
-                    isGrounded = false;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
-                    Invoke("ClearJump", 0.5f);
                     anim.SetTrigger("DoubleJump");
                 }
                 else
                 {
+                    StopAllCoroutines();
+                    StartCoroutine(DisableGroundCheck());
                     isJumping = true;
-                    isGrounded = false;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
-                    Invoke("ClearJump", 0.5f);
                     anim.SetTrigger("Jump");
                 }
             }
 
-            if (isGrounded && dialogue != null && dialogue.sentences.Length > 0 && !isReading)
+            if (isGrounded && dialogue != null && dialogue?.sentences.Length > 0 && !isReading)
             {
                 rb.velocity = Vector3.zero;
                 canMove = false;
                 isReading = true;
                 DialogueManager.instance.StartDialogue(dialogue);
                 dialogue = null;
-            }
-
-            
-
-            
+            }  
         }
 
         if (isReading && Input.GetKeyDown(KeyCode.Return))
@@ -222,22 +249,28 @@ public class WitcherScript : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-
-        if (!isShootingLighting)
-        {
-            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-            anim.SetFloat("SpeedY", Mathf.Abs(rb.velocity.y));
-            anim.SetBool("Grounded", isGrounded);
-        }
+        
     }
 
+    private void FixedUpdate()
+    {
+        if (performGroundCheck)
+        {
+            GroundCheck();
+        }
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("SpeedY", Mathf.Abs(rb.velocity.y));
+        anim.SetBool("Grounded", isGrounded);
+    }
     public void FlipLeft()
     {
+        lookingRight = false;
         model.transform.Rotate(Vector3.up, 180);
     }
 
     public void FlipRight()
     {
+        lookingRight = true;
         model.transform.Rotate(Vector3.up, 180);
     }
 
@@ -246,34 +279,44 @@ public class WitcherScript : MonoBehaviour
         isGrounded = ground;
         if (ground)
         {
-            doubleJump = canDoubleJump;
+            isJumping = !ground;
+            anim.ResetTrigger("Jump");
+            anim.ResetTrigger("DoubleJump");
+            canJump = true;
+            canDoubleJump = doubleJumpEnabled;
         }
     }
 
-    //public void SetIsGrounded()
-    //{
-    //    float distanceToPoints = FeetCollider.height / 2 - FeetCollider.radius;
-
-    //    Vector3 startPoint = FeetCollider.center + Vector3.up * distanceToPoints;
-    //    Vector3 endPoint = FeetCollider.center - Vector3.down * distanceToPoints;
-
-    //    RaycastHit raycast = new RaycastHit();
-            
-    //    Physics.CapsuleCast(startPoint, endPoint, FeetCollider.radius, Vector3.down,  out raycast, 0.1f, PlayerCollisionMask);
-
-    //    if (raycast.collider != null)
-    //    {
-    //        Debug.Log(raycast.collider.name)
-    //    }
-    //    if (raycast.collider != null && raycast.collider.CompareTag("Ground"))
-    //    {
-    //        isGrounded = true;
-    //    }
-    //    else
-    //    {
-    //        isGrounded = false;
-    //    }
-    //}
+    private void GroundCheck()
+    {
+        RaycastHit raycastHit;
+        Color rayColor;
+        // Physics.BoxCast(groundCheckBox.bounds.center, groundCheckBox.bounds.size, Vector3.down, out raycastHit, Quaternion.identity, groundDistanceCheck, groundCollisionMask);
+        Physics.Raycast(characterCollider.bounds.center, Vector3.down, out raycastHit, groundDistanceCheck, groundCollisionMask);
+        if (raycastHit.collider != null)
+        {
+            SetGrounded(true);
+            //Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, raycastHit.normal);
+            //Vector3 adjustedVelocity = slopeRotation * rb.velocity;
+            //if (adjustedVelocity.y < Mathf.Epsilon)
+            //{
+            //    rb.velocity = adjustedVelocity;
+            //}
+            if (!isClimbing && Mathf.Abs(rb.velocity.x) > 1.0f)
+            {
+                Vector3 adjustedVelocity = Vector3.ProjectOnPlane(rb.velocity, raycastHit.normal);
+                rb.velocity = adjustedVelocity;
+                //rayColor = Color.green;
+                Debug.DrawRay(raycastHit.point, raycastHit.normal, Color.green);
+            }
+        }
+        else
+        {
+            SetGrounded(false);        
+            //rayColor = Color.red;
+        }
+        //Debug.DrawRay(characterCollider.bounds.center, Vector3.down * groundDistanceCheck, rayColor);
+    }
 
     public void PlayerDeath()
     {
@@ -294,17 +337,6 @@ public class WitcherScript : MonoBehaviour
 
     public void ReleaseFireball()
     {
-        //if (!lookingRight)
-        //{
-        //    GameObject newBall = Instantiate(fireball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
-        //    newBall.transform.Rotate(Vector3.up, 180);
-        //}
-        //else
-        //{
-        //    GameObject newBall = Instantiate(fireball, Vector3.up * spawnPoint.position.y + Vector3.forward * fireball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
-        //}
-
-        //Debug.Log("ReleaseFireball");
         GameObject newBall = Instantiate(fireball, spawnPoint.transform.position, lookingRight ? fireball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 
@@ -351,7 +383,7 @@ public class WitcherScript : MonoBehaviour
         else
         if (other.CompareTag("WindElement"))
         {
-            canDoubleJump = true;
+            doubleJumpEnabled = true;
             Destroy(other.gameObject);
         }
         else 
@@ -383,51 +415,10 @@ public class WitcherScript : MonoBehaviour
             PlayerDeath();
         }
 
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            if (Vector2.Angle(Vector2.up, collision.GetContact(0).normal) <= 45f)
-            {
-                SetGrounded(true);
-            }
-        }
         if(collision.gameObject.CompareTag("Lava"))
         {
             PlayerDeath();
         }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            if (Vector2.Angle(Vector2.up, collision.GetContact(0).normal) <= 80f)
-            {
-                SetGrounded(true);
-            }
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            if (!isClimbing & rb.velocity.y > 0f && !isJumping)
-            {
-                rb.velocity = (Vector3.up * 0) + rb.velocity.x * Vector3.right;
-            }
-            else
-            {
-                SetGrounded(false);
-            }
-        }
-    }
-    
-
-
-    public void ClearJump()
-    {
-        anim.ResetTrigger("Jump");
-        isJumping = false;
     }
 
     private void AimingThunder()
@@ -445,12 +436,23 @@ public class WitcherScript : MonoBehaviour
         {
             mousePos = model.transform.forward * 1.5f;
         }
+        // Check if the mousePosition is in front or behind the player
+        if (mousePos.x < transform.position.x && lookingRight)
+        {
+            FlipLeft();
+        }
+        else if (mousePos.x > transform.position.x && !lookingRight)
+        {
+            FlipRight();
+        }
+
         //mousePos.z = model.transform.position.z;
         //mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         //Debug.Log(mousePos);
 
         // Get the forward vector of the player
         Vector3 forwardVector = model.transform.forward;
+        
         if (lastAimLine == Vector3.zero)
             lastAimLine = forwardVector;
 
@@ -465,10 +467,11 @@ public class WitcherScript : MonoBehaviour
         // Get the angle between forward player and shooting line
         float angleBetween = Vector2.Angle(forwardVector, thunderShootingLine);
 
-        if (angleBetween <= thunderAngle)
+        // Check if the angle is in the maxThunderAngle
+        if (angleBetween <= maxThunderAngle)
         {
             lastAimLine = thunderShootingLine;
-        }          
+        }   
 
         // Perform Ray hit against the edges of the screen
         Ray ray = new Ray(aimLine.transform.position, lastAimLine);
@@ -499,6 +502,14 @@ public class WitcherScript : MonoBehaviour
          aimLine.SetEndPoint(hitPoint);    
     }
 
+    private IEnumerator DisableGroundCheck()
+    {
+        performGroundCheck = false;
+        yield return new WaitForSeconds(disableGroundCheckTime);
+        performGroundCheck = true;
+    }
+
+
     public void FireLighting()
     {
         thunderLine.gameObject.SetActive(true);
@@ -513,6 +524,13 @@ public class WitcherScript : MonoBehaviour
             if (electrical != null)
             {
                 electrical.OnPowered();
+                return;
+            }
+            IDamagable damagable = hit.collider.gameObject.GetComponent<IDamagable>();
+            if (damagable != null)
+            {
+                damagable.ApplyDamage();
+                return;
             }
         }
     }
@@ -522,19 +540,11 @@ public class WitcherScript : MonoBehaviour
         thunderLine.gameObject.SetActive(false);
         characterCollider.material = FrictionLessMaterial;
         isShootingLighting = false;
+        canMove = true;
     }
 
     public void FireSnowBall()
     {
-        //if (!lookingRight)
-        //{
-        //    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPointLeft.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPointLeft.position.x, gameObject.transform.rotation);
-        //    newBall.transform.Rotate(Vector3.up, 180);
-        //}
-        //else
-        //{
-        //    GameObject newBall = Instantiate(snowball, Vector3.up * spawnPoint.position.y + Vector3.forward * snowball.transform.position.z + Vector3.right * spawnPoint.position.x, gameObject.transform.rotation);
-        //}
         GameObject newBall = Instantiate(snowball, spawnPoint.transform.position, lookingRight? snowball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 
@@ -549,4 +559,25 @@ public class WitcherScript : MonoBehaviour
     {
         dialogue = newDialogue;
     }
+
+    public Rigidbody GetRigidBody()
+    {
+        return rb;
+    }
+
+    public bool GetIsGround()
+    {
+        return isGrounded;
+    }
+
+    public GameObject GetPlayerModel()
+    {
+        return model;
+    }
+
+    public bool GetIsLookingRight()
+    {
+        return lookingRight;
+    }
+
 }

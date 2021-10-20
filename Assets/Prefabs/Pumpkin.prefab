@@ -1400,8 +1400,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5923594514323887546}
-  - component: {fileID: 5923594514323887547}
   - component: {fileID: 5923594514323887544}
+  - component: {fileID: 7453076671826527865}
   m_Layer: 9
   m_Name: PumpkinVisualSense
   m_TagString: Untagged
@@ -1423,20 +1423,6 @@ Transform:
   m_Father: {fileID: 6912874579420719491}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5923594514323887547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5923594514323887541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2b75c3a3b7bd05479b6fae446af135e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  santa: {fileID: 0}
-  pumpkin: {fileID: 6099182732141884222}
 --- !u!65 &5923594514323887544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1450,6 +1436,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7453076671826527865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923594514323887541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814414a6ac7a84d4b9cfdef750cfbe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5923594514994034734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,8 +1648,7 @@ MonoBehaviour:
   candleLight: {fileID: 5923594515659815358}
   deathColor: {r: 0, g: 0, b: 0, a: 0}
   flashTimeRate: 0.1
-  playerWithinRange: 0
-  outsidePath: 0
+  playerSpotter: {fileID: 7453076671826527865}
 --- !u!65 &6099182732141884220
 BoxCollider:
   m_ObjectHideFlags: 0

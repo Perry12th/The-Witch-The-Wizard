@@ -9,7 +9,9 @@ public class FireballScript : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     [SerializeField]
-    private ParticleSystem particleSystem;
+    private int damage;
+    [SerializeField]
+    private ParticleSystem particleEffects;
     [SerializeField]
     private GameObject particle;
 
@@ -22,14 +24,25 @@ public class FireballScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        ApplyDamage(collision.gameObject);
+        DestroyFireball();
+
+    }
+
+    public void ApplyDamage(GameObject gameObject)
+    {
+        IDamagable damagable = gameObject.GetComponent<IDamagable>();
+        if (damagable != null)
         {
-            //Debug.Log(collision.gameObject.name);
-            //Debug.Log(collision.transform.position);
-            particleSystem.Stop();
-            particle.transform.parent = null;
-            Destroy(particle, 1);
-            Destroy(gameObject);
+            damagable.ApplyDamage(damage);
         }
+
+    }
+    public void DestroyFireball()
+    {
+        particleEffects.Stop();
+        particle.transform.parent = null;
+        Destroy(particle, 1);
+        Destroy(gameObject);
     }
 }

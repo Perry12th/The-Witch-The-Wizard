@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class SnowmanScript : MonoBehaviour
+public class SnowmanScript : MonoBehaviour, IDamagable
 {
     [SerializeField]
     GameObject snowballPrefab;
@@ -52,31 +53,14 @@ public class SnowmanScript : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("FireBall"))
-        {
-            Destroy(collision.gameObject);
-            life--;
-
-            if (life > 0)
+         if (collision.gameObject.CompareTag("Player"))
+         {
+            if (snowpantsState != SnowpantsStates.DYING)
             {
-                snowpantsAnimator.SetTrigger("Hurt");
-                snowballHolder.SetActive(false);
-                snowpantsState = SnowpantsStates.HURTING;
+                collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
             }
-            if (life == 0)
-            {
-                snowpantsState = SnowpantsStates.DYING;
-                snowpantsAnimator.SetTrigger("Death");
-            }
-
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                if (snowpantsState != SnowpantsStates.DYING)
-                {
-                    collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
-                }
-            }
-        }
+         }
+        
     }
 
     private void ChargeUpSnowBall()
@@ -171,4 +155,22 @@ public class SnowmanScript : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+
+    public void ApplyDamage(int damageTaken = 1)
+    {
+        life -= damageTaken;
+
+        if (life > 0)
+        {
+            snowpantsAnimator.SetTrigger("Hurt");
+            snowballHolder.SetActive(false);
+            snowpantsState = SnowpantsStates.HURTING;
+        }
+        if (life == 0)
+        {
+            snowpantsState = SnowpantsStates.DYING;
+            snowpantsAnimator.SetTrigger("Death");
+        }
+    }
+
 }

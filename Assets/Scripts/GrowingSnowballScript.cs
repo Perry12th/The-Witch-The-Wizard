@@ -18,7 +18,7 @@ public class GrowingSnowballScript : MonoBehaviour
 
     public void Start()
     {
-        Destroy(gameObject, 6);
+        Destroy(gameObject, 7);
         rb.velocity = ((gameObject.transform.up + gameObject.transform.right) * -speed);
     }
 

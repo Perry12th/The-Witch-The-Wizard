@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CollectableScript : MonoBehaviour
 {
-    [SerializeField]
-    private float amplitude = 0.2f;
+    //[SerializeField]
+    //private float amplitude = 0.2f;
     [SerializeField]
     private float frequency = 1.0f;
     [SerializeField]

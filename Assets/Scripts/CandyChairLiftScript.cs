@@ -18,13 +18,13 @@ public class CandyChairLiftScript : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.lookingRight)
+            if (player.GetIsLookingRight())
             {
-                player.model.transform.eulerAngles = new Vector3(0, 90.0f, 0);
+                player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 90.0f, 0);
             }
             else
             {
-                player.model.transform.eulerAngles = new Vector3(0, 270.0f, 0);
+                player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 270.0f, 0);
             }
         }
     }
@@ -38,24 +38,26 @@ public class CandyChairLiftScript : MonoBehaviour
 
             player = witcher;
             player.transform.parent = transform;
+            player.GetRigidBody().useGravity = false;
         }
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject == player.gameObject)
         {
             if (player != null)
             {
                 player.transform.parent = null;
+                player.GetRigidBody().useGravity = true;
                 //player.canMove = true;
-                if (player.lookingRight)
+                if (player.GetIsLookingRight())
                 {
-                    player.model.transform.eulerAngles = new Vector3(0, 90.0f, 0);
+                    player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 90.0f, 0);
                 }
                 else
                 {
-                    player.model.transform.eulerAngles = new Vector3(0, 270.0f, 0);
+                    player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 270.0f, 0);
                 }
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, zCorrection);
                 player = null;

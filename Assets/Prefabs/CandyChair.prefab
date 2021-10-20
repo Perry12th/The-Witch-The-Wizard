@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 53522083899526145}
   - component: {fileID: 9018617928069974025}
   - component: {fileID: 3466453888754157320}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CandyChairModel
   m_TagString: Ground
   m_Icon: {fileID: 0}

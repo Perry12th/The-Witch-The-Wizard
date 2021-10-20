@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreasureScript : MonoBehaviour
+public class TreasureScript : MonoBehaviour, IDamagable
 {
     [SerializeField]
     private Animator anim;
@@ -13,16 +13,23 @@ public class TreasureScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("FireBall"))
+        FireballScript fireball = other.GetComponent<FireballScript>();
+
+        if (fireball != null)
         {
-            life--;
-            anim.SetTrigger("Hit");
-            Destroy(other.gameObject);
-            if (life <= 0)
-            {
-                Instantiate(drop, gameObject.transform.position, gameObject.transform.rotation);
-                Destroy(gameObject);
-            }
+            fireball.ApplyDamage(gameObject);
+            fireball.DestroyFireball();
+        }
+    }
+
+    public void ApplyDamage(int damageTaken = 1)
+    {
+        life -= damageTaken;
+        anim.SetTrigger("Hit");
+        if (life <= 0)
+        {
+            Instantiate(drop, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
         }
     }
 }

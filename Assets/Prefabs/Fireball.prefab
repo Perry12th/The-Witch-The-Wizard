@@ -4945,5 +4945,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   rb: {fileID: 9087989135458950567}
-  particleSystem: {fileID: 8544585554214897259}
+  damage: 1
+  particleEffects: {fileID: 8544585554214897259}
   particle: {fileID: 5464376212115714944}

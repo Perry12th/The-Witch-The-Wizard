@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8149324091336506459}
   - component: {fileID: 346398346955371683}
   - component: {fileID: 4940175507857101642}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IcePlat
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5599223779795542871}
   - component: {fileID: 7688760421031612688}
   - component: {fileID: 7961026031585168783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
