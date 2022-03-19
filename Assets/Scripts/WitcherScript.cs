@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DigitalRuby.LightningBolt;
 
-public class WitcherScript : MonoBehaviour
+public class WitcherScript : MonoBehaviour, IDamagable
 {
     [Header("Comp & Object Refs")]
     [SerializeField]
@@ -24,6 +25,8 @@ public class WitcherScript : MonoBehaviour
     private AimLineScript aimLine;
     [SerializeField]
     private LightningBoltScript thunderLine;
+    [SerializeField]
+    private GameObject pauseMenu;
     [Header("Mats and Layers")]
     [SerializeField]
     private PhysicMaterial FrictionMaterial;
@@ -37,7 +40,7 @@ public class WitcherScript : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private float jumpspeed;
+    private float jumpSpeed;
     [SerializeField]
     private float climbSpeed;
     [SerializeField]
@@ -52,6 +55,36 @@ public class WitcherScript : MonoBehaviour
     private float groundDistanceCheck = 0.2f;
     [SerializeField]
     private float disableGroundCheckTime = 0.2f;
+    [Header("Life")]
+    private int life;
+    [SerializeField]
+    private int maxLife;
+    [Header("Mana")]
+    private float manaAmount;
+    [SerializeField]
+    private float maxMana;
+    [SerializeField]
+    private float manaRegenRate = 1.0f;
+    [Header("UI")]
+    [SerializeField]
+    private Sprite fullHeartSprite;
+    [SerializeField]
+    private Sprite emptyHeartSprite;
+    private List<Image> hearts = new List<Image>();
+    [SerializeField]
+    private GameObject heartImagePrefab;
+    [SerializeField]
+    private TMPro.TextMeshProUGUI candyAmountText;
+    private int candyAmount;
+    private int candyDisplayedAmount;
+    [SerializeField]
+    private float candyDisplayUpdateTime = 3; // How much time the candy display takes to update to the new candy amount;
+    [SerializeField]
+    private GameObject healthUI;
+    [SerializeField]
+    private GameObject candyUI;
+    [SerializeField]
+    private GameObject manaUI;
     [SerializeField]
     private bool enableFullPower = false;
     private bool lookingRight = true;
@@ -70,16 +103,22 @@ public class WitcherScript : MonoBehaviour
     private bool isShootingLighting = false;
     private bool canMove = true;
     private bool isReading = false;
+    //private bool canTakeDamage = true;
     private bool performGroundCheck = true;
-    private Dialogue dialogue = null;
+    private Conversation conversation = null;
     private Vector3 lastAimLine;
     private Vector3 hitPoint;
     private Vector3 checkpoint;
+    public Vector3 currentVelocity;
 
 
     private void Start()
     {
         checkpoint = transform.position;
+        life = maxLife;
+        manaAmount = 0; 
+        UpdateHealthUI();
+        pauseMenu.SetActive(false);
 
         if (enableFullPower)
         {
@@ -87,6 +126,7 @@ public class WitcherScript : MonoBehaviour
             hasFireball = true;
             hasLighting = true;
             doubleJumpEnabled = true;
+            canTakeDamage = false;
         }
     }
 
@@ -95,6 +135,19 @@ public class WitcherScript : MonoBehaviour
     {
         if (canMove && !isAttacking)
         {
+            RegenMana();
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                if (pauseMenu.activeSelf)
+                {
+                    ExitPauseMenu();
+                }
+                else
+                {
+                    EnterPauseMenu();
+                }
+            }
             if (Input.GetKey(KeyCode.A))
             {
                 if (lookingRight && !isClimbing)
@@ -117,7 +170,14 @@ public class WitcherScript : MonoBehaviour
             {
                 if (!isSlippery)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                    if (rb.velocity.y > 0 && isGrounded && !Input.GetKey(KeyCode.Space))
+                    {
+                        rb.velocity = new Vector3(0, 0, 0);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                    }
                 }
                 else
                 {
@@ -194,7 +254,8 @@ public class WitcherScript : MonoBehaviour
                     StartCoroutine(DisableGroundCheck());
                     canDoubleJump = false;
                     isJumping = true;
-                    rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
+                    rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
+                    //rb.velocity += Vector3.up * jumpSpeed;
                     anim.SetTrigger("DoubleJump");
                 }
                 else
@@ -202,26 +263,28 @@ public class WitcherScript : MonoBehaviour
                     StopAllCoroutines();
                     StartCoroutine(DisableGroundCheck());
                     isJumping = true;
-                    rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpspeed;
+                    rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
                     anim.SetTrigger("Jump");
                 }
             }
 
-            if (isGrounded && dialogue != null && dialogue?.sentences.Length > 0 && !isReading)
+            if (isGrounded && conversation != null && conversation?.DialogueV2s.Length > 0 && !isReading)
             {
                 rb.velocity = Vector3.zero;
                 canMove = false;
                 isReading = true;
-                DialogueManager.instance.StartDialogue(dialogue);
-                dialogue = null;
+                HideUI();
+                DialogueManager.instance.StartConversation(conversation);
+                conversation = null;
             }  
         }
 
         if (isReading && Input.GetKeyDown(KeyCode.Return))
         {
-             DialogueManager.instance.AdvanceSentence();
+             DialogueManager.instance.AdvanceDialouge();
              if (!DialogueManager.instance.isOpen)
              {
+                 ShowUI();
                  isReading = false;
                  canMove = true;
              }
@@ -241,14 +304,7 @@ public class WitcherScript : MonoBehaviour
             }
         }
 
-        if (rb.velocity.y < 0 && !isGrounded)
-        {
-            rb.velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump") && !isGrounded)
-        {
-            rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+        
         
     }
 
@@ -258,6 +314,16 @@ public class WitcherScript : MonoBehaviour
         {
             GroundCheck();
         }
+
+        if (rb.velocity.y < 0 && !isGrounded)
+        {
+            rb.velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump") && !isGrounded)
+        {
+            rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         anim.SetFloat("SpeedY", Mathf.Abs(rb.velocity.y));
         anim.SetBool("Grounded", isGrounded);
@@ -290,7 +356,6 @@ public class WitcherScript : MonoBehaviour
     private void GroundCheck()
     {
         RaycastHit raycastHit;
-        Color rayColor;
         // Physics.BoxCast(groundCheckBox.bounds.center, groundCheckBox.bounds.size, Vector3.down, out raycastHit, Quaternion.identity, groundDistanceCheck, groundCollisionMask);
         Physics.Raycast(characterCollider.bounds.center, Vector3.down, out raycastHit, groundDistanceCheck, groundCollisionMask);
         if (raycastHit.collider != null)
@@ -302,20 +367,18 @@ public class WitcherScript : MonoBehaviour
             //{
             //    rb.velocity = adjustedVelocity;
             //}
+            currentVelocity = rb.velocity;
             if (!isClimbing && Mathf.Abs(rb.velocity.x) > 1.0f)
             {
                 Vector3 adjustedVelocity = Vector3.ProjectOnPlane(rb.velocity, raycastHit.normal);
                 rb.velocity = adjustedVelocity;
-                //rayColor = Color.green;
-                Debug.DrawRay(raycastHit.point, raycastHit.normal, Color.green);
             }
+
         }
         else
         {
             SetGrounded(false);        
-            //rayColor = Color.red;
         }
-        //Debug.DrawRay(characterCollider.bounds.center, Vector3.down * groundDistanceCheck, rayColor);
     }
 
     public void PlayerDeath()
@@ -329,9 +392,10 @@ public class WitcherScript : MonoBehaviour
         }
     }
 
-    public void ResetPlayer()
+    public void ResetPlayerToCheckpoint()
     {
         transform.position = checkpoint;
+        RecoverHeath(maxLife);
         canMove = true;
     }
 
@@ -366,7 +430,7 @@ public class WitcherScript : MonoBehaviour
         else
         if (other.CompareTag("DeathZone"))
         {
-            ResetPlayer();
+            ResetPlayerToCheckpoint();
         }
         else
         if (other.CompareTag("Snowflake"))
@@ -410,14 +474,14 @@ public class WitcherScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("TSnowball"))
+        if (collision.gameObject.CompareTag("Lava"))
         {
-            PlayerDeath();
+            ApplyDamage(maxLife);
         }
 
-        if(collision.gameObject.CompareTag("Lava"))
+        if (collision.gameObject.CompareTag("TSnowball"))
         {
-            PlayerDeath();
+            ApplyDamage();
         }
     }
 
@@ -509,6 +573,55 @@ public class WitcherScript : MonoBehaviour
         performGroundCheck = true;
     }
 
+    private void UpdateHealthUI()
+    {
+        if (hearts.Count != maxLife)
+        {
+            int heartDifference = Mathf.Abs(hearts.Count - maxLife);
+            bool requiredMoreHearts = hearts.Count < maxLife;;
+            for (int i = 0;i < heartDifference; i++)
+            {
+                if (requiredMoreHearts) // We need to add hearts to the UI
+                {
+                    Image newHeart = Instantiate(heartImagePrefab).GetComponent<Image>();
+                    newHeart.gameObject.transform.SetParent(healthUI.transform, false);
+                    hearts.Add(newHeart);
+                }
+                else // We need to remove hearts from the UI
+                {
+                    Destroy(hearts[hearts.Count - 1]);
+                }
+            }
+        }
+
+        for (int i = 0; i < maxLife; i++)
+        {
+            if (i < life)
+            {
+                hearts[i].sprite = fullHeartSprite;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeartSprite;
+            }
+
+            if (i < maxLife)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+    }
+
+    private void RecoverHeath(int amount)
+    {
+        life += amount;
+        life = Mathf.Clamp(life, 0, maxLife);
+        UpdateHealthUI();
+    }
 
     public void FireLighting()
     {
@@ -555,9 +668,9 @@ public class WitcherScript : MonoBehaviour
         characterCollider.material = FrictionLessMaterial;
     }
 
-    public void SetDialogue(Dialogue newDialogue)
+    public void SetDialogue(Conversation newConversation)
     {
-        dialogue = newDialogue;
+        conversation = newConversation;
     }
 
     public Rigidbody GetRigidBody()
@@ -580,4 +693,92 @@ public class WitcherScript : MonoBehaviour
         return lookingRight;
     }
 
+    public void ExitPauseMenu()
+    {
+        GameManager.instance.UnPauseGame();
+        ShowUI();
+        pauseMenu.SetActive(false);
+        canMove = true;
+    }
+
+    public void EnterPauseMenu()
+    {
+        GameManager.instance.PauseGame();
+        HideUI();
+        pauseMenu.SetActive(true);
+        canMove = false;
+    }
+
+    public void ApplyDamage(int damageTaken = 1)
+    {
+        life -= damageTaken;
+        life = Mathf.Clamp(life, 0, maxLife);
+        UpdateHealthUI();
+
+        if (life <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+
+    public void GainCandy(int candyIncrease)
+    {
+        Debug.Log("GainCandy" + candyIncrease);
+        StopCoroutine(IncreaseDisaplyedCandyAmount());
+        candyAmount += candyIncrease;
+        if (candyIncrease <= 5)
+        {
+            candyDisplayedAmount = candyAmount;
+            candyAmountText.text = candyDisplayedAmount.ToString();
+        }
+        else
+        {
+            StartCoroutine(IncreaseDisaplyedCandyAmount());
+        }
+    }
+
+    private IEnumerator IncreaseDisaplyedCandyAmount()
+    {
+        float timer = 0;
+        int intialCandyDisplayAmount = candyDisplayedAmount;
+
+        while (timer < candyDisplayUpdateTime)
+        {
+            timer += Time.deltaTime;
+            candyDisplayedAmount = (int)Mathf.Lerp(intialCandyDisplayAmount, candyAmount, timer / candyDisplayUpdateTime);
+            candyAmountText.text = candyDisplayedAmount.ToString();
+            yield return new WaitForEndOfFrame();
+        }
+        
+    }
+
+    private void RegenMana()
+    {
+        manaAmount += manaRegenRate * Time.deltaTime;
+        manaAmount = Mathf.Clamp(manaAmount, 0, maxMana);
+    }
+
+    public float GetManaAmount()
+    {
+        return manaAmount;
+    }
+
+    public float GetMaxMana()
+    {
+        return maxMana; 
+    }
+
+    private void HideUI()
+    {
+        manaUI.SetActive(false);
+        healthUI.SetActive(false);
+        candyUI.SetActive(false);
+    }
+
+    private void ShowUI()
+    {
+        manaUI.SetActive(true);
+        healthUI.SetActive(true);   
+        candyUI.SetActive(true);
+    }
 }

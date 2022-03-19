@@ -73,7 +73,7 @@ public class PumpkinScript : MonoBehaviour, IDamagable
         {
             if (life > 0)
             {
-                collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
+                collision.gameObject.GetComponent<WitcherScript>().ApplyDamage();
             }
         }
     }

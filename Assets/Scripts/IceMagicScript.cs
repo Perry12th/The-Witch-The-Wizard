@@ -19,7 +19,7 @@ public class IceMagicScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
+            collision.gameObject.GetComponent<WitcherScript>().ApplyDamage();
         }
         Destroy(gameObject);
     }

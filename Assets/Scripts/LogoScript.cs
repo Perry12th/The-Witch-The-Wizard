@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LogoScript : MonoBehaviour
 {
+    [SerializeField]
+    private string nextSceneName;
    public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        GameManager.instance.SwitchScenes(nextSceneName);
     }
 }

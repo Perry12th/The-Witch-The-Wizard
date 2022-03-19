@@ -88,7 +88,7 @@ public class SantaScript : MonoBehaviour, IDamagable
         {
             if (life > 0 && collision.gameObject.GetComponent<WitcherScript>().GetIsGround())
             {
-                collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
+                collision.gameObject.GetComponent<WitcherScript>().ApplyDamage();
             }
         }
     }

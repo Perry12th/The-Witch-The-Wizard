@@ -5,16 +5,14 @@ using UnityEngine;
 public class FeetScript : MonoBehaviour
 {
     [SerializeField]
-    WitcherScript ws;
-
-
+    WitcherScript witcher;
 
     private void OnTriggerStay(Collider collision)
     {
         Debug.Log("Stay");
         if (collision.gameObject.CompareTag("Ground"))
         {
-            ws.SetGrounded(true);
+            witcher.SetGrounded(true);
         }
     }
 
@@ -23,7 +21,7 @@ public class FeetScript : MonoBehaviour
         Debug.Log("Enter");
         if (collision.gameObject.CompareTag("Ground"))
         {
-            ws.SetGrounded(true);
+            witcher.SetGrounded(true);
         }
     }
 
@@ -32,8 +30,8 @@ public class FeetScript : MonoBehaviour
         Debug.Log("Exit");
         if (collision.gameObject.CompareTag("Ground"))
         {
-            ws.SetGrounded(false);
-            ws.Recover();
+            witcher.SetGrounded(false);
+            witcher.Recover();
         }
     }
 

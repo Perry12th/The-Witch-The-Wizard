@@ -3,7 +3,6 @@
 public class AimLineScript : MonoBehaviour
 {
     private LineRenderer lineRenderer = null;
-    public LineRenderer LineRenderer => lineRenderer;
 
     private void Awake()
     {

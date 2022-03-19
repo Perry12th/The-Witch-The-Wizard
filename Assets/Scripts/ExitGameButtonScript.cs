@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class ExitGameButtonScript : MonoBehaviour
 {
-
     public void ExitGame()
     {
         AppHelper.Quit();
     }
-
 }

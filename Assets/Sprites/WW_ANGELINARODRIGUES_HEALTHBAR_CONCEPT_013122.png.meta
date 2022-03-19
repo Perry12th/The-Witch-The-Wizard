@@ -1,0 +1,406 @@
+fileFormatVersion: 2
+guid: ef540fdc5dcbbfb4baa9aa4d2835709e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1134219812768013682
+    second: EmptyHeart
+  - first:
+      213: -8423388280487982071
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_1
+  - first:
+      213: -6093095292832077352
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_2
+  - first:
+      213: 6893252027557730382
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_3
+  - first:
+      213: 3922481400305473924
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_4
+  - first:
+      213: -4983749951446040827
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_5
+  - first:
+      213: 3142719337848377457
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_6
+  - first:
+      213: 4081649191330717762
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_7
+  - first:
+      213: 8707739136390902050
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_8
+  - first:
+      213: -3541435121370703465
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_9
+  - first:
+      213: -913254725766619928
+    second: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EmptyHeart
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 704
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d5f3d09ee8dbf00800000000000000
+      internalID: 1134219812768013682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_1
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 704
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c4358ecfc1a1b80800000000000000
+      internalID: -8423388280487982071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_2
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 704
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9a3202d1af07ba0800000000000000
+      internalID: -6093095292832077352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_3
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 704
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e48d1d17230c9af50800000000000000
+      internalID: 6893252027557730382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_4
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 704
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489d8472d047f6630800000000000000
+      internalID: 3922481400305473924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_5
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 540
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f30bef2d926dab0800000000000000
+      internalID: -4983749951446040827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_6
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 540
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1701431469e2d9b20800000000000000
+      internalID: 3142719337848377457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_7
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 540
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2402703605ee4a830800000000000000
+      internalID: 4081649191330717762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_8
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 540
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221b855eb9a18d870800000000000000
+      internalID: 8707739136390902050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_9
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 540
+        width: 181
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7995b9b358b4adec0800000000000000
+      internalID: -3541435121370703465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_10
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 257
+        width: 998
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecdb316aa77353f0800000000000000
+      internalID: -913254725766619928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

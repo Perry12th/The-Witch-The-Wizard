@@ -7,6 +7,41 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject narratorDialogueBox;
+    [SerializeField]
+    private TextMeshProUGUI narratorDialogueText;
+    [SerializeField]
+    private GameObject narratorContinueTextObject;
+
+    [SerializeField]
+    private GameObject actorDialogueBox;
+    [SerializeField]
+    private Image actorImage;
+    [SerializeField]
+    private TextMeshProUGUI actorDialogueText;
+    [SerializeField]
+    private TextMeshProUGUI actorNameText;
+    [SerializeField]
+    private GameObject actorContinueTextObject;
+    
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private bool instantText = true;
+    [SerializeField]
+    private float letterRate = 10.0f;
+
+    private DialogueType dialogueState = DialogueType.Narrator;
+    private TextMeshProUGUI activeDialogueText;
+    private GameObject activeContinueTextObject;
+    private Queue<Dialogue> dialogues = new Queue<Dialogue>();
+    private Dialogue currentDialouge;
+    private bool isWriting;
+
+    public bool isOpen { get; private set; }
+
     #region Singleton
     public static DialogueManager instance;
 
@@ -16,6 +51,7 @@ public class DialogueManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+
         }
         else
         {
@@ -25,39 +61,26 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField]
-    private TextMeshProUGUI dialogueText;
-    public bool isOpen { get; private set; }
-    private bool isWriting;
-    [SerializeField]
-    private Animator animator;
-    [SerializeField]
-    private GameObject continueTextObject;
-    [SerializeField]
-    private bool instantText = true;
-    [SerializeField]
-    private float letterRate = 10.0f;
+    private void Start()
+    {
+        SwitchDialougeState(DialogueType.Narrator);
+    }
 
-
-    private Queue<string> sentences = new Queue<string>();
-    private string currentSentence;
-    // Start is called before the first frame update
-
-    public void StartDialogue(Dialogue dialogue)
+    public void StartConversation(Conversation conversation)
     {
         animator.SetBool("IsOpen", true);
         isOpen = true;
-        sentences.Clear();
+        dialogues.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach (Dialogue dialogue in conversation.DialogueV2s)
         {
-            sentences.Enqueue(sentence);
+            dialogues.Enqueue(dialogue);
         }
 
-        AdvanceSentence();
+        AdvanceDialouge();
     }
 
-    public void AdvanceSentence()
+    public void AdvanceDialouge()
     {
         if (!instantText)
         {
@@ -65,34 +88,45 @@ public class DialogueManager : MonoBehaviour
             StopAllCoroutines();
             if (isWriting)
             {
-                dialogueText.text = currentSentence;
+                activeDialogueText.text = currentDialouge.sentence;
                 isWriting = false;
-                continueTextObject.SetActive(true);
+                activeContinueTextObject.SetActive(true);
             }
 
             else
             {
-                if (sentences.Count == 0)
+                if (dialogues.Count == 0)
                 {
                     EndDialogue();
                     return;
                 }
-                currentSentence = sentences.Dequeue();
-                continueTextObject.SetActive(false);
-                StartCoroutine(TypeSentence(currentSentence));
+
+                currentDialouge = dialogues.Dequeue();
+                if (currentDialouge != null && currentDialouge.dialogueType != dialogueState)
+                {
+                    SwitchDialougeState(currentDialouge.dialogueType);
+                }
+
+                activeContinueTextObject.SetActive(false);
+                StartCoroutine(TypeSentence(currentDialouge.sentence));
             }
         }
         else
         {
-            if (sentences.Count == 0)
+            if (dialogues.Count == 0)
             {
                 EndDialogue();
                 return;
             }
             else
             {
-                currentSentence = sentences.Dequeue();
-                PrintSentence(currentSentence);
+                currentDialouge = dialogues.Dequeue();
+                if (currentDialouge != null && currentDialouge.dialogueType != dialogueState)
+                {
+                    SwitchDialougeState(currentDialouge.dialogueType);
+                }
+
+                PrintSentence(currentDialouge.sentence);
             }
         }
         
@@ -103,25 +137,63 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         isWriting = true;
-        dialogueText.text = "";
+        activeDialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter;
+            activeDialogueText.text += letter;
             yield return new WaitForSeconds(1.0f / letterRate);
         }
-        continueTextObject.SetActive(true);
+        activeContinueTextObject.SetActive(true);
         isWriting = false;
     }
 
     private void PrintSentence(string sentence)
     {
-        dialogueText.text = sentence;
-        continueTextObject.SetActive(true);
+        activeDialogueText.text = sentence;
+        activeContinueTextObject.SetActive(true);
     }
 
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
         isOpen = false;
+    }
+
+    private void SwitchDialougeState(DialogueType dialogueType)
+    {
+        switch (dialogueState)
+        {
+            case DialogueType.Narrator:
+                narratorDialogueBox.SetActive(false);
+                break;
+
+            case DialogueType.Actor:
+                actorDialogueBox.SetActive(false);
+                break;
+        }
+
+        dialogueState = dialogueType;
+
+        
+
+        switch (dialogueState)
+        {
+            case DialogueType.Narrator:
+                narratorDialogueBox.SetActive(true);
+                activeContinueTextObject = narratorContinueTextObject;
+                activeDialogueText = narratorDialogueText;
+                break;
+
+            case DialogueType.Actor:
+                actorDialogueBox.SetActive(true);
+                activeContinueTextObject = actorContinueTextObject;
+                activeDialogueText = actorDialogueText;
+
+                actorImage.sprite = currentDialouge.actor.actorSprite;
+                actorNameText.text = currentDialouge.actor.actorName;
+                break;
+        }
+
+
     }
 }
