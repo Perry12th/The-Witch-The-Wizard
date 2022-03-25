@@ -14,7 +14,7 @@ public class DoorTeleportScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.position = new Vector3(targetDoor.exitPoint.position.x, targetDoor.exitPoint.position.y, other.transform.position.z); // This is for z-correction and prevent the player from becoming misAligned
+            other.transform.position = new Vector3(targetDoor.exitPoint.position.x, targetDoor.exitPoint.position.y, other.transform.position.z); // This is for z-correction and prevent the player from becoming misaligned
         }
     }
 

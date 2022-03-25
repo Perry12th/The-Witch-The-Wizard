@@ -8,9 +8,19 @@ public class MainMenuScript : MonoBehaviour
     private GameObject startScreen;
     [SerializeField]
     private GameObject creditsScreen;
-    public void StartGame()
+    [SerializeField]
+    private string firstLevel;
+    [SerializeField]
+    private string iceLevel;
+
+    public void LoadFirstLevel()
     {
-        SceneManager.LoadScene("IceLevel");
+        GameManager.instance.SwitchScenes(firstLevel);
+    }
+
+    public void LoadIceLevel()
+    {
+        GameManager.instance.SwitchScenes(iceLevel);
     }
 
     public void OpenStartScreen()

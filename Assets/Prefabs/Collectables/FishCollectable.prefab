@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2044193026033495385}
   - component: {fileID: 2044193026033495386}
   m_Layer: 0
-  m_Name: WW_HolidayCookies_Sketches_Catalina_0 (10)
+  m_Name: FishCollectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c647b96b9ee9d8141b22c325e05ca781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frequency: 1
+  conversation: {fileID: 0}
+  candyAmount: 1
 --- !u!65 &2044193026033495386
 BoxCollider:
   m_ObjectHideFlags: 0

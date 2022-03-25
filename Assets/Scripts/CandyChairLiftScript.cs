@@ -8,23 +8,23 @@ public class CandyChairLiftScript : MonoBehaviour
     private float zCorrection = -8;
     [SerializeField]
     private GameObject candyCaneParent;
-    private WitcherScript player;
     [SerializeField]
     private PathCreation.Examples.PathFollower pathFollower;
     [SerializeField]
     private bool isGoingLeft = true;
+    private WitcherScript witcher;
 
     public void Update()
     {
-        if (player != null)
+        if (witcher != null)
         {
-            if (player.GetIsLookingRight())
+            if (witcher.GetIsLookingRight())
             {
-                player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 90.0f, 0);
+                witcher.GetPlayerModel().transform.eulerAngles = new Vector3(0, 90.0f, 0);
             }
             else
             {
-                player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 270.0f, 0);
+                witcher.GetPlayerModel().transform.eulerAngles = new Vector3(0, 270.0f, 0);
             }
         }
     }
@@ -36,31 +36,31 @@ public class CandyChairLiftScript : MonoBehaviour
         {
             Debug.Log("Entered Seat");
 
-            player = witcher;
-            player.transform.parent = transform;
-            player.GetRigidBody().useGravity = false;
+            this.witcher = witcher;
+            this.witcher.transform.parent = transform;
+            this.witcher.GetRigidBody().useGravity = false;
         }
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == player.gameObject)
+        if (collision.gameObject == witcher.gameObject)
         {
-            if (player != null)
+            if (witcher != null)
             {
-                player.transform.parent = null;
-                player.GetRigidBody().useGravity = true;
+                witcher.transform.parent = null;
+                witcher.GetRigidBody().useGravity = true;
                 //player.canMove = true;
-                if (player.GetIsLookingRight())
+                if (witcher.GetIsLookingRight())
                 {
-                    player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 90.0f, 0);
+                    witcher.GetPlayerModel().transform.eulerAngles = new Vector3(0, 90.0f, 0);
                 }
                 else
                 {
-                    player.GetPlayerModel().transform.eulerAngles = new Vector3(0, 270.0f, 0);
+                    witcher.GetPlayerModel().transform.eulerAngles = new Vector3(0, 270.0f, 0);
                 }
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, zCorrection);
-                player = null;
+                witcher.transform.position = new Vector3(witcher.transform.position.x, witcher.transform.position.y, zCorrection);
+                witcher = null;
             }
             
         }

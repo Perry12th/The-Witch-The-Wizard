@@ -20,6 +20,8 @@ public class SnowmanScript : MonoBehaviour, IDamagable
     [SerializeField]
     private float snowBallgrowSpeed = 0.01f;
     [SerializeField]
+    private float snowballLifeTime = 7.0f;
+    [SerializeField]
     private Color deathColor;
     [SerializeField]
     private Renderer snowPantsRenderer;
@@ -29,7 +31,7 @@ public class SnowmanScript : MonoBehaviour, IDamagable
     private int life = 2;
     [SerializeField]
     private float attackTime = 5.0f;
-    private float chargeTimer = 0.0f;
+    private float timer = 0.0f;
     private SnowpantsStates snowpantsState = SnowpantsStates.IDLE;
 
     private enum SnowpantsStates
@@ -44,8 +46,8 @@ public class SnowmanScript : MonoBehaviour, IDamagable
     {
         if (snowpantsState == SnowpantsStates.IDLE)
         {
-            chargeTimer += Time.deltaTime;
-            if (attackTime < chargeTimer)
+            timer += Time.deltaTime;
+            if (attackTime < timer)
             {
                 ChargeUpSnowBall();
             }
@@ -57,7 +59,7 @@ public class SnowmanScript : MonoBehaviour, IDamagable
          {
             if (snowpantsState != SnowpantsStates.DYING)
             {
-                collision.gameObject.GetComponent<WitcherScript>().PlayerDeath();
+                collision.gameObject.GetComponent<WitcherScript>().ApplyDamage();
             }
          }
         
@@ -80,12 +82,13 @@ public class SnowmanScript : MonoBehaviour, IDamagable
 
     public void SpawnSnowball()
     {
-        chargeTimer = 0;
+        timer = 0;
         snowballHolder.SetActive(false);
         GrowingSnowballScript snowball = Instantiate(snowballPrefab, snowballHolder.transform.position, snowballPrefab.transform.rotation).GetComponent<GrowingSnowballScript>();
         snowball.SetSpeed(startingSnowballSpeed);
         snowball.SetMaxSize(maxSnowBallSize);
         snowball.setGrowthSpeed(snowBallgrowSpeed);
+        snowball.setLifeTimer(snowballLifeTime);
     }
 
     public void DestroySelf()
@@ -113,12 +116,12 @@ public class SnowmanScript : MonoBehaviour, IDamagable
     {
         float flashTime = snowpantsAnimator.GetCurrentAnimatorStateInfo(0).length;
         bool flashing = false;
-        chargeTimer = 0;
+        timer = 0;
         float flashTimer = 0;
 
-        while (chargeTimer < flashTime)
+        while (timer < flashTime)
         {
-            chargeTimer += Time.deltaTime;
+            timer += Time.deltaTime;
             flashTimer += Time.deltaTime;
 
             if (flashTimer >= flashTimeRate)

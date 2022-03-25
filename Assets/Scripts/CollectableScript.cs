@@ -9,7 +9,9 @@ public class CollectableScript : MonoBehaviour
     [SerializeField]
     private float frequency = 1.0f;
     [SerializeField]
-    private Dialogue dialogue;
+    private Conversation conversation;
+    [SerializeField]
+    private int candyAmount = 0;
 
     // Position Storage Variables
     Vector3 posOffest = new Vector3();
@@ -31,9 +33,13 @@ public class CollectableScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (dialogue.sentences.Length > 0)
+            if (conversation != null && conversation.DialogueV2s.Length > 0)
             {
-                other.GetComponent<WitcherScript>().SetDialogue(dialogue);
+                other.GetComponent<WitcherScript>().SetDialogue(conversation);
+            }
+            if (candyAmount > 0)
+            {
+                other.GetComponent<WitcherScript>().GainCandy(candyAmount);
             }
             Destroy(gameObject);
         }

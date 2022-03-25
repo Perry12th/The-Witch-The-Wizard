@@ -12,18 +12,26 @@ public class GrowingSnowballScript : MonoBehaviour
     [SerializeField]
     private float growSpeedThershold = 0.5f;
     [SerializeField]
-    private float growSpeed= 0.01f;
+    private float growSpeed = 0.01f;
     [SerializeField]
     private float maxSize = 6.0f;
+    [SerializeField]
+    private float lifeTime = 7.0f;
+    private float timer = 0.0f;
 
     public void Start()
     {
-        Destroy(gameObject, 7);
         rb.velocity = ((gameObject.transform.up + gameObject.transform.right) * -speed);
     }
 
     public void Update()
     {
+        timer += Time.deltaTime;
+        if (timer > lifeTime)
+        {
+            Destroy(gameObject);
+        }
+
         if(rb.velocity.magnitude > growSpeedThershold)
         {
             if (transform.localScale.x < maxSize)
@@ -61,6 +69,11 @@ public class GrowingSnowballScript : MonoBehaviour
     public void setGrowthSpeed(float newGrowthSpeed)
     {
         growSpeed = newGrowthSpeed;
+    }
+
+    public void setLifeTimer(float newLifeTime)
+    {
+        lifeTime = newLifeTime;
     }
 }
 

@@ -1,5 +1,4 @@
 ﻿//C#
-
 using UnityEngine;
 public static class AppHelper
 {

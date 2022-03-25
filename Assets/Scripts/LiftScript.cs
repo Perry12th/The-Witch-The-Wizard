@@ -13,9 +13,9 @@ public class LiftScript : MonoBehaviour
     [SerializeField]
     private LiftRoofScript liftRoof;
     [SerializeField]
-    private LiftDropPointScript LeftliftDropPoint;
+    private LiftDropPointScript leftliftDropPoint;
     [SerializeField]
-    private LiftDropPointScript RightliftDropPoint;
+    private LiftDropPointScript rightliftDropPoint;
     public bool isPowered = false;
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class LiftScript : MonoBehaviour
         //{
             WitcherScript player = FindObjectOfType<WitcherScript>();
 
-            if (Vector3.Distance(player.transform.position, LeftliftDropPoint.transform.position) > Vector3.Distance(player.transform.position, RightliftDropPoint.transform.position))
+            if (Vector3.Distance(player.transform.position, leftliftDropPoint.transform.position) > Vector3.Distance(player.transform.position, rightliftDropPoint.transform.position))
             {
                 isGoingLeft = true;
             }

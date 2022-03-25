@@ -1,0 +1,694 @@
+fileFormatVersion: 2
+guid: f6c48080d6676ac46a9ce7ea8f789269
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8400604581693718550
+    second: FullHeart
+  - first:
+      213: -5805868452477146396
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_1
+  - first:
+      213: 5171122166277000346
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_2
+  - first:
+      213: -8346207421945940769
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_3
+  - first:
+      213: 2898514798614200732
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_4
+  - first:
+      213: -916249626707114622
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_5
+  - first:
+      213: 3679277827114069642
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_6
+  - first:
+      213: 7182541127024143998
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_7
+  - first:
+      213: 538859226677270813
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_8
+  - first:
+      213: 6578660176198543535
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_9
+  - first:
+      213: -6790391423675541780
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_10
+  - first:
+      213: -3498374885559764634
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_11
+  - first:
+      213: 5586950389654022483
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_12
+  - first:
+      213: 2511322482365687137
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_13
+  - first:
+      213: 8079892360773303928
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_14
+  - first:
+      213: 6348433372468652727
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_15
+  - first:
+      213: 5775595420834993035
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_16
+  - first:
+      213: -6706414382813340852
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_17
+  - first:
+      213: -8846675248613245429
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_18
+  - first:
+      213: -5442945353485907193
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_19
+  - first:
+      213: 8550978139850722497
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_20
+  - first:
+      213: 1661731479661814576
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_21
+  - first:
+      213: 2549061579900128911
+    second: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 3
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FullHeart
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 796
+        width: 152
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef70a924ae0b6b80800000000000000
+      internalID: -8400604581693718550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 796
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eae37d37696d6fa0800000000000000
+      internalID: -5805868452477146396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_2
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 796
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9cc613663483c740800000000000000
+      internalID: 5171122166277000346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_3
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 796
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4fe21e1905c2c80800000000000000
+      internalID: -8346207421945940769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_4
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 796
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91cc933ad7993820800000000000000
+      internalID: 2898514798614200732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_5
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 806
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285c98aa1d3d843f0800000000000000
+      internalID: -916249626707114622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_6
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 806
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8eea1ba0bb6f0330800000000000000
+      internalID: 3679277827114069642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_7
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 806
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e68eca9138da360800000000000000
+      internalID: 7182541127024143998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_8
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 806
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d195a069c996a7700800000000000000
+      internalID: 538859226677270813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_9
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 806
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8a25433981c4b50800000000000000
+      internalID: 6578660176198543535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_10
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 662
+        width: 152
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce6d5f92afea3c1a0800000000000000
+      internalID: -6790391423675541780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_11
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 662
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669ff07a396437fc0800000000000000
+      internalID: -3498374885559764634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_12
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 662
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359ee0947c5d88d40800000000000000
+      internalID: 5586950389654022483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_13
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 662
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165ebddfd720ad220800000000000000
+      internalID: 2511322482365687137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_14
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 662
+        width: 153
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ef8430b4b812070800000000000000
+      internalID: 8079892360773303928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_15
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 675
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7baaa3e448a2a1850800000000000000
+      internalID: 6348433372468652727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_16
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 675
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b831e315f69072050800000000000000
+      internalID: 5775595420834993035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_17
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 675
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b17d3a6a70ee2a0800000000000000
+      internalID: -6706414382813340852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_18
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 675
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0eba2babbb4a3580800000000000000
+      internalID: -8846675248613245429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_19
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 675
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b0c99f906c674b0800000000000000
+      internalID: -5442945353485907193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_20
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 501
+        width: 935
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ccceeb205d2ba670800000000000000
+      internalID: 8550978139850722497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_21
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 110
+        width: 408
+        height: 319
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033a35df9f7af0710800000000000000
+      internalID: 1661731479661814576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_22
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 427
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e0b8c5006106320800000000000000
+      internalID: 2549061579900128911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
