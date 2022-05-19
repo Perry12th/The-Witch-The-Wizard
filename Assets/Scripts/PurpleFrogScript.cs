@@ -23,7 +23,7 @@ private Transform wallCheckPoint;
 [Range(0.1f, 3.0f)]
 [SerializeField]
 private float groundDistanceCheck = 0.5f;
-[Range(0.1f, 3.0f)]
+[Range(0.1f, 10.0f)]
 [SerializeField]
 private float wallDistanceCheck = 1.0f;
 [SerializeField]
@@ -44,7 +44,7 @@ private float jumpTime = 2.0f;
 private bool performJumps;
 [SerializeField]
 private bool facingRight = true;
-private bool playerInRange;
+private bool playerInRange = true;
 private float currentTimer = 0.0f;
 
 private FrogStates frogState = FrogStates.IDLE;
@@ -59,7 +59,7 @@ private enum FrogStates
 }
 
 
-void FixedUpdate()
+    void FixedUpdate()
 {
     switch (frogState)
     {
@@ -99,7 +99,7 @@ private void OnCollisionEnter(Collision collision)
     if (collision.gameObject.CompareTag("Player") && frogState != FrogStates.DYING)
     {
 
-        if (!spikeCollider.enabled && collision.GetContact(0).point.y > transform.position.y)
+        if (!spikeCollider.enabled && collision.GetContact(0).point.y > (transform.position.y + bodyCollider.bounds.size.y / 2))
         {
 
             ApplyDamage();
@@ -116,9 +116,10 @@ private void OnCollisionEnter(Collision collision)
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && frogState != FrogStates.DYING)
+        if (other.gameObject.CompareTag("Player") && frogState == FrogStates.IDLE)
         {
             playerInRange = true;
+            PerformFlipCheck();
         }
     }
 
@@ -182,26 +183,33 @@ private void PerformJump()
     //rb.velocity = jumpSpeed * new Vector3(0.5f, 0.5f, 0);
 }
 
-private void AdjustRotation()
+private void AdjustPosition()
 {
-    if (facingRight)
-    {
-        transform.eulerAngles = new Vector3(0, 90.0f, 0);
-    }
-    else
-    {
-        transform.eulerAngles = new Vector3(0, -90.0f, 0);
-    }
+    //transform.position = new Vector3(transform.position.x, startingYPositon, transform.position.z);
 }
+
+private void AdjustRotation()
+    {
+        //if (facingRight)
+        //{
+        //    transform.eulerAngles = new Vector3(0, 90.0f, 0);
+        //}
+        //else
+        //{
+        //    transform.eulerAngles = new Vector3(0, -90.0f, 0);
+        //}
+    }
 
 private bool CheckGroundAhead()
 {
+    Debug.DrawLine(groundAheadCheckPoint.position, groundAheadCheckPoint.position + Vector3.down * groundDistanceCheck, Color.green, jumpTime);
     return Physics.Raycast(groundAheadCheckPoint.position, Vector3.down, groundDistanceCheck, groundLayer);
 }
 
 private bool CheckWall()
 {
-    return Physics.Raycast(wallCheckPoint.position, facingRight ? Vector3.right : Vector3.left, wallDistanceCheck, groundLayer);
+        Debug.DrawLine(wallCheckPoint.position, wallCheckPoint.position + (facingRight ? Vector3.right : Vector3.left) * wallDistanceCheck, Color.yellow, jumpTime);
+        return Physics.Raycast(wallCheckPoint.position, facingRight ? Vector3.right : Vector3.left, wallDistanceCheck, groundLayer);
 }
 
 private bool CheckGround()
@@ -214,7 +222,6 @@ public void Recover()
         if (playerInRange)
         {
             PerformFlipCheck();
-            PerformJump();
         }
 
         else
@@ -241,4 +248,8 @@ public void Recover()
 {
     Destroy(gameObject);
 }
+    public void SpawnSmokePoof()
+    {
+        EffectsManager.instance.SpawnSmokePoof(transform);
+    }
 }

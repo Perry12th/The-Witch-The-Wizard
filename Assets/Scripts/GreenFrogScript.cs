@@ -8,8 +8,8 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
     private Animator animator;
     //[SerializeField]
     //private Rigidbody rb;
-    //[SerializeField]
-    //private Collider bodyCollider;
+    [SerializeField]
+    private Collider bodyCollider;
     [SerializeField]
     private Collider spikeCollider;
     [SerializeField]
@@ -35,6 +35,7 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
     private bool performJumps;
     private bool playerInRange;
     private float currentTimer = 0.0f;
+    private float startingYPositon;
     private FrogStates frogState = FrogStates.IDLE;
 
     private enum FrogStates
@@ -45,6 +46,12 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
         DYING,
     }
 
+    public void Start()
+    {
+        startingYPositon = transform.position.y;
+    }
+
+
 
     void FixedUpdate()
     {
@@ -54,11 +61,10 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
                 if (performJumps)
                 {
                     currentTimer += Time.fixedDeltaTime;
-                }
-                
-                if (currentTimer >= jumpTime)
-                {
-                    PerformJump();
+                    if (currentTimer >= jumpTime)
+                    {
+                        PerformJump();
+                    }
                 }
                 break;
 
@@ -90,7 +96,7 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
         if (collision.gameObject.CompareTag("Player") && frogState != FrogStates.DYING)
         {
 
-            if (!spikeCollider.enabled && collision.GetContact(0).point.y > transform.position.y)
+            if (!spikeCollider.enabled && collision.GetContact(0).point.y > (transform.position.y + bodyCollider.bounds.size.y/2))
             {
 
                 ApplyDamage();
@@ -106,9 +112,10 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && frogState != FrogStates.DYING)
+        if (other.gameObject.CompareTag("Player") && frogState == FrogStates.IDLE)
         {
             playerInRange = true;
+            PerformJump();
         }
     }
 
@@ -164,6 +171,12 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
         //rb.velocity = jumpSpeed * new Vector3(0.5f, 0.5f, 0);
     }
 
+    private void AdjustPosition()
+    {
+        //transform.position = new Vector3(transform.position.x, startingYPositon, transform.position.z);w
+    }
+
+
 
     //private bool CheckGround()
     //{
@@ -172,22 +185,30 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
 
     public void Recover()
     {
-        if (playerInRange)
-        {
-            PerformJump();
-        }
+        //if (playerInRange)
+        //{
+        //    PerformJump();
+        //}
 
-        else
-        {
-            frogState = FrogStates.IDLE;
-            animator.SetTrigger("Idle");
-            currentTimer = 0.0f;
-        }
+        //else
+        //{
+        //    frogState = FrogStates.IDLE;
+        //    animator.SetTrigger("Idle");
+        //    currentTimer = 0.0f;
+        //}
+        frogState = FrogStates.IDLE;
+        animator.SetTrigger("Idle");
+        currentTimer = 0.0f;
     }
 
     public void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+    public void SpawnSmokePoof()
+    {
+        EffectsManager.instance.SpawnSmokePoof(transform);
     }
 }
 

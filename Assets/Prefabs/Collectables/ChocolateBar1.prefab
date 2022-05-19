@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 8673357751132283062}
   - component: {fileID: 1811984548492933142}
   - component: {fileID: 4837242035916592866}
-  - component: {fileID: 8684930829201194583}
   m_Layer: 0
   m_Name: ChocolateBar1
   m_TagString: Untagged
@@ -129,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c647b96b9ee9d8141b22c325e05ca781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 1
+  BobbingFrequency: 1
+  rotationSpeed: {x: 0, y: 1, z: 0}
   conversation: {fileID: 0}
   candyAmount: 1
 --- !u!65 &4837242035916592866
@@ -145,21 +145,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.6156764}
   m_Center: {x: 0, y: 0.3, z: 0}
---- !u!114 &8684930829201194583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8292855652497144332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c647b96b9ee9d8141b22c325e05ca781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frequency: 1
-  conversation: {fileID: 0}
-  candyAmount: 20
 --- !u!1 &8685768449478611944
 GameObject:
   m_ObjectHideFlags: 0

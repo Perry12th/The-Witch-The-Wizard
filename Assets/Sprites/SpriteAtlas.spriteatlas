@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 1
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 0ca95409e4a75ae4c9ba140edc4d7a86, type: 3}
+    - {fileID: 2800000, guid: ae766380ae57fe140a026a70d7b5cb0b, type: 3}
+    - {fileID: 2800000, guid: 882d543c7b97198458dee5e736cf608c, type: 3}
+    - {fileID: 2800000, guid: 129812ce29dfbd34496e910923db27b2, type: 3}
+    - {fileID: 2800000, guid: 7ca894c971be9fa4599a8d63ff7dd0f7, type: 3}
+    - {fileID: 2800000, guid: f18d81e60c7249348b7748f830763a8b, type: 3}
+    - {fileID: 2800000, guid: d3b441e3f2b620b47831b8f8af1a7349, type: 3}
+    - {fileID: 2800000, guid: 8745307b0dce0d4478253919b27dc7c1, type: 3}
+    - {fileID: 2800000, guid: c6ae0012323ec41419d5f35131f8b69d, type: 3}
+    - {fileID: 2800000, guid: e47fce56f87d113448baf372f7b9692e, type: 3}
+    - {fileID: 2800000, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+    - {fileID: 2800000, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+    - {fileID: 2800000, guid: e25a097ba0ddca2449d008ffa22d095d, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -8400604581693718550, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -8846675248613245429, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -5442945353485907193, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 8079892360773303928, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 6348433372468652727, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 5775595420834993035, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -6706414382813340852, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -6790391423675541780, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -3498374885559764634, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 5586950389654022483, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 2511322482365687137, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -916249626707114622, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 2898514798614200732, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 7182541127024143998, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 3679277827114069642, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -5805868452477146396, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: -8346207421945940769, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 5171122166277000346, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 6578660176198543535, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 538859226677270813, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 1661731479661814576, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 8550978139850722497, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 2549061579900128911, guid: f6c48080d6676ac46a9ce7ea8f789269, type: 3}
+  - {fileID: 21300000, guid: ae766380ae57fe140a026a70d7b5cb0b, type: 3}
+  - {fileID: 21300000, guid: c6ae0012323ec41419d5f35131f8b69d, type: 3}
+  - {fileID: 21300000, guid: d3b441e3f2b620b47831b8f8af1a7349, type: 3}
+  - {fileID: 21300000, guid: e47fce56f87d113448baf372f7b9692e, type: 3}
+  - {fileID: 21300000, guid: f18d81e60c7249348b7748f830763a8b, type: 3}
+  - {fileID: 21300000, guid: 0ca95409e4a75ae4c9ba140edc4d7a86, type: 3}
+  - {fileID: 21300000, guid: 7ca894c971be9fa4599a8d63ff7dd0f7, type: 3}
+  - {fileID: 21300000, guid: 8745307b0dce0d4478253919b27dc7c1, type: 3}
+  - {fileID: 21300000, guid: e25a097ba0ddca2449d008ffa22d095d, type: 3}
+  - {fileID: 4081649191330717762, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: 3142719337848377457, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: -4983749951446040827, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: 3922481400305473924, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: -913254725766619928, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: 1134219812768013682, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: -3541435121370703465, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: 8707739136390902050, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: 6893252027557730382, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: -6093095292832077352, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: -8423388280487982071, guid: ef540fdc5dcbbfb4baa9aa4d2835709e, type: 3}
+  - {fileID: 21300000, guid: 129812ce29dfbd34496e910923db27b2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - FullHeart
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_18
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_19
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_14
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_15
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_16
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_17
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_10
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_11
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_12
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_13
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_5
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_4
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_7
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_6
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_1
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_3
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_2
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_9
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_8
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_21
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_20
+  - WW_ANGELINARODRIGUES_HEALTHMAGICCANDY_020722_22
+  - Ball
+  - PinkHeart
+  - logo
+  - TREASURE_SKULL
+  - ManaBarV2
+  - AimLine
+  - HeartIconV2
+  - ParticleCloudWhite
+  - WW_GAME LOGO_Catalina
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_7
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_6
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_5
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_4
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_10
+  - EmptyHeart
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_9
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_8
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_3
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_2
+  - WW_ANGELINARODRIGUES_HEALTHBAR_CONCEPT_013122_1
+  - HeartIcon
+  m_Tag: SpriteAtlas
+  m_IsVariant: 0

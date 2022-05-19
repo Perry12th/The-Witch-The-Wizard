@@ -9,6 +9,8 @@ public class FireballScript : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     [SerializeField]
+    private Vector3 rotateSpeed;
+    [SerializeField]
     private int damage;
     [SerializeField]
     private ParticleSystem particleEffects;
@@ -20,6 +22,11 @@ public class FireballScript : MonoBehaviour
     {
         rb.velocity = ((gameObject.transform.right) * speed);
         Destroy(gameObject, 10);
+    }
+
+    private void Update()
+    {
+        transform.Rotate(rotateSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)

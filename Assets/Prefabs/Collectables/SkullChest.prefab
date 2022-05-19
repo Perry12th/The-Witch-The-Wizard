@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3386354556712705740}
   - component: {fileID: 6410810071705668188}
   m_Layer: 0
-  m_Name: SkullChestCollectable
+  m_Name: SkullChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 6410810071705668188}
-  drop: {fileID: 2572589805174486463, guid: 915c2f24a930fbf4f826e37f33c86696, type: 3}
+  drop: {fileID: 8883945683003529746, guid: c57230c0c803128438ce4d079ec124f8, type: 3}
+  life: 2
 --- !u!95 &6410810071705668188
 Animator:
   serializedVersion: 3

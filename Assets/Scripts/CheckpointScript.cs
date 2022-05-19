@@ -8,6 +8,8 @@ public class CheckpointScript : MonoBehaviour
     private new ParticleSystem particleSystem;
     [SerializeField]
     private MeshRenderer meshRenderer;
+    [SerializeField]
+    private Light checkpointLight;
     //private bool checkpointEnabled;
 
     // Start is called before the first frame update
@@ -28,12 +30,14 @@ public class CheckpointScript : MonoBehaviour
     {
         particleSystem.Play();
         meshRenderer.material.EnableKeyword("_EMISSION");
+        checkpointLight.enabled = true;
     }
 
     public void disableCheckpoint()
     {
         particleSystem.Stop();
         meshRenderer.material.DisableKeyword("_EMISSION");
+        checkpointLight.enabled =false;
     }
     
 }

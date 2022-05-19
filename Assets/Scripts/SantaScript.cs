@@ -50,7 +50,7 @@ public class SantaScript : MonoBehaviour, IDamagable
     {
         if (santaState != SantaStates.HURT || life > 0)
         {
-            //if (isPlayerInRange && santaState != SantaStates.ATTACKING && canAttack)
+            //if (playerSpotter.playerWithinRange && santaState != SantaStates.ATTACKING && canAttack)
             //{
             //    animator.SetTrigger("IceAttack");
             //    canAttack = false;
@@ -69,7 +69,7 @@ public class SantaScript : MonoBehaviour, IDamagable
                 santaState = SantaStates.IDLE;
                 rigBody.velocity = Vector3.zero;
             }
-            else if ((santaState == SantaStates.MOVING))
+            else if (santaState == SantaStates.MOVING)
             {
                 rigBody.velocity = runSpeed * transform.forward;
             }
@@ -151,5 +151,10 @@ public class SantaScript : MonoBehaviour, IDamagable
             santaState = SantaStates.HURT;
             animator.SetTrigger("Hit");
         }
+    }
+
+    public void SpawnSmokePoof()
+    {
+        EffectsManager.instance.SpawnSmokePoof(transform);
     }
 }

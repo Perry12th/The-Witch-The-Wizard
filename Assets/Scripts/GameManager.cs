@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
 
     public void SwitchScenes(string sceneName)
     {
+        if (gameIsPaused)
+        {
+            UnPauseGame();
+        }
         SceneManager.LoadScene(sceneName);
     }
 
@@ -45,7 +49,11 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;    
+        #else
+            Application.Quit();
+        #endif
     }
 
     public void SetCheckpoint(CheckpointScript newCheckpoint)

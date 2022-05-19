@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 using DigitalRuby.LightningBolt;
 
 public class WitcherScript : MonoBehaviour, IDamagable
@@ -13,6 +14,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private GameObject snowball;
     [SerializeField]
     private GameObject fireball;
+    [SerializeField]
+    private GameObject charmEffect;
+    [SerializeField]
+    private GameObject LightingFlash;
     [SerializeField]
     private Transform spawnPoint;
     [SerializeField]
@@ -36,6 +41,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private LayerMask aimLineCollisionMask;
     [SerializeField]
     private LayerMask groundCollisionMask;
+    [SerializeField]
+    private LayerMask enemyElecticalCollisionMask;
     [Header("Movement")]
     [SerializeField]
     private float speed;
@@ -65,6 +72,15 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private float maxMana;
     [SerializeField]
     private float manaRegenRate = 1.0f;
+    [Header("Spells & ManaCost")]
+    [SerializeField]
+    private float fireBallSpellCost = 20.0f;
+    [SerializeField]
+    private float thunderSpellCost = 20.0f;
+    [SerializeField]
+    private float charmSpellCost = 20.0f;
+    [SerializeField]
+    private float snowBallCost = 20.0f;
     [Header("UI")]
     [SerializeField]
     private Sprite fullHeartSprite;
@@ -94,6 +110,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private bool hasSnowball = false;
     private bool hasFireball = false;
     private bool hasLighting = false;
+    private bool hasCharm = false;
     private bool doubleJumpEnabled = false;
     private bool canDoubleJump = true;
     //private bool canJump = true;
@@ -110,6 +127,16 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private Vector3 hitPoint;
     private Vector3 checkpoint;
     public Vector3 currentVelocity;
+
+    public enum SpellType
+    { 
+        SNOWBALL,
+        FIREBALL,
+        LIGHTING,
+        CHARM,
+        DOUBLEJUMP,
+    }
+
 
 
     private void Start()
@@ -223,7 +250,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
             }
 
-            if (Input.GetKeyDown(KeyCode.Return) && hasSnowball)
+            if (Input.GetKeyDown(KeyCode.Return) && hasSnowball && manaAmount >= snowBallCost)
             {
                 anim.speed = 2.0f;
                 isAttacking = true;
@@ -231,7 +258,14 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 characterCollider.material = FrictionMaterial;
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && hasFireball)
+            if (Input.GetKeyDown(KeyCode.C) && hasCharm && manaAmount >= charmSpellCost)
+            {
+                isAttacking = true;
+                anim.SetTrigger("CharmSpell");
+                characterCollider.material = FrictionMaterial;
+            }
+
+            if (Input.GetKeyDown(KeyCode.F) && hasFireball && manaAmount >= fireBallSpellCost)
             {
                 //characterCollider.material = FrictionMaterial;
                 anim.SetTrigger("FireSpell");
@@ -239,7 +273,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 isAttacking = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.T) && hasLighting && isGrounded)
+            if (Input.GetKeyDown(KeyCode.T) && hasLighting && isGrounded && manaAmount >= thunderSpellCost)
             {
                 aimLine.gameObject.SetActive(true);
                 isAiming = true;
@@ -271,6 +305,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
             if (isGrounded && conversation != null && conversation?.DialogueV2s.Length > 0 && !isReading)
             {
                 rb.velocity = Vector3.zero;
+                characterCollider.material = FrictionMaterial;
                 canMove = false;
                 isReading = true;
                 HideUI();
@@ -284,9 +319,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
              DialogueManager.instance.AdvanceDialouge();
              if (!DialogueManager.instance.isOpen)
              {
-                 ShowUI();
-                 isReading = false;
-                 canMove = true;
+                ShowUI();
+                isReading = false;
+                characterCollider.material = FrictionLessMaterial;
+                canMove = true;
              }
         }
 
@@ -401,8 +437,16 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
     public void ReleaseFireball()
     {
-        GameObject newBall = Instantiate(fireball, spawnPoint.transform.position, lookingRight ? fireball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
+        DrainMana(fireBallSpellCost);
+        Instantiate(fireball, spawnPoint.transform.position, lookingRight ? fireball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
+
+    public void ReleaseCharm()
+    {
+        DrainMana(charmSpellCost);
+        CharmPoofScript charmPoof = Instantiate(charmEffect, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<CharmPoofScript>();
+        charmPoof.setFacing(lookingRight ? true : false);
+    }   
 
     public void Recover()
     {
@@ -431,30 +475,6 @@ public class WitcherScript : MonoBehaviour, IDamagable
         if (other.CompareTag("DeathZone"))
         {
             ResetPlayerToCheckpoint();
-        }
-        else
-        if (other.CompareTag("Snowflake"))
-        {
-            hasSnowball = true;
-            Destroy(other.gameObject);
-        }
-        else
-        if (other.CompareTag("FireElement"))
-        {
-            hasFireball = true;
-            Destroy(other.gameObject);
-        }
-        else
-        if (other.CompareTag("WindElement"))
-        {
-            doubleJumpEnabled = true;
-            Destroy(other.gameObject);
-        }
-        else 
-        if (other.CompareTag("ThunderElement"))
-        {
-            hasLighting = true;
-            Destroy(other.gameObject);
         }
     }
 
@@ -625,14 +645,18 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
     public void FireLighting()
     {
-        thunderLine.gameObject.SetActive(true);
+        DrainMana(thunderSpellCost);
+
         thunderLine.StartPosition = thunderLine.gameObject.transform.position;
         thunderLine.EndPosition = hitPoint;
-
-        // Perform Raycast
-        RaycastHit hit;
-        if (Physics.Raycast(aimLine.transform.position, lastAimLine, out hit, Vector2.Distance(thunderLine.transform.position, hitPoint) * 1.2f, aimLineCollisionMask))
+        thunderLine.gameObject.SetActive(true);
+        Instantiate(LightingFlash, thunderLine.StartPosition, new Quaternion());
+        // Perform Raycast to find any damagable or electrical object in the pathway
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(aimLine.transform.position, lastAimLine, Vector2.Distance(thunderLine.transform.position, hitPoint) * 1.2f, enemyElecticalCollisionMask);
+        foreach (RaycastHit hit in hits)
         {
+            EffectsManager.instance.SpawnLightingBlast(hit.point, new Quaternion(), Vector3.one);
             IElectrical electrical = hit.collider.gameObject.GetComponent<IElectrical>();
             if (electrical != null)
             {
@@ -658,6 +682,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
     public void FireSnowBall()
     {
+        DrainMana(snowBallCost);
         GameObject newBall = Instantiate(snowball, spawnPoint.transform.position, lookingRight? snowball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 
@@ -767,6 +792,18 @@ public class WitcherScript : MonoBehaviour, IDamagable
         return maxMana; 
     }
 
+    public void GainMana(float manaGain)
+    {
+        manaAmount += manaGain;
+        manaAmount = Mathf.Clamp(manaAmount, 0, maxMana);
+    }
+    public void DrainMana(float manaCost)
+    {
+        manaUI.GetComponent<ManaUIScript>().InitLostManaBar();
+        manaAmount -= manaCost;
+        manaAmount = Mathf.Clamp(manaAmount, 0, maxMana);
+    }
+
     private void HideUI()
     {
         manaUI.SetActive(false);
@@ -779,5 +816,27 @@ public class WitcherScript : MonoBehaviour, IDamagable
         manaUI.SetActive(true);
         healthUI.SetActive(true);   
         candyUI.SetActive(true);
+    }
+
+    public void EnableSpell(SpellType spell)
+    {
+        switch (spell)
+        {
+            case SpellType.SNOWBALL:
+                hasSnowball = true;
+                break;
+            case SpellType.FIREBALL:
+                hasFireball = true;
+                break;
+            case SpellType.LIGHTING:
+                hasLighting = true;
+                break;
+            case SpellType.CHARM:
+                hasCharm = true;
+                break;
+            case SpellType.DOUBLEJUMP:
+                doubleJumpEnabled = true;
+                break;
+        }
     }
 }

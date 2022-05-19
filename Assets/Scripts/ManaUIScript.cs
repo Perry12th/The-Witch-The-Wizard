@@ -13,24 +13,56 @@ public class ManaUIScript : MonoBehaviour
     private RectTransform barMaskRectTransform;
     [SerializeField]
     private float uvXSpeed = 0.1f;
+    [SerializeField]
+    private RectTransform lostBarMaskTransform;
+    [SerializeField]
+    private float lostBarSpeed = 1.0f;
+    [SerializeField]
+    private float lostBarWaitTime = 3.0f;
+    private Vector2 barMaskSizeDelta;
+    private Vector2 lostBarSizeDelta;
+    private Rect uvRect;
     private float barMaskWidth;
 
     private void Awake()
     {
         barMaskWidth = barMaskRectTransform.sizeDelta.x;
+        barMaskSizeDelta = barMaskRectTransform.sizeDelta;
+        lostBarSizeDelta = lostBarMaskTransform.sizeDelta;
+        uvRect = manaBar.uvRect;
     }
 
     // Update is called once per frame
     void Update()
     {
         //manaBar.fillAmount = (witcher.GetManaAmount() / witcher.GetMaxMana());
-
-        Rect uvRect = manaBar.uvRect;
         uvRect.x -= uvXSpeed * Time.deltaTime;
         manaBar.uvRect = uvRect;
 
-        Vector2 barMaskSizeDelta = barMaskRectTransform.sizeDelta;
         barMaskSizeDelta.x = (witcher.GetManaAmount() / witcher.GetMaxMana()) * barMaskWidth;
         barMaskRectTransform.sizeDelta = barMaskSizeDelta;
+    }
+
+    public void InitLostManaBar()
+    {
+        if (barMaskSizeDelta.x >= lostBarSizeDelta.x)
+        {
+            lostBarSizeDelta = barMaskSizeDelta;
+            lostBarMaskTransform.sizeDelta = lostBarSizeDelta;
+        }
+        StopAllCoroutines();
+        StartCoroutine(AnimateLostManaBar());
+    }
+
+    private IEnumerator AnimateLostManaBar()
+    {
+        yield return new WaitForSeconds(lostBarWaitTime);
+
+        while (barMaskSizeDelta.x <= lostBarSizeDelta.x)
+        {
+            lostBarSizeDelta.x -= lostBarSpeed * Time.deltaTime;
+            lostBarMaskTransform.sizeDelta = lostBarSizeDelta;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

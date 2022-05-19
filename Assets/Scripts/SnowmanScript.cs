@@ -8,8 +8,6 @@ public class SnowmanScript : MonoBehaviour, IDamagable
     [SerializeField]
     GameObject snowballPrefab;
     [SerializeField]
-    Transform projPosition;
-    [SerializeField]
     Animator snowpantsAnimator;
     [SerializeField]
     private float startingSnowballSpeed = 1f;
@@ -31,6 +29,8 @@ public class SnowmanScript : MonoBehaviour, IDamagable
     private int life = 2;
     [SerializeField]
     private float attackTime = 5.0f;
+    [SerializeField]
+    private Transform hipsTransform;
     private float timer = 0.0f;
     private SnowpantsStates snowpantsState = SnowpantsStates.IDLE;
 
@@ -174,6 +174,11 @@ public class SnowmanScript : MonoBehaviour, IDamagable
             snowpantsState = SnowpantsStates.DYING;
             snowpantsAnimator.SetTrigger("Death");
         }
+    }
+
+    public void SpawnSmokePoof()
+    {
+        EffectsManager.instance.SpawnSmokePoof(hipsTransform.position, transform.rotation, transform.localScale);
     }
 
 }

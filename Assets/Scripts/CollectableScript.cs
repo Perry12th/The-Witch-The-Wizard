@@ -7,7 +7,9 @@ public class CollectableScript : MonoBehaviour
     //[SerializeField]
     //private float amplitude = 0.2f;
     [SerializeField]
-    private float frequency = 1.0f;
+    private float BobbingFrequency = 1.0f;
+    [SerializeField]
+    private Vector3 rotationSpeed = new Vector3();
     [SerializeField]
     private Conversation conversation;
     [SerializeField]
@@ -25,9 +27,10 @@ public class CollectableScript : MonoBehaviour
     public void Update()
     {
         tempPos = posOffest;
-        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency);
+        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * BobbingFrequency);
 
         transform.position = tempPos;
+        transform.Rotate(rotationSpeed);
     }
     private void OnTriggerEnter(Collider other)
     {

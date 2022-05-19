@@ -29,8 +29,9 @@ public class PumpkinScript : MonoBehaviour, IDamagable
     private float flashTimeRate = 0.2f;
     [SerializeField]
     private PlayerSpotter playerSpotter;
-    private float timer = 0;
+
     private PumpkinStates pumpkinState = PumpkinStates.MOVING;
+    private Vector3 targetRotation;
     private bool outsidePath = false;
     private bool mustPerformFlip = false;
     private enum PumpkinStates
@@ -51,7 +52,7 @@ public class PumpkinScript : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        if (playerSpotter.playerWithinRange && life > 0 && pumpkinState != PumpkinStates.ATTACKING)
+        if (playerSpotter.playerWithinRange && life > 0 && pumpkinState == PumpkinStates.MOVING)
         {
             AttackPlayer();
         }
@@ -60,13 +61,11 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             transform.Translate(transform.InverseTransformDirection(transform.forward) * speed * Time.deltaTime);
         }
     }
-
     private void AttackPlayer()
     {
         pumpkinState = PumpkinStates.ATTACKING;
         animator.SetTrigger("Attack");
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -77,8 +76,6 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             }
         }
     }
-
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Path") && life > 0)
@@ -87,9 +84,9 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             mustPerformFlip = true;
             pumpkinState = PumpkinStates.FLIPPING;
             animator.SetTrigger("Flip");
+            targetRotation = transform.rotation.eulerAngles;
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Path") && life > 0)
@@ -97,11 +94,10 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             outsidePath = false;
         }
     }
-
     public void FinishFlip()
     {
         //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -transform.localEulerAngles.y, transform.localEulerAngles.z);
-        transform.Rotate(Vector2.up, 180.0f);
+        //transform.Rotate(Vector2.up, 180.0f);
         //animator.enabled = false;
         mustPerformFlip = false;
         if (life > 0)
@@ -109,56 +105,46 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             ReturnToMoving();
         }
     }
-
     public void ReturnToMoving()
     {
         //StopAllCoroutines();
-        if (mustPerformFlip)
+        if (mustPerformFlip && pumpkinState != PumpkinStates.FLIPPING)
         {
             pumpkinState = PumpkinStates.FLIPPING;
             animator.SetTrigger("Flip");
-            return;
         }
         else 
         {
-            animator.SetTrigger("Move");
             pumpkinState = PumpkinStates.MOVING;
+            animator.SetTrigger("Move");    
         }
           
     }
-
-
     public void PerformAttack()
     {
         attackCollider.enabled = true;
     }
-
     public void DisableCollider()
     {
         attackCollider.enabled = false;
     }
-
-
     public void DestroySelf()
     {
         Destroy(gameObject);
     }
-
     public void TurnToBlack()
     {
         StartCoroutine(TurningToBlack());
     }
-
     public void StartFlashing()
     {
         StartCoroutine(Flashing());
     }
-
     private IEnumerator Flashing()
     {
         float flashTime = animator.GetCurrentAnimatorStateInfo(0).length;
         bool flashing = false;
-        timer = 0;
+        float timer = 0;
         float flashTimer = 0;
 
         while (timer < flashTime)
@@ -181,7 +167,6 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             yield return new WaitForEndOfFrame();
         }
     }
-
     public void StopFlashing()
     {
         StopAllCoroutines();
@@ -190,14 +175,13 @@ public class PumpkinScript : MonoBehaviour, IDamagable
         candleRenderer.enabled = true;
         candleLight.SetActive(true);
     }
-
-    IEnumerator TurningToBlack()
+    private IEnumerator TurningToBlack()
     {
         Color headStartColor = headRenderer.material.color;
         Color leafStartColor = leafRenderer.material.color;
         Color candleStartColor = candleRenderer.material.color;
         float animTime = (animator.GetCurrentAnimatorStateInfo(0).length * 0.5f);
-        timer = 0;
+        float timer = 0;
 
         Debug.Log("Turn To Black");        
         while (timer < animTime)
@@ -211,6 +195,38 @@ public class PumpkinScript : MonoBehaviour, IDamagable
         }
     }
 
+    public void StartTurning()
+    {
+        if (mustPerformFlip)
+        {
+            StopCoroutine("StartTurning");
+            animator.applyRootMotion = false;
+            if (targetRotation != Vector3.zero)
+            {
+                targetRotation = new Vector3(targetRotation.x, targetRotation.y > 360.0f ? targetRotation.y - 180.0f : targetRotation.y + 180.0f, targetRotation.z);
+            }
+            StartCoroutine(Turning());
+        }
+        
+    }
+
+    private IEnumerator Turning()
+    {
+        Vector3 startingRotation = transform.rotation.eulerAngles;
+        float totalTimeLeft = animator.GetCurrentAnimatorStateInfo(0).length * (1 -(animator.GetCurrentAnimatorStateInfo(0).normalizedTime - (int)animator.GetCurrentAnimatorStateInfo(0).normalizedTime));
+        float timer = 0;
+        while (timer < totalTimeLeft && pumpkinState == PumpkinStates.HURTING)
+        {
+            transform.rotation = Quaternion.Lerp(Quaternion.Euler(startingRotation), Quaternion.Euler(targetRotation), timer / totalTimeLeft);
+            timer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        Debug.Log("TurningDone");
+        transform.rotation = Quaternion.Euler(targetRotation);
+        targetRotation = Vector3.zero;
+        mustPerformFlip = false;
+        animator.applyRootMotion = true;
+    }
     public void ApplyDamage(int damageTaken = 1)
     {
         life -= damageTaken;
@@ -226,4 +242,9 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             pumpkinState = PumpkinStates.HURTING;
         }
     }
+    public void SpawnSmokePoof()
+    {
+        EffectsManager.instance.SpawnSmokePoof(transform);
+    }
+
 }

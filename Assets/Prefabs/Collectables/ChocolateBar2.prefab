@@ -209,7 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c647b96b9ee9d8141b22c325e05ca781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 1
+  BobbingFrequency: 1
+  rotationSpeed: {x: 0, y: 1, z: 0}
   conversation: {fileID: 0}
   candyAmount: 1
 --- !u!65 &3137215813314373262
