@@ -277,7 +277,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
             {
                 aimLine.gameObject.SetActive(true);
                 isAiming = true;
-                canMove = false;
+                SetMovement(false);
             }
 
             if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || canDoubleJump)))
@@ -305,8 +305,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
             if (isGrounded && conversation != null && conversation?.DialogueV2s.Length > 0 && !isReading)
             {
                 rb.velocity = Vector3.zero;
-                characterCollider.material = FrictionMaterial;
-                canMove = false;
+                SetMovement(false);
                 isReading = true;
                 HideUI();
                 DialogueManager.instance.StartConversation(conversation);
@@ -321,8 +320,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
              {
                 ShowUI();
                 isReading = false;
-                characterCollider.material = FrictionLessMaterial;
-                canMove = true;
+                SetMovement(true);
              }
         }
 
@@ -423,7 +421,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         {
             DialogueManager.instance.EndDialogue();
             anim.SetTrigger("Death");
-            canMove = false;
+            SetMovement(false);
             isReading = false;
         }
     }
@@ -432,7 +430,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
     {
         transform.position = checkpoint;
         RecoverHeath(maxLife);
-        canMove = true;
+        SetMovement(true);
     }
 
     public void ReleaseFireball()
@@ -677,7 +675,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         thunderLine.gameObject.SetActive(false);
         characterCollider.material = FrictionLessMaterial;
         isShootingLighting = false;
-        canMove = true;
+        SetMovement(true);
     }
 
     public void FireSnowBall()
@@ -723,7 +721,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         GameManager.instance.UnPauseGame();
         ShowUI();
         pauseMenu.SetActive(false);
-        canMove = true;
+        SetMovement(true);
     }
 
     public void EnterPauseMenu()
@@ -731,7 +729,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         GameManager.instance.PauseGame();
         HideUI();
         pauseMenu.SetActive(true);
-        canMove = false;
+        SetMovement(false);
     }
 
     public void ApplyDamage(int damageTaken = 1)
@@ -838,5 +836,45 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 doubleJumpEnabled = true;
                 break;
         }
+    }
+
+    public void BoughtItem(Item item)
+    {
+        Debug.Log("Bought an item: " + item.name);
+    }
+
+    public bool TrySpendCandyAmount(int spendCandyAmount)
+    {
+        if (candyAmount >= spendCandyAmount)
+        {
+            GainCandy(-spendCandyAmount);
+            return true;
+        }
+        return false;
+    }
+
+    public void SetMovement(bool active)
+    {
+        canMove = active;
+        if(active)
+        {
+            characterCollider.material = FrictionLessMaterial;
+        }
+        else
+        {
+            characterCollider.material = FrictionMaterial;
+        }
+    }
+
+    public void EnterShop()
+    {
+        HideUI();
+        SetMovement(false);
+    }
+
+    public void ExitShop()
+    {
+        ShowUI();
+        SetMovement(true);
     }
 }

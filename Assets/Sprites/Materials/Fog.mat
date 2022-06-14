@@ -32,6 +32,26 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_3B7F887D:
+        m_Texture: {fileID: 2800000, guid: f4cfe2f3a783b424da807f4b0675b257, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_487CBF4F:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7298D262:
+        m_Texture: {fileID: 2800000, guid: 32d08f631d23d8543967b9485b7ba5bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F3037A3E:
+        m_Texture: {fileID: 2800000, guid: 59964d19745381b4c87e2fb443a47a66, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -61,12 +81,32 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - PixelSnap: 0
+    - Vector1_207A1B62: 8
+    - Vector1_27CEE6D8: 15
+    - Vector1_3B1AD08C: 0.15
+    - Vector1_51592E8C: 5
+    - Vector1_5388A8B7: 1
+    - Vector1_77013910: 30
+    - Vector1_7E585683: 1
+    - Vector1_9D346F60: 2
+    - Vector1_9E5688F9: 1
+    - Vector1_B42589F5: 2
+    - Vector1_B7B800F6: 5
+    - Vector1_BFCC5A93: 0.5
+    - Vector1_C035C3B9: 0.1
+    - Vector1_CD262B10: 2
+    - Vector1_CD56F1DF: 0.5
+    - Vector1_CFFC6111: 0
+    - Vector1_D9DDF1A2: 0.5
+    - Vector1_DE7FA4D8: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
+    - _EnableExternalAlpha: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -84,9 +124,26 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_3728627B: {r: 32, g: 32, b: 32, a: 1}
+    - Color_A051B5F1: {r: 1, g: 1, b: 1, a: 0}
+    - Color_A1D1ED48: {r: 1, g: 1, b: 1, a: 0}
+    - Color_B949911F: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
+    - Color_D01CEAD3: {r: 1, g: 1, b: 1, a: 1}
+    - Color_F284FEB9: {r: 1, g: 0.9386792, b: 0.9386792, a: 0}
+    - Vector2_21A6E0BF: {r: 0, g: 0.05, b: 0, a: 0}
+    - Vector2_47B9C191: {r: 0, g: 0.1, b: 0, a: 0}
+    - Vector2_47F7420B: {r: 0, g: 0.01, b: 0, a: 0}
+    - Vector2_4B84EC99: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_6FBE6B45: {r: 0, g: 0.05, b: 0, a: 0}
+    - Vector2_8F0BC74F: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_A65C63D9: {r: 0, g: 1, b: 0, a: 0}
+    - Vector2_BE235A9: {r: 0, g: -1, b: 0, a: 0}
+    - Vector2_C47C5E85: {r: 0, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _TintColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 0.5}
   m_BuildTextureStacks: []

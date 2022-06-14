@@ -18,7 +18,7 @@ MonoBehaviour:
     sentence: You have obtained the Lighting Spell!!
   - dialogueType: 1
     actor: {fileID: 11400000, guid: 548cfa7960066c244b79e35a6eef0aef, type: 2}
-    sentence: Neat now I can zap things to life.
+    sentence: Neat I can zap things to life.
   - dialogueType: 1
     actor: {fileID: 11400000, guid: 548cfa7960066c244b79e35a6eef0aef, type: 2}
     sentence: Hmm I do recall seeing a chair lift somewhere around here.

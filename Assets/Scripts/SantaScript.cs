@@ -78,7 +78,6 @@ public class SantaScript : MonoBehaviour, IDamagable
         {
             rigBody.velocity = Vector3.zero;
         }
-
         animator.SetFloat("Speed", rigBody.velocity.magnitude);
     }
 

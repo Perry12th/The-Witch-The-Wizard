@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePoof: {fileID: 9005887252282614538, guid: 661b81d97218f4842afbe2e2fc0a5acc, type: 3}
   lightingBlast: {fileID: 7267374564196864752, guid: 21adf94aff0733046bbb632e5eda8d5f, type: 3}
+  fireBlast: {fileID: 7267374564196864752, guid: 25142b14685a0464db7ccdda0d598086, type: 3}

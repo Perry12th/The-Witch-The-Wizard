@@ -18,7 +18,7 @@ MonoBehaviour:
     sentence: You have obtained the Ice Spell!!
   - dialogueType: 1
     actor: {fileID: 11400000, guid: 548cfa7960066c244b79e35a6eef0aef, type: 2}
-    sentence: 'Great now I can cross lava pits now. '
+    sentence: 'Great I can cross lava pits now. '
   - dialogueType: 1
     actor: {fileID: 11400000, guid: 548cfa7960066c244b79e35a6eef0aef, type: 2}
     sentence: Just hope my hat doesnt catch fire.

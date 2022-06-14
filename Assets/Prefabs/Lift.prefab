@@ -43,7 +43,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.18027258, g: 1, b: 0, a: 1}
-  m_Intensity: 4
+  m_Intensity: 200
   m_Range: 15
   m_SpotAngle: 115
   m_InnerSpotAngle: 1
@@ -136,8 +136,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.82416946, y: 1.6580788, z: 1.9999998}
-  m_Center: {x: 0.14096947, y: 0.51005554, z: 0}
+  m_Size: {x: 0.82416946, y: 0.13473916, z: 2.052479}
+  m_Center: {x: 0.14096947, y: 0.5039917, z: 0.45651188}
 --- !u!54 &6090041185914244067
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liftScript: {fileID: 107298768035996683}
   isLeftDropPoint: 0
+  defaultChairLiftRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &1497160132
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497160132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.44, y: 21.5, z: -0.94}
+  m_LocalPosition: {x: -29.5, y: 21.58, z: -0.94}
   m_LocalScale: {x: 1, y: -1.220626, z: 1}
   m_Children: []
   m_Father: {fileID: 107298768035996682}
@@ -215,30 +216,30 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -177.00002, y: 87.5, z: 0}
-      - {x: -178.42177, y: 87.768715, z: 0}
-      - {x: -177.93187, y: 92.804146, z: -0.0002698129}
-      - {x: -177.00002, y: 93, z: 0}
-      - {x: -175.1649, y: 93.3857, z: 0.00053134555}
-      - {x: -155.6491, y: 92.997574, z: -0.00020873183}
-      - {x: -155.00002, y: 93, z: 0}
-      - {x: -151.59258, y: 93.01276, z: 0.0010957709}
-      - {x: -4.780437, y: 7.0123863, z: 0}
+      - {x: -177, y: 87.5, z: 0}
+      - {x: -180.46747, y: 88.27339, z: 0.012189041}
+      - {x: -179.1022, y: 92.80413, z: -0.00027075148}
+      - {x: -177, y: 93, z: 0}
+      - {x: -175.1331, y: 93.17394, z: 0.00024044553}
+      - {x: -155.64003, y: 93.10988, z: -0.00016335612}
+      - {x: -155, y: 93, z: 0}
+      - {x: -150.71477, y: 92.26432, z: 0.0010937287}
+      - {x: -6.400292, y: 6.99451, z: 0}
       - {x: -4.467669, y: 6.960483, z: 0}
-      - {x: -4.3241143, y: 6.9366603, z: 0}
-      - {x: 17.074596, y: 6.7888556, z: 0}
+      - {x: -2.9335604, y: 6.9334726, z: 0}
+      - {x: 16.809147, y: 6.7888527, z: 0}
       - {x: 17.503914, y: 6.684114, z: 0}
-      - {x: 18.868536, y: 6.3511834, z: 0}
+      - {x: 18.892866, y: 6.4747243, z: 0}
       - {x: 19.791912, y: 3.222572, z: 0}
       - {x: 17.937178, y: 1.7564198, z: 0}
       - {x: 16.802181, y: 0.8592138, z: 0}
-      - {x: -3.04322, y: 1.2285037, z: 0.0000019073486}
+      - {x: -3.3372664, y: 0.70818734, z: -0.0002129136}
       - {x: -4.748054, y: 1.3526988, z: 0}
-      - {x: -5.801209, y: 1.429422, z: -0.0000009536743}
-      - {x: -151.66089, y: 87.495995, z: 0}
-      - {x: -155.00002, y: 87.5, z: 0}
-      - {x: -157.38611, y: 87.50286, z: 0}
-      - {x: -175.29913, y: 87.17853, z: 0}
+      - {x: -5.9687767, y: 1.9103801, z: 0.00018422936}
+      - {x: -151.5864, y: 87.20573, z: -0.00085653417}
+      - {x: -155, y: 87, z: 0.0005653223}
+      - {x: -156.62393, y: 87.63999, z: 0.00040747257}
+      - {x: -173.85513, y: 86.79856, z: -0.00019890179}
       isClosed: 1
       space: 0
       controlMode: 0
@@ -374,8 +375,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9999999, y: 1.6023816, z: 1.9999998}
-  m_Center: {x: 0, y: -1.2851977, z: 0}
+  m_Size: {x: 0.9999999, y: 0.15083373, z: 1.7624571}
+  m_Center: {x: 0, y: -0.55942076, z: -0.08481741}
 --- !u!54 &4797929124274294830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -406,6 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liftScript: {fileID: 107298768035996683}
   isLeftDropPoint: 1
+  defaultChairLiftRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &107298768035996685
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,11 +466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f66c7f566db9e46bab68af860f8276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chairLiftSpeed: 6
+  chairLiftSpeed: 15
   isGoingLeft: 1
   liftRoof: {fileID: 0}
-  LeftliftDropPoint: {fileID: 419079453}
-  RightliftDropPoint: {fileID: 2071655727}
+  leftliftDropPoint: {fileID: 419079453}
+  rightliftDropPoint: {fileID: 2071655727}
   isPowered: 0
 --- !u!1 &1510349587061239681
 GameObject:
@@ -513,7 +515,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.18027258, g: 1, b: 0, a: 1}
-  m_Intensity: 30
+  m_Intensity: 200
   m_Range: 15
   m_SpotAngle: 115
   m_InnerSpotAngle: 1
@@ -589,7 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1302411396193829348}
-  light: {fileID: 297216074546841108}
+  towerLight: {fileID: 297216074546841108}
   greenLight: {r: 0.28327918, g: 1, b: 0, a: 1}
   redLight: {r: 1, g: 0, b: 0, a: 1}
 --- !u!64 &387791649
@@ -619,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1302411396455775288}
-  light: {fileID: 805029817}
+  towerLight: {fileID: 805029817}
   greenLight: {r: 0, g: 1, b: 0.009933472, a: 1}
   redLight: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &107298767152766290
@@ -681,6 +683,10 @@ PrefabInstance:
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 1497160135}
+    - target: {fileID: 2420317058640794659, guid: 19718fc369754254faa190d9b11fd583, type: 3}
+      propertyPath: usingPathRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4042249433784531740, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -965,6 +971,10 @@ PrefabInstance:
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 1497160135}
+    - target: {fileID: 2420317058640794659, guid: 19718fc369754254faa190d9b11fd583, type: 3}
+      propertyPath: usingPathRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4042249433784531740, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1387,6 +1397,10 @@ PrefabInstance:
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 1497160135}
+    - target: {fileID: 2420317058640794659, guid: 19718fc369754254faa190d9b11fd583, type: 3}
+      propertyPath: usingPathRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4042249433784531740, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1533,6 +1547,10 @@ PrefabInstance:
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 1497160135}
+    - target: {fileID: 2420317058640794659, guid: 19718fc369754254faa190d9b11fd583, type: 3}
+      propertyPath: usingPathRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5272286301458689859, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -1886,6 +1904,10 @@ PrefabInstance:
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 1497160135}
+    - target: {fileID: 2420317058640794659, guid: 19718fc369754254faa190d9b11fd583, type: 3}
+      propertyPath: usingPathRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4042249433784531740, guid: 19718fc369754254faa190d9b11fd583, type: 3}
       propertyPath: m_RootOrder
       value: 0

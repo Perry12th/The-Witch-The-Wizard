@@ -8,6 +8,8 @@ public class EffectsManager : MonoBehaviour
     private GameObject smokePoof;
     [SerializeField]
     private GameObject lightingBlast;
+    [SerializeField]
+    private GameObject fireBlast;
     #region Singleton
     public static EffectsManager instance;
 
@@ -43,6 +45,16 @@ public class EffectsManager : MonoBehaviour
     public void SpawnLightingBlast(Vector3 position, Quaternion quaternion, Vector3 localScale)
     {
         Instantiate(lightingBlast, position, quaternion).transform.localScale = localScale;
+    }
+
+    public void SpawnFireBlast(Transform transform)
+    {
+        Instantiate(fireBlast, transform.position, transform.rotation).transform.localScale = transform.localScale;
+    }
+
+    public void SpawnFireBlast(Vector3 position, Quaternion quaternion, Vector3 localScale)
+    {
+        Instantiate(fireBlast, position, quaternion).transform.localScale = localScale;
     }
 
 }

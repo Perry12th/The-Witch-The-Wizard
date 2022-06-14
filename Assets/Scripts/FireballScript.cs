@@ -47,6 +47,7 @@ public class FireballScript : MonoBehaviour
     }
     public void DestroyFireball()
     {
+        EffectsManager.instance.SpawnFireBlast(transform);
         particleEffects.Stop();
         particle.transform.parent = null;
         Destroy(particle, 1);
