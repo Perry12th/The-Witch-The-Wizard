@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1844184479759948526}
   - component: {fileID: 1957199277112564006}
   m_Layer: 0
-  m_Name: Peppermint1Collectable
+  m_Name: Peppermint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5664274640634966124}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -33.044186, y: -10.071, z: -7.151709}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children:
   - {fileID: 7219745988665173415}
   m_Father: {fileID: 0}

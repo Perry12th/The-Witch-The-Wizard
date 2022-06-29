@@ -17,9 +17,11 @@ public class WitcherScript : MonoBehaviour, IDamagable
     [SerializeField]
     private GameObject charmEffect;
     [SerializeField]
-    private GameObject LightingFlash;
+    private GameObject lightingFlash;
     [SerializeField]
-    private Transform spawnPoint;
+    private Transform projectileSpawnPoint;
+    [SerializeField]
+    private Transform smokePoofSpawnPoint;
     [SerializeField]
     private Animator anim;
     [SerializeField]
@@ -34,9 +36,9 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private GameObject pauseMenu;
     [Header("Mats and Layers")]
     [SerializeField]
-    private PhysicMaterial FrictionMaterial;
+    private PhysicMaterial frictionMaterial;
     [SerializeField]
-    private PhysicMaterial FrictionLessMaterial;
+    private PhysicMaterial frictionLessMaterial;
     [SerializeField]
     private LayerMask aimLineCollisionMask;
     [SerializeField]
@@ -255,21 +257,21 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 anim.speed = 2.0f;
                 isAttacking = true;
                 anim.SetTrigger("IceSpell");
-                characterCollider.material = FrictionMaterial;
+                characterCollider.material = frictionMaterial;
             }
 
             if (Input.GetKeyDown(KeyCode.C) && hasCharm && manaAmount >= charmSpellCost)
             {
                 isAttacking = true;
                 anim.SetTrigger("CharmSpell");
-                characterCollider.material = FrictionMaterial;
+                characterCollider.material = frictionMaterial;
             }
 
             if (Input.GetKeyDown(KeyCode.F) && hasFireball && manaAmount >= fireBallSpellCost)
             {
                 //characterCollider.material = FrictionMaterial;
                 anim.SetTrigger("FireSpell");
-                characterCollider.material = FrictionMaterial;
+                characterCollider.material = frictionMaterial;
                 isAttacking = true;
             }
 
@@ -332,7 +334,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
             {
                 isShootingLighting = true;
                 aimLine.gameObject.SetActive(false);
-                characterCollider.material = FrictionMaterial; 
+                characterCollider.material = frictionMaterial; 
                 anim.SetBool("ThunderSpell", true);
                 isAiming = false;
             }
@@ -421,6 +423,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         {
             DialogueManager.instance.EndDialogue();
             anim.SetTrigger("Death");
+            HideUI();
             SetMovement(false);
             isReading = false;
         }
@@ -431,25 +434,26 @@ public class WitcherScript : MonoBehaviour, IDamagable
         transform.position = checkpoint;
         RecoverHeath(maxLife);
         SetMovement(true);
+        ShowUI();
     }
 
     public void ReleaseFireball()
     {
         DrainMana(fireBallSpellCost);
-        Instantiate(fireball, spawnPoint.transform.position, lookingRight ? fireball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
+        Instantiate(fireball, projectileSpawnPoint.transform.position, lookingRight ? fireball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 
     public void ReleaseCharm()
     {
         DrainMana(charmSpellCost);
-        CharmPoofScript charmPoof = Instantiate(charmEffect, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<CharmPoofScript>();
+        CharmPoofScript charmPoof = Instantiate(charmEffect, projectileSpawnPoint.transform.position, projectileSpawnPoint.transform.rotation).GetComponent<CharmPoofScript>();
         charmPoof.setFacing(lookingRight ? true : false);
     }   
 
     public void Recover()
     {
         isAttacking = false;
-        characterCollider.material = FrictionLessMaterial;
+        characterCollider.material = frictionLessMaterial;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -648,7 +652,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         thunderLine.StartPosition = thunderLine.gameObject.transform.position;
         thunderLine.EndPosition = hitPoint;
         thunderLine.gameObject.SetActive(true);
-        Instantiate(LightingFlash, thunderLine.StartPosition, new Quaternion());
+        Instantiate(lightingFlash, thunderLine.StartPosition, new Quaternion());
         // Perform Raycast to find any damagable or electrical object in the pathway
         RaycastHit[] hits;
         hits = Physics.RaycastAll(aimLine.transform.position, lastAimLine, Vector2.Distance(thunderLine.transform.position, hitPoint) * 1.2f, enemyElecticalCollisionMask);
@@ -673,7 +677,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
     public void RecoverLighting()
     {
         thunderLine.gameObject.SetActive(false);
-        characterCollider.material = FrictionLessMaterial;
+        characterCollider.material = frictionLessMaterial;
         isShootingLighting = false;
         SetMovement(true);
     }
@@ -681,14 +685,14 @@ public class WitcherScript : MonoBehaviour, IDamagable
     public void FireSnowBall()
     {
         DrainMana(snowBallCost);
-        GameObject newBall = Instantiate(snowball, spawnPoint.transform.position, lookingRight? snowball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
+        GameObject newBall = Instantiate(snowball, projectileSpawnPoint.transform.position, lookingRight? snowball.transform.rotation : Quaternion.Euler(0, 180.0f, 0));
     }
 
     public void RecoverSnowBall()
     {
         anim.speed = 1.0f;
         isAttacking = false;
-        characterCollider.material = FrictionLessMaterial;
+        characterCollider.material = frictionLessMaterial;
     }
 
     public void SetDialogue(Conversation newConversation)
@@ -858,11 +862,11 @@ public class WitcherScript : MonoBehaviour, IDamagable
         canMove = active;
         if(active)
         {
-            characterCollider.material = FrictionLessMaterial;
+            characterCollider.material = frictionLessMaterial;
         }
         else
         {
-            characterCollider.material = FrictionMaterial;
+            characterCollider.material = frictionMaterial;
         }
     }
 
@@ -876,5 +880,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
     {
         ShowUI();
         SetMovement(true);
+    }
+
+    public void SpawnSmokePoof()
+    {
+        EffectsManager.instance.SpawnSmokePoof(smokePoofSpawnPoint);
     }
 }

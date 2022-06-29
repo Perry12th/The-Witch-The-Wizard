@@ -93,6 +93,13 @@ public class PumpkinScript : MonoBehaviour, IDamagable
         {
             outsidePath = false;
         }
+        if (other.gameObject.CompareTag("Player") && attackCollider.enabled)
+        {
+            if (life > 0)
+            {
+                other.gameObject.GetComponent<WitcherScript>().ApplyDamage();
+            }
+        }
     }
     public void FinishFlip()
     {

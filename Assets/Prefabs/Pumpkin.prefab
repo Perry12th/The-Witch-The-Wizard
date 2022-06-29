@@ -1649,7 +1649,6 @@ MonoBehaviour:
   deathColor: {r: 0, g: 0, b: 0, a: 0}
   flashTimeRate: 0.1
   playerSpotter: {fileID: 7453076671826527865}
-  flipAnimationName: Pumpkin_TurnRight
 --- !u!65 &6099182732141884220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1658,11 +1657,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6099182732141884217}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6113148, z: 0.8315411}
-  m_Center: {x: 1.9488094e-15, y: 0.19434261, z: 0.63713515}
+  m_Size: {x: 1, y: 0.6113148, z: 1.0051172}
+  m_Center: {x: -4.938951e-15, y: 0.19434261, z: 0.72392344}
 --- !u!95 &6099182732141884223
 Animator:
   serializedVersion: 3

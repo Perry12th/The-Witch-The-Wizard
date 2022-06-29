@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1405256925488571910}
   - component: {fileID: 2489881309084131456}
   m_Layer: 0
-  m_Name: Lolipop1Collectable
+  m_Name: Lolipop1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2387655512180769192}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -27.6, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_Children:
   - {fileID: 4556511777496742399}
   m_Father: {fileID: 0}
