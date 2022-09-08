@@ -5,17 +5,95 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform target;
+    private Transform startingTarget;
     [SerializeField]
-    private Vector3 offset;
+    private float zoomDuration;
+    [SerializeField]
+    private Vector3 startingOffset;
+    private Transform currentTarget;
+    private Vector3 currentOffset;
+    private bool trackingTarget = true;
     void Start()
     {
-        offset = gameObject.transform.position - target.position;
+        //startingOffset = gameObject.transform.position - startingTarget.position;
+        currentOffset = startingOffset;
+        currentTarget = startingTarget;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = target.position + offset;
+        if (trackingTarget)
+        {
+            gameObject.transform.position = currentTarget.position + currentOffset;
+        }    
+    }
+
+    public void ChangeCameraPositionOffset(Transform newTarget, Vector3 newOffset)
+    {
+        StopAllCoroutines();
+        StartCoroutine(ChangeOffset(newOffset, zoomDuration));
+        StartCoroutine(ChangeTarget(newTarget, zoomDuration));
+    }
+
+    public void ChangeCameraOffset(Vector3 newOffset, bool trackTarget = true)
+    {
+        StopAllCoroutines();
+        trackingTarget = trackTarget;
+        StartCoroutine(ChangeOffset(newOffset, zoomDuration));
+    }
+
+    public void ResetCamera(bool instant = true)
+    {
+        if (instant)
+        {
+            currentTarget = startingTarget;
+            currentOffset = startingOffset;
+        }
+
+        ChangeCameraPositionOffset(startingTarget,startingOffset);   
+    }
+
+    IEnumerator ChangeOffset(Vector3 newOffset, float timeDuration)
+    {
+        float timer = 0;
+        Vector3 startingOffset = currentOffset;
+        Vector3 resultingOffset = currentOffset;
+
+        while (timer < timeDuration)
+        {
+            timer += Time.deltaTime;
+            resultingOffset = Vector3.Lerp(startingOffset, newOffset, timer / timeDuration);
+            currentOffset = resultingOffset;
+            yield return new WaitForEndOfFrame();
+        }
+        
+    }
+
+    IEnumerator ChangeTarget(Transform newTarget, float timeDuration)
+    {
+        trackingTarget = false;
+        float timer = 0;
+        Vector3 startingPosition = transform.position;
+        Vector3 resultingPosition = transform.position;
+
+        while (timer < timeDuration)
+        {
+            timer += Time.deltaTime;
+            resultingPosition = Vector3.Lerp(startingPosition, newTarget.position + currentOffset, timer / timeDuration);
+            transform.position = resultingPosition;
+            yield return new WaitForEndOfFrame();
+        }
+
+        currentTarget = newTarget;
+        trackingTarget = true;
+    }
+
+    private void OnValidate()
+    {
+        if (startingTarget != null)
+        {
+            transform.position = startingTarget.position + startingOffset;
+        }
     }
 }

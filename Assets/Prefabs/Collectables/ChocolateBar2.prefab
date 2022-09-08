@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2573819674342323494}
   - component: {fileID: 1973415438768938754}
   - component: {fileID: 951789188609483592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7487185608414985776}
   - component: {fileID: 2033173502924127840}
   - component: {fileID: 6232815985793914889}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chocolate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 8070957592160633000}
   - component: {fileID: 3757156280489107213}
   - component: {fileID: 3137215813314373262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChocolateBar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,6 +296,10 @@ PrefabInstance:
     - target: {fileID: 8955923276293870917, guid: c607b88752987834f8c494080683b99b, type: 3}
       propertyPath: m_Name
       value: Collectable Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955923276293870917, guid: c607b88752987834f8c494080683b99b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c607b88752987834f8c494080683b99b, type: 3}

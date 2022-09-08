@@ -25,10 +25,13 @@ public class LiftDropPointScript : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         CandyChairLiftScript candyChairLift = other.gameObject.GetComponent<CandyChairLiftScript>();
+
         if (candyChairLift != null && liftScript.isPowered)
         {
+            
             if (isLeftDropPoint == liftScript.isGoingLeft)
             {
+                
                 candyChairLift.GetPathFollower().SetUsingPathRotation(true);
             }
             else

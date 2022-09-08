@@ -30,8 +30,11 @@ public class SpellTreeScript : InteractableScript
             isInteractable = false;
             interactionCollider.enabled = false;
             interactionText.enabled = false;
-            DisableParticleEffects();
-            StartCoroutine(FadeAwayRingEffect());
+            if (glowingRingRenderer != null)
+            {
+                DisableParticleEffects();
+                StartCoroutine(FadeAwayRingEffect());
+            }
         }
     }
 

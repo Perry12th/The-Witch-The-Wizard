@@ -14,6 +14,8 @@ public class MainMenuScript : MonoBehaviour
     private string iceLevel;
     [SerializeField]
     private string shopLevel;
+    [SerializeField]
+    private string carnivalLevel;
 
     public void LoadFirstLevel()
     {
@@ -28,6 +30,11 @@ public class MainMenuScript : MonoBehaviour
     public void LoadShopLevel()
     {
         GameManager.instance.SwitchScenes(shopLevel);
+    }
+
+    public void LoadCarnivalLevel()
+    {
+        GameManager.instance.SwitchScenes(carnivalLevel);
     }
 
     public void OpenStartScreen()

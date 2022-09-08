@@ -79,7 +79,10 @@ public class DialogueManager : MonoBehaviour
             dialogues.Enqueue(dialogue);
         }
 
+
+
         AdvanceDialouge();
+
     }
 
     public void AdvanceDialouge()
@@ -123,7 +126,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 currentDialouge = dialogues.Dequeue();
-                if (currentDialouge != null && currentDialouge.dialogueType != dialogueState)
+                if (currentDialouge != null)
                 {
                     SwitchDialougeState(currentDialouge.dialogueType);
                 }
@@ -145,14 +148,14 @@ public class DialogueManager : MonoBehaviour
             activeDialogueText.text += letter;
             yield return new WaitForSeconds(1.0f / letterRate);
         }
-        activeContinueTextObject.SetActive(true);
+        //activeContinueTextObject.SetActive(true);
         isWriting = false;
     }
 
     private void PrintSentence(string sentence)
     {
         activeDialogueText.text = sentence;
-        activeContinueTextObject.SetActive(true);
+        //activeContinueTextObject.SetActive(true);
     }
 
     public void EndDialogue()
@@ -182,16 +185,25 @@ public class DialogueManager : MonoBehaviour
         {
             case DialogueType.Narrator:
                 narratorDialogueBox.SetActive(true);
-                activeContinueTextObject = narratorContinueTextObject;
+                //activeContinueTextObject = narratorContinueTextObject;
                 activeDialogueText = narratorDialogueText;
                 break;
 
             case DialogueType.Actor:
                 actorDialogueBox.SetActive(true);
-                activeContinueTextObject = actorContinueTextObject;
+                //activeContinueTextObject = actorContinueTextObject;
                 activeDialogueText = actorDialogueText;
 
                 actorImage.sprite = currentDialouge.actor.actorSprite;
+                if (!currentDialouge.facingRight)
+                {
+                    actorImage.rectTransform.eulerAngles = new Vector3(0, 180, 0);
+                }
+                else
+                {
+                    actorImage.rectTransform.eulerAngles = new Vector3(0, 0, 0);
+                }
+                actorImage.rectTransform.sizeDelta = new Vector2(currentDialouge.actor.actorSprite.rect.width, currentDialouge.actor.actorSprite.rect.height) / 1.55f; 
                 actorNameText.text = currentDialouge.actor.actorName;
                 break;
         }

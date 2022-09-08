@@ -23,7 +23,7 @@ public abstract class InteractableScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInteractable = true;
-            interactionText.enabled = true;
+            //interactionText.enabled = true;
         }
     }
 

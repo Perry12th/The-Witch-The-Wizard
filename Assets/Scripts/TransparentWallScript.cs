@@ -6,15 +6,18 @@ public class TransparentWallScript : MonoBehaviour
 {
 
     [SerializeField]
-    private Material transparentM, opaqueM;
+    private Material transparentMat, opaqueMat;
     [SerializeField]
-    private MeshRenderer meshR;
+    private List<MeshRenderer> meshRenderers;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            meshR.material = transparentM;
+            foreach (MeshRenderer renderer in meshRenderers)
+            {
+                renderer.material = transparentMat;
+            }
         }
     }
 
@@ -22,7 +25,10 @@ public class TransparentWallScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            meshR.material = opaqueM;
+            foreach (MeshRenderer renderer in meshRenderers)
+            {
+                renderer.material = opaqueMat;
+            }
         }
     }
 

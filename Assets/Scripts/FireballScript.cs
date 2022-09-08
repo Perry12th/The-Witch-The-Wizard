@@ -16,12 +16,16 @@ public class FireballScript : MonoBehaviour
     private ParticleSystem particleEffects;
     [SerializeField]
     private GameObject particle;
+    [SerializeField]
+    private float lifeTime = 10;
+    [SerializeField]
+    private float particleImpactLifetime = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = ((gameObject.transform.right) * speed);
-        Destroy(gameObject, 10);
+        Destroy(gameObject, lifeTime);
     }
 
     private void Update()
@@ -50,7 +54,7 @@ public class FireballScript : MonoBehaviour
         EffectsManager.instance.SpawnFireBlast(transform);
         particleEffects.Stop();
         particle.transform.parent = null;
-        Destroy(particle, 1);
+        Destroy(particle, particleImpactLifetime);
         Destroy(gameObject);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
 {
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private PlayerSpotter playerSpotter;
     //[SerializeField]
     //private Rigidbody rb;
     [SerializeField]
@@ -49,9 +52,9 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
     public void Start()
     {
         startingYPositon = transform.position.y;
+        playerSpotter.playerSpotted += PlayerSpotted;
+        playerSpotter.playerLeft += PlayerLeft;
     }
-
-
 
     void FixedUpdate()
     {
@@ -110,20 +113,20 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void PlayerLeft()
     {
-        if (other.gameObject.CompareTag("Player") && frogState == FrogStates.IDLE)
+        if (frogState != FrogStates.DYING)
         {
-            playerInRange = true;
-            PerformJump();
+            playerInRange = false;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void PlayerSpotted()
     {
-        if (other.gameObject.CompareTag("Player") && frogState != FrogStates.DYING)
+        if (frogState == FrogStates.IDLE)
         {
-            playerInRange = false;
+            playerInRange = true;
+            PerformJump();
         }
     }
 

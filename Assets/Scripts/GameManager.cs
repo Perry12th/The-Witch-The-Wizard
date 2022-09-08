@@ -58,8 +58,6 @@ public class GameManager : MonoBehaviour
 
     public void SetCheckpoint(CheckpointScript newCheckpoint)
     {
-        Debug.Log("SetCheckpoint");
-
         if (currentCheckpoint != newCheckpoint)
         {
             currentCheckpoint?.disableCheckpoint();

@@ -34,6 +34,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private LightningBoltScript thunderLine;
     [SerializeField]
     private GameObject pauseMenu;
+    [SerializeField]
+    private CameraScript cameraScript;
+    [SerializeField]
+    private List<Renderer> renderers;
     [Header("Mats and Layers")]
     [SerializeField]
     private PhysicMaterial frictionMaterial;
@@ -45,6 +49,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private LayerMask groundCollisionMask;
     [SerializeField]
     private LayerMask enemyElecticalCollisionMask;
+    [SerializeField]
+    private int creatureMask;
+    [SerializeField]
+    private int ghostMask;
     [Header("Movement")]
     [SerializeField]
     private float speed;
@@ -68,6 +76,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private int life;
     [SerializeField]
     private int maxLife;
+    [SerializeField]
+    private float ghostDuration;
+    [SerializeField]
+    private float flashDuration;
     [Header("Mana")]
     private float manaAmount;
     [SerializeField]
@@ -139,8 +151,6 @@ public class WitcherScript : MonoBehaviour, IDamagable
         DOUBLEJUMP,
     }
 
-
-
     private void Start()
     {
         checkpoint = transform.position;
@@ -162,6 +172,17 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
     private void Update()
     {
+        if (!GameManager.instance.gameIsPaused && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (candyAmountText.enabled)
+            {
+                HideUI();
+            }
+            else
+            {
+                ShowUI();
+            }
+        }
         if (canMove && !isAttacking)
         {
             RegenMana();
@@ -279,24 +300,23 @@ public class WitcherScript : MonoBehaviour, IDamagable
             {
                 aimLine.gameObject.SetActive(true);
                 isAiming = true;
-                SetMovement(false);
+                AllowMovement(false);
             }
 
             if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || canDoubleJump)))
             {
                 if (!isGrounded)
                 {
-                    StopAllCoroutines();
+                    StopCoroutine(DisableGroundCheck());
                     StartCoroutine(DisableGroundCheck());
                     canDoubleJump = false;
                     isJumping = true;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
-                    //rb.velocity += Vector3.up * jumpSpeed;
                     anim.SetTrigger("DoubleJump");
                 }
                 else
                 {
-                    StopAllCoroutines();
+                    StopCoroutine(DisableGroundCheck());
                     StartCoroutine(DisableGroundCheck());
                     isJumping = true;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
@@ -307,7 +327,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
             if (isGrounded && conversation != null && conversation?.DialogueV2s.Length > 0 && !isReading)
             {
                 rb.velocity = Vector3.zero;
-                SetMovement(false);
+                AllowMovement(false);
                 isReading = true;
                 HideUI();
                 DialogueManager.instance.StartConversation(conversation);
@@ -320,9 +340,9 @@ public class WitcherScript : MonoBehaviour, IDamagable
              DialogueManager.instance.AdvanceDialouge();
              if (!DialogueManager.instance.isOpen)
              {
-                ShowUI();
+                //ShowUI();
                 isReading = false;
-                SetMovement(true);
+                AllowMovement(true);
              }
         }
 
@@ -421,10 +441,13 @@ public class WitcherScript : MonoBehaviour, IDamagable
     {
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SuzyDeath"))
         {
+            StopAllCoroutines();
+            FinishGhosting();
             DialogueManager.instance.EndDialogue();
+            cameraScript.ResetCamera(false);
             anim.SetTrigger("Death");
             HideUI();
-            SetMovement(false);
+            AllowMovement(false);
             isReading = false;
         }
     }
@@ -433,8 +456,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     {
         transform.position = checkpoint;
         RecoverHeath(maxLife);
-        SetMovement(true);
-        ShowUI();
+        AllowMovement(true);
+        //ShowUI();
     }
 
     public void ReleaseFireball()
@@ -572,7 +595,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 // what you would want is the one that hits with the shortest ray distance
                 if (distance < currentMinDistance)
                 {
-                    hitPoint = ray.GetPoint(distance);
+                    hitPoint = ray.GetPoint(distance * 1.2f);
                     currentMinDistance = distance;
                 }
             }
@@ -597,6 +620,11 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
     private void UpdateHealthUI()
     {
+        if (!candyAmountText.enabled)
+        {
+            return;
+        }
+
         if (hearts.Count != maxLife)
         {
             int heartDifference = Mathf.Abs(hearts.Count - maxLife);
@@ -655,7 +683,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         Instantiate(lightingFlash, thunderLine.StartPosition, new Quaternion());
         // Perform Raycast to find any damagable or electrical object in the pathway
         RaycastHit[] hits;
-        hits = Physics.RaycastAll(aimLine.transform.position, lastAimLine, Vector2.Distance(thunderLine.transform.position, hitPoint) * 1.2f, enemyElecticalCollisionMask);
+        hits = Physics.RaycastAll(aimLine.transform.position, lastAimLine, Vector2.Distance(thunderLine.transform.position, hitPoint), enemyElecticalCollisionMask);
         foreach (RaycastHit hit in hits)
         {
             EffectsManager.instance.SpawnLightingBlast(hit.point, new Quaternion(), Vector3.one);
@@ -679,7 +707,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         thunderLine.gameObject.SetActive(false);
         characterCollider.material = frictionLessMaterial;
         isShootingLighting = false;
-        SetMovement(true);
+        AllowMovement(true);
     }
 
     public void FireSnowBall()
@@ -723,9 +751,9 @@ public class WitcherScript : MonoBehaviour, IDamagable
     public void ExitPauseMenu()
     {
         GameManager.instance.UnPauseGame();
-        ShowUI();
+        //ShowUI();
         pauseMenu.SetActive(false);
-        SetMovement(true);
+        AllowMovement(true);
     }
 
     public void EnterPauseMenu()
@@ -733,7 +761,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         GameManager.instance.PauseGame();
         HideUI();
         pauseMenu.SetActive(true);
-        SetMovement(false);
+        AllowMovement(false);
     }
 
     public void ApplyDamage(int damageTaken = 1)
@@ -745,6 +773,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
         if (life <= 0)
         {
             PlayerDeath();
+        }
+        else
+        {
+            StartGhosting();
         }
     }
 
@@ -778,6 +810,42 @@ public class WitcherScript : MonoBehaviour, IDamagable
         
     }
 
+    private IEnumerator GhostFlashing()
+    {
+        float timer = 0;
+
+        while (timer < ghostDuration)
+        {
+            timer += flashDuration;
+            EnableRenderers(false);
+            yield return new WaitForSeconds(flashDuration);
+            timer += flashDuration;
+            EnableRenderers(true);
+            yield return new WaitForSeconds(flashDuration);
+        }
+        FinishGhosting();
+    }
+
+    private void EnableRenderers(bool enabled)
+    {
+        foreach(Renderer renderer in renderers)
+        {
+            renderer.enabled = enabled;
+        }
+    }
+
+    private void StartGhosting()
+    {
+        gameObject.layer = ghostMask;
+        StartCoroutine(GhostFlashing());
+    }
+
+    private void FinishGhosting()
+    {
+        gameObject.layer = creatureMask;
+        EnableRenderers(true);
+    }
+
     private void RegenMana()
     {
         manaAmount += manaRegenRate * Time.deltaTime;
@@ -808,16 +876,50 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
     private void HideUI()
     {
-        manaUI.SetActive(false);
-        healthUI.SetActive(false);
-        candyUI.SetActive(false);
+        foreach(Image image in manaUI.GetComponentsInChildren<Image>())
+        {
+            image.enabled = false;
+        }
+        foreach (RawImage image in manaUI.GetComponentsInChildren<RawImage>())
+        {
+            image.enabled = false;
+        }
+        foreach (Image image in healthUI.GetComponentsInChildren<Image>())
+        {
+            image.enabled = false;
+        }
+        foreach (Image image in candyUI.GetComponentsInChildren<Image>())
+        {
+            image.enabled = false;
+        }
+        foreach (TMPro.TextMeshProUGUI text in candyUI.GetComponentsInChildren<TMPro.TextMeshProUGUI>())
+        {
+            text.enabled = false;
+        }
     }
 
     private void ShowUI()
     {
-        manaUI.SetActive(true);
-        healthUI.SetActive(true);   
-        candyUI.SetActive(true);
+        foreach (Image image in manaUI.GetComponentsInChildren<Image>())
+        {
+            image.enabled = true;
+        }
+        foreach (RawImage image in manaUI.GetComponentsInChildren<RawImage>())
+        {
+            image.enabled = true;
+        }
+        foreach (Image image in healthUI.GetComponentsInChildren<Image>())
+        {
+            image.enabled = true;
+        }
+        foreach (Image image in candyUI.GetComponentsInChildren<Image>())
+        {
+            image.enabled = true;
+        }
+        foreach (TMPro.TextMeshProUGUI text in candyUI.GetComponentsInChildren<TMPro.TextMeshProUGUI>())
+        {
+            text.enabled = true;
+        }
     }
 
     public void EnableSpell(SpellType spell)
@@ -857,7 +959,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         return false;
     }
 
-    public void SetMovement(bool active)
+    public void AllowMovement(bool active)
     {
         canMove = active;
         if(active)
@@ -873,13 +975,13 @@ public class WitcherScript : MonoBehaviour, IDamagable
     public void EnterShop()
     {
         HideUI();
-        SetMovement(false);
+        AllowMovement(false);
     }
 
     public void ExitShop()
     {
-        ShowUI();
-        SetMovement(true);
+        //ShowUI();
+        AllowMovement(true);
     }
 
     public void SpawnSmokePoof()

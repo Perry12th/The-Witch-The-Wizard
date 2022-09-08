@@ -29,12 +29,12 @@ TagManager:
   - UI
   - 
   - 
-  - PatrolPoints
-  - VisualBox
+  - Ghost
+  - TriggerBoxes
   - FadedObjects
   - Ground
   - Creatures
-  - 
+  - Projectiles
   - 
   - 
   - 

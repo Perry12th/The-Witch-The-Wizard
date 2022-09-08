@@ -145,6 +145,8 @@ GameObject:
   - component: {fileID: 53522083899526145}
   - component: {fileID: 9018617928069974025}
   - component: {fileID: 3466453888754157320}
+  - component: {fileID: 1339142790900132897}
+  - component: {fileID: 4996539754238836314}
   m_Layer: 11
   m_Name: CandyChairModel
   m_TagString: Ground
@@ -231,6 +233,7 @@ MonoBehaviour:
   candyCaneParent: {fileID: 5272286301458689859}
   pathFollower: {fileID: 2420317058640794659}
   isGoingLeft: 1
+  liftRoofScript: {fileID: 0}
 --- !u!65 &9018617928069974025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -257,3 +260,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.90730107, y: 0.07026795, z: 0.4815256}
   m_Center: {x: 0.0001742778, y: 0.22226849, z: -0.0097655505}
+--- !u!65 &1339142790900132897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079011832563427864}
+  m_Material: {fileID: 13400000, guid: 6e313b72928c0504699f6b6810ce8f1c, type: 2}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.90730107, y: 0.07026795, z: 0.4815256}
+  m_Center: {x: 0.0001742778, y: 0.22226849, z: -0.0097655505}
+--- !u!65 &4996539754238836314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079011832563427864}
+  m_Material: {fileID: 13400000, guid: 6e313b72928c0504699f6b6810ce8f1c, type: 2}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.90730107, y: 0.5208463, z: 0.150717}
+  m_Center: {x: 0.00017439041, y: -0.052793678, z: -0.17560378}

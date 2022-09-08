@@ -228,7 +228,7 @@ public class PumpkinScript : MonoBehaviour, IDamagable
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        Debug.Log("TurningDone");
+
         transform.rotation = Quaternion.Euler(targetRotation);
         targetRotation = Vector3.zero;
         mustPerformFlip = false;

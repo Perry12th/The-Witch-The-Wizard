@@ -15,7 +15,7 @@ MonoBehaviour:
   DialogueV2s:
   - dialogueType: 0
     actor: {fileID: 0}
-    sentence: You got the charm spell
+    sentence: You got the charm spell.
   - dialogueType: 1
     actor: {fileID: 11400000, guid: 548cfa7960066c244b79e35a6eef0aef, type: 2}
     sentence: Hmm I wonder who I can charm with this?

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShopLevel.unity
     guid: d68850e57f9d97a4eaca2be0ac6dd5c3
+  - enabled: 1
+    path: Assets/Scenes/CarnivalLevel.unity
+    guid: 51a4573d70785da44b764359d5d4a354
   m_configObjects: {}

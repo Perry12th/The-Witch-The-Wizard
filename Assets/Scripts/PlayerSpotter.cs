@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerSpotter : MonoBehaviour
 {
     public bool playerWithinRange { get; private set; }
     public WitcherScript player {get; private set; }
     // Start is called before the first frame update
+
+    public UnityAction playerSpotted;
+    public UnityAction playerLeft;
     private void OnTriggerEnter(Collider other)
     {
         WitcherScript witcher = other.gameObject.GetComponent<WitcherScript>();
@@ -14,6 +18,7 @@ public class PlayerSpotter : MonoBehaviour
         {
             playerWithinRange = true;
             player = witcher;
+            playerSpotted?.Invoke();
         }
     }
 
@@ -23,6 +28,7 @@ public class PlayerSpotter : MonoBehaviour
         {
             playerWithinRange = false;
             player = null;
+            playerLeft?.Invoke();
         }
     }
 }

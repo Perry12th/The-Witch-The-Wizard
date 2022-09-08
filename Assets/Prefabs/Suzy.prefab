@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.030838378, g: 0.216393, b: 0.31132078, a: 0.9647059}
+  m_Color: {r: 0.030838378, g: 0.216393, b: 0.31132078, a: 0.8235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.030838378, g: 0.216393, b: 0.31132078, a: 0.9647059}
+  m_Color: {r: 0.030838378, g: 0.216393, b: 0.31132078, a: 0.8235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -638,8 +638,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160.3, y: -17.3}
-  m_SizeDelta: {x: 829.4387, y: 190.44855}
+  m_AnchoredPosition: {x: 180, y: -28}
+  m_SizeDelta: {x: 789.4619, y: 168.61444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1055859296
 CanvasRenderer:
@@ -832,7 +832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1509306995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1045,9 +1045,9 @@ RectTransform:
   m_Father: {fileID: 386271376}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0, y: -548}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737627592
@@ -1190,17 +1190,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890029274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000028431416}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 152659769}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -436.1, y: 0}
-  m_SizeDelta: {x: 327.84988, y: 300}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -430.09964, y: 0}
+  m_SizeDelta: {x: 300, y: 300}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1890029277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab078764c3d0f6d4f87fad5dc32a5112, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1482,7 +1482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2050240681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6943,11 +6943,11 @@ RectTransform:
   m_Father: {fileID: 9105710404317605027}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 550}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -400}
   m_SizeDelta: {x: 400, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8098767992559843261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7994,7 +7994,7 @@ GameObject:
   - component: {fileID: 8221338277869238118}
   - component: {fileID: 8221338277869238119}
   - component: {fileID: 8221338277869238116}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suzy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8079,17 +8079,36 @@ MonoBehaviour:
   aimLine: {fileID: 9140449393011733570}
   thunderLine: {fileID: 9140449392295490800}
   pauseMenu: {fileID: 3846654396192752309}
+  cameraScript: {fileID: 0}
+  renderers:
+  - {fileID: 5960896083250331961}
+  - {fileID: 4039637553796991830}
+  - {fileID: 4836695577692629432}
+  - {fileID: 8847519141508134201}
+  - {fileID: 1243087424692570856}
+  - {fileID: 35108233477795897}
+  - {fileID: 7259159309761646849}
+  - {fileID: 1715903139246155343}
+  - {fileID: 808905142674606240}
+  - {fileID: 2340846706108249678}
+  - {fileID: 5528219648599681733}
+  - {fileID: 557925766436673785}
+  - {fileID: 8759585899335828340}
+  - {fileID: 2469685088399764138}
+  - {fileID: 6527707832455007854}
   frictionMaterial: {fileID: 13400000, guid: 6e313b72928c0504699f6b6810ce8f1c, type: 2}
   frictionLessMaterial: {fileID: 13400000, guid: 7fb23821e1c0def4eb6ae38447249835, type: 2}
   aimLineCollisionMask:
     serializedVersion: 2
-    m_Bits: 2065
+    m_Bits: 2064
   groundCollisionMask:
     serializedVersion: 2
     m_Bits: 2048
   enemyElecticalCollisionMask:
     serializedVersion: 2
-    m_Bits: 2065
+    m_Bits: 6145
+  creatureMask: 12
+  ghostMask: 8
   speed: 14
   jumpSpeed: 12
   climbSpeed: 8
@@ -8100,6 +8119,8 @@ MonoBehaviour:
   groundDistanceCheck: 2
   disableGroundCheckTime: 0.2
   maxLife: 5
+  ghostDuration: 3
+  flashDuration: 0.3
   maxMana: 100
   manaRegenRate: 10
   fireBallSpellCost: 20
@@ -8114,7 +8135,7 @@ MonoBehaviour:
   healthUI: {fileID: 1601966462}
   candyUI: {fileID: 2181362737275641765}
   manaUI: {fileID: 4473281636366334438}
-  enableFullPower: 0
+  enableFullPower: 1
   currentVelocity: {x: 0, y: 0, z: 0}
 --- !u!136 &8221338277869238119
 CapsuleCollider:
@@ -8126,8 +8147,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 7fb23821e1c0def4eb6ae38447249835, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 1
+  m_Radius: 0.23
+  m_Height: 1.05
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &8221338277869238116

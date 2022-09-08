@@ -4281,7 +4281,8 @@ GameObject:
   - component: {fileID: 1423155857461524900}
   - component: {fileID: 1423155857461524890}
   - component: {fileID: 1423155857461524891}
-  m_Layer: 0
+  - component: {fileID: 1065359159}
+  m_Layer: 12
   m_Name: Pandora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4297,12 +4298,13 @@ Transform:
   m_GameObject: {fileID: 1423155857461524901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 197346223760720761}
   - {fileID: 1592862962868122966}
   - {fileID: 3914418291187447887}
   - {fileID: 6722747033892034053}
+  - {fileID: 5781041299825017154}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4337,6 +4339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9915a07245374498dafabce4e3e4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1423155857461524900}
+  playerSpotter: {fileID: 2704622699998223521}
+  charmLimit: 3
 --- !u!65 &1423155857461524891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4350,6 +4355,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.85703766, z: 0.14216262}
   m_Center: {x: 0, y: 0.41165274, z: -0.02891868}
+--- !u!54 &1065359159
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423155857461524901}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1424551741390813610
 GameObject:
   m_ObjectHideFlags: 0
@@ -12396,6 +12417,63 @@ Transform:
   m_Father: {fileID: 8497427690611909899}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4200041167510491967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5781041299825017154}
+  - component: {fileID: 2704622699998223521}
+  - component: {fileID: 1724919642858787371}
+  m_Layer: 12
+  m_Name: PlayerSpotter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5781041299825017154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200041167510491967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1768718499975455519}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2704622699998223521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200041167510491967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814414a6ac7a84d4b9cfdef750cfbe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1724919642858787371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200041167510491967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2231097, y: 3.034003, z: 3.5940607}
+  m_Center: {x: -0.085251965, y: 1.017, z: 1.383534}
 --- !u!1 &4201917119714336468
 GameObject:
   m_ObjectHideFlags: 0

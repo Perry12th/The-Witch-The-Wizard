@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 512767725278995749}
   - component: {fileID: 3508985887520533120}
   - component: {fileID: 1681702326711475786}
-  - component: {fileID: 734647818376134667}
+  - component: {fileID: 2299313927272687504}
   m_Layer: 11
   m_Name: RockPlatformSmall
   m_TagString: Ground
@@ -82,16 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &734647818376134667
-BoxCollider:
+--- !u!64 &2299313927272687504
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889011411357433759}
-  m_Material: {fileID: 13400000, guid: ecab68e005af7ef4586167957933e629, type: 2}
+  m_Material: {fileID: 13400000, guid: 7fb23821e1c0def4eb6ae38447249835, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 11.804544, y: 7.248847, z: 3.8874056}
-  m_Center: {x: 0.000037193306, y: -0.012585878, z: -0.0032368905}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 8e2745e2564ee7040a93eff5602c6a89, type: 2}

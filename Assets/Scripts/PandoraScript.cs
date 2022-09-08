@@ -7,10 +7,18 @@ public class PandoraScript : MonoBehaviour, ICharmable, IDamagable
     [SerializeField]
     private Animator animator;
     [SerializeField]
+    private PlayerSpotter playerSpotter;
+    [SerializeField]
     private int charmLimit = 3;
     private int timesCharmed;
     private bool isSuperCharmed;
     private bool witchInShop;
+
+    private void Start()
+    {
+        playerSpotter.playerSpotted += SetWitchInShop;
+        playerSpotter.playerLeft += SetWitchLeft;
+    }
     public void ApplyCharm()
     {
         timesCharmed++;
@@ -29,20 +37,14 @@ public class PandoraScript : MonoBehaviour, ICharmable, IDamagable
         animator.SetTrigger("Attacked");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void SetWitchInShop()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            witchInShop = true;
-        }
+        witchInShop = true;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void SetWitchLeft()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            witchInShop = false;
-        }
+        witchInShop = false;
     }
 
     private void CheckStatus()

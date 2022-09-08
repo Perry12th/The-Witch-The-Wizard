@@ -32,8 +32,8 @@ public class LiftScript : MonoBehaviour
 
     private void OnPoweredUp()
     {
-        //if (!isPowered)
-        //{
+        if (!isPowered)
+        {
             WitcherScript player = FindObjectOfType<WitcherScript>();
 
             if (Vector3.Distance(player.transform.position, leftliftDropPoint.transform.position) > Vector3.Distance(player.transform.position, rightliftDropPoint.transform.position))
@@ -57,7 +57,7 @@ public class LiftScript : MonoBehaviour
                 liftTower.SwitchLighting(isGoingLeft);
             }
                 isPowered = true;
-        //}
+        }
     }
 
     public void PowerOff()
@@ -66,7 +66,7 @@ public class LiftScript : MonoBehaviour
         {
             foreach (CandyChairLiftScript candyChairLift in candyChairLifts)
             {
-                candyChairLift.GetPathFollower().enabled = false;
+                candyChairLift.OnPowerDown();
             }
 
             foreach (LiftTowerScript liftTower in liftTowers)

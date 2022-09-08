@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CandyChairLiftScript : MonoBehaviour
+public class CandyChairLiftScript : MonoBehaviour, IElectrical
 {
     [SerializeField]
     private float zCorrection = -8;
@@ -12,6 +12,8 @@ public class CandyChairLiftScript : MonoBehaviour
     private PathCreation.Examples.PathFollower pathFollower;
     [SerializeField]
     private bool isGoingLeft = true;
+    [SerializeField]
+    private LiftRoofScript liftRoofScript;
     private WitcherScript witcher;
 
     public void Update()
@@ -30,12 +32,9 @@ public class CandyChairLiftScript : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.transform.gameObject.name);
         WitcherScript witcher = collision.gameObject.GetComponent<WitcherScript>();
         if (witcher != null)
         {
-            Debug.Log("Entered Seat");
-
             this.witcher = witcher;
             this.witcher.transform.parent = transform;
             this.witcher.GetRigidBody().useGravity = false;
@@ -44,9 +43,8 @@ public class CandyChairLiftScript : MonoBehaviour
 
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == witcher.gameObject)
-        {
-            if (witcher != null)
+
+            if (witcher != null && collision.gameObject == witcher.gameObject)
             {
                 witcher.transform.parent = null;
                 witcher.GetRigidBody().useGravity = true;
@@ -63,7 +61,7 @@ public class CandyChairLiftScript : MonoBehaviour
                 witcher = null;
             }
             
-        }
+
     }
 
     public void FlipChair(bool goingLeft)
@@ -86,5 +84,15 @@ public class CandyChairLiftScript : MonoBehaviour
     public PathCreation.Examples.PathFollower GetPathFollower()
     {
         return pathFollower;
+    }
+
+    public void OnPowered()
+    {
+        liftRoofScript.onLiftTowerPowered.Invoke();
+    }
+
+    public void OnPowerDown()
+    {
+        pathFollower.enabled = false;
     }
 }

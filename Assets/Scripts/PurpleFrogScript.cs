@@ -7,6 +7,8 @@ public class PurpleFrogScript : MonoBehaviour, IDamagable
 [SerializeField]
 private Animator animator;
 [SerializeField]
+private PlayerSpotter playerSpotter;
+[SerializeField]
 private Rigidbody rb;
 [SerializeField]
 private Collider bodyCollider;
@@ -44,7 +46,6 @@ private float jumpTime = 2.0f;
 private bool performJumps;
 [SerializeField]
 private bool facingRight = true;
-private bool playerInRange = true;
 private float currentTimer = 0.0f;
 
 private FrogStates frogState = FrogStates.IDLE;
@@ -57,7 +58,10 @@ private enum FrogStates
     HURTING,
     DYING
 }
-
+    public void Start()
+    {
+        playerSpotter.playerSpotted += PlayerSpotted;
+    }
 
     void FixedUpdate()
 {
@@ -113,21 +117,11 @@ private void OnCollisionEnter(Collision collision)
 
 }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void PlayerSpotted()
     {
-        if (other.gameObject.CompareTag("Player") && frogState == FrogStates.IDLE)
+        if (frogState == FrogStates.IDLE)
         {
-            playerInRange = true;
             PerformFlipCheck();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && frogState != FrogStates.DYING)
-        {
-            playerInRange = false;
         }
     }
 
@@ -219,17 +213,16 @@ private bool CheckGround()
 
 public void Recover()
 {
-        if (playerInRange)
-        {
-            PerformFlipCheck();
-        }
 
-        else
-        {
-            frogState = FrogStates.IDLE;
-            animator.SetTrigger("Idle");
-            currentTimer = 0.0f;
-        }
+        PerformFlipCheck();
+
+
+        //else
+        //{
+        //    frogState = FrogStates.IDLE;
+        //    animator.SetTrigger("Idle");
+        //    currentTimer = 0.0f;
+        //}
 }
 
     private void PerformFlipCheck()

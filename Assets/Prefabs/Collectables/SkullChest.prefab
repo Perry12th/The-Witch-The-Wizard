@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8505463839845759444}
   - component: {fileID: 8505463839845759446}
   - component: {fileID: 3386354556712705740}
-  - component: {fileID: 6410810071705668188}
-  m_Layer: 0
+  - component: {fileID: 627580925}
+  m_Layer: 9
   m_Name: SkullChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61a6e1e8ad203d4fb5a0af1bb0c7852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 6410810071705668188}
-  drop: {fileID: 8883945683003529746, guid: c57230c0c803128438ce4d079ec124f8, type: 3}
+  anim: {fileID: 627580925}
+  drop: {fileID: 8292855652497144332, guid: 07127103a334d584789b07abeb31431b, type: 3}
   life: 2
---- !u!95 &6410810071705668188
+--- !u!95 &627580925
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

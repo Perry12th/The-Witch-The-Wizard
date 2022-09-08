@@ -23,7 +23,7 @@ public class SnowballScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Lava"))
         {
             var rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
-            GameObject icePlatform = Instantiate(icePlat, collision.GetContact(0).point, rotation);
+            GameObject icePlatform = Instantiate(icePlat, collision.collider.ClosestPoint(transform.position), rotation);
             icePlatform.transform.Rotate(270, icePlatform.transform.rotation.y, icePlatform.transform.rotation.z);
         }
         Destroy(gameObject);
