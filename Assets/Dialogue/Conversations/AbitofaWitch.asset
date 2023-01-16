@@ -15,5 +15,6 @@ MonoBehaviour:
   DialogueV2s:
   - dialogueType: 1
     actor: {fileID: 11400000, guid: cc43a59633f5c2f43b0a435d6cffd5e4, type: 2}
-    facingRight: 0
+    actorFacingRight: 0
+    actorOnLeftSide: 1
     sentence: You again.

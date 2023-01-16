@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee931e340544d794e8fc084c116c2a82, type: 3}
   m_Name: ActorPandora
   m_EditorClassIdentifier: 
-  actorName: Pandora
+  actorName: 
   actorSprite: {fileID: 21300000, guid: 0592567466bd7204cb25e1c9ff0a6d73, type: 3}

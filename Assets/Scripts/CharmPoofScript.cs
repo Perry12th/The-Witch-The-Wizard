@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-[RequireComponent(typeof(Collider))]
 public class CharmPoofScript : MonoBehaviour
 {
     [SerializeField]
@@ -32,21 +31,7 @@ public class CharmPoofScript : MonoBehaviour
         if (timer > lifetimeMax)
         {
             Destroy(gameObject);
-        }
-        else if (timer > lifetimeMin && !charmApplied)
-        {
-            PreformCharm();
-        }
-       
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        ICharmable charmable = other.GetComponent<ICharmable>();
-        if (charmable != null && !charmables.Contains(charmable))
-        {
-            charmables.Add(charmable);
-        }
+        } 
     }
 
     private void OnTriggerExit(Collider other)
@@ -72,18 +57,13 @@ public class CharmPoofScript : MonoBehaviour
         }
     }
 
-    //private void setStartingVelocity(Vector3 startingVelocity)
-    //{
-    //    charmPoofEffect.SetVector3("StartingVelocity", startingVelocity);
-    //}
-
-    private void PreformCharm()
+    private void OnParticleCollision(GameObject other)
     {
-        foreach(ICharmable charmable in charmables)
+        ICharmable charmable = other.GetComponent<ICharmable>();
+        if (charmable != null)
         {
             charmable.ApplyCharm();
         }
-        charmApplied = true;
     }
 
 }

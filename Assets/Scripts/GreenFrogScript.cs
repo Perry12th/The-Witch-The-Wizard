@@ -62,12 +62,9 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
         {
             case FrogStates.IDLE:
                 if (performJumps)
-                {
-                    currentTimer += Time.fixedDeltaTime;
-                    if (currentTimer >= jumpTime)
-                    {
-                        PerformJump();
-                    }
+                { 
+                    PerformJump();
+                    
                 }
                 break;
 
@@ -199,9 +196,7 @@ public class GreenFrogScript : MonoBehaviour, IDamagable
         //    animator.SetTrigger("Idle");
         //    currentTimer = 0.0f;
         //}
-        frogState = FrogStates.IDLE;
-        animator.SetTrigger("Idle");
-        currentTimer = 0.0f;
+        PerformJump();
     }
 
     public void DestroySelf()

@@ -10,6 +10,8 @@ public class PandoraScript : MonoBehaviour, ICharmable, IDamagable
     private PlayerSpotter playerSpotter;
     [SerializeField]
     private int charmLimit = 3;
+    [SerializeField]
+    private bool charmable = true;
     private int timesCharmed;
     private bool isSuperCharmed;
     private bool witchInShop;
@@ -21,14 +23,18 @@ public class PandoraScript : MonoBehaviour, ICharmable, IDamagable
     }
     public void ApplyCharm()
     {
-        timesCharmed++;
-        if (timesCharmed >= charmLimit)
+        if (charmable)
         {
-            animator.SetTrigger("Super Charamed");
-        }
-        else
-        {
-            animator.SetTrigger("Charmed");
+            timesCharmed++;
+            if (timesCharmed >= charmLimit)
+            {
+                animator.SetTrigger("Super Charamed");
+            }
+            else
+            {
+                animator.SetTrigger("Charmed");
+            }
+            charmable = false;
         }
     }
 
@@ -53,5 +59,9 @@ public class PandoraScript : MonoBehaviour, ICharmable, IDamagable
         {
             animator.SetTrigger("Angry");
         }
+    }
+    private void ResetCharmable()
+    {
+        charmable = true;
     }
 }

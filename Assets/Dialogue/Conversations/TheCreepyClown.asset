@@ -15,5 +15,6 @@ MonoBehaviour:
   DialogueV2s:
   - dialogueType: 1
     actor: {fileID: 11400000, guid: 534462b3b028cc24289e42fb28327656, type: 2}
-    facingRight: 1
-    sentence: Come on, float with me.
+    actorFacingRight: 1
+    actorOnLeftSide: 0
+    sentence: Why do dreams always end when you get to the good part?

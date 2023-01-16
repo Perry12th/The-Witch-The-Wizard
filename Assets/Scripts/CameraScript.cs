@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (trackingTarget)
         {
@@ -51,7 +51,14 @@ public class CameraScript : MonoBehaviour
             currentOffset = startingOffset;
         }
 
-        ChangeCameraPositionOffset(startingTarget,startingOffset);   
+        if (currentTarget != startingTarget && currentOffset != startingOffset)
+        {
+            ChangeCameraPositionOffset(startingTarget, startingOffset);
+        }
+        else
+        {
+            ChangeCameraOffset(startingOffset);
+        }
     }
 
     IEnumerator ChangeOffset(Vector3 newOffset, float timeDuration)

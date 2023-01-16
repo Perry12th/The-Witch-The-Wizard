@@ -13,7 +13,8 @@ public class Dialogue
     
     public DialogueType dialogueType = DialogueType.Narrator;
     public Actor actor;
-    public bool facingRight = true;
+    public bool actorFacingRight = true;
+    public bool actorOnLeftSide = true;
 
     [TextArea(3, 10)]
     public string sentence;

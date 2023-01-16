@@ -5659,6 +5659,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 386271375, guid: 9a244e565663cc746bbf7773873c2d1d, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 386271376, guid: 9a244e565663cc746bbf7773873c2d1d, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -5719,6 +5723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Suzy
       objectReference: {fileID: 0}
+    - target: {fileID: 8221338277869238118, guid: 9a244e565663cc746bbf7773873c2d1d, type: 3}
+      propertyPath: catAnimator
+      value: 
+      objectReference: {fileID: 1926147721}
     - target: {fileID: 8221338277869238118, guid: 9a244e565663cc746bbf7773873c2d1d, type: 3}
       propertyPath: cameraScript
       value: 
@@ -17833,7 +17841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5562565582711400053, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 447.20004
+      value: 443.51
       objectReference: {fileID: 0}
     - target: {fileID: 5562565582711400053, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21369,6 +21377,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5562565582711400053, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
   m_PrefabInstance: {fileID: 1920039912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1926147721 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2686309293437010741, guid: 9a244e565663cc746bbf7773873c2d1d, type: 3}
+  m_PrefabInstance: {fileID: 504046728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1926465563
 PrefabInstance:

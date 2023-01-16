@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee931e340544d794e8fc084c116c2a82, type: 3}
   m_Name: ActorLucky
   m_EditorClassIdentifier: 
-  actorName: Lucky
+  actorName: 
   actorSprite: {fileID: 21300000, guid: e30003fc479edd04e845e049b8214a4b, type: 3}

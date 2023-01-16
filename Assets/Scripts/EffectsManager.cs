@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class EffectsManager : MonoBehaviour
     private GameObject lightingBlast;
     [SerializeField]
     private GameObject fireBlast;
+    [SerializeField]
+    private GameObject catPoof;
     #region Singleton
     public static EffectsManager instance;
 
@@ -57,4 +60,9 @@ public class EffectsManager : MonoBehaviour
         Instantiate(fireBlast, position, quaternion).transform.localScale = localScale;
     }
 
+    internal void SpawnCatSpellPoof(Transform smokePoofSpawnPoint)
+    {
+        Instantiate(catPoof, smokePoofSpawnPoint.position, smokePoofSpawnPoint.rotation).transform.localScale = smokePoofSpawnPoint.localScale;
+
+    }
 }

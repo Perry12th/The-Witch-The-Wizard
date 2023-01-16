@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     private GameObject narratorContinueTextObject;
 
     [SerializeField]
-    private GameObject actorDialogueBox;
+    private RectTransform actorDialogueBox;
     [SerializeField]
     private Image actorImage;
     [SerializeField]
@@ -24,7 +24,15 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI actorNameText;
     [SerializeField]
     private GameObject actorContinueTextObject;
-    
+    [SerializeField]
+    private Vector3 leftActorImagePosition;
+    [SerializeField]
+    private Vector3 rightActorImagePosition;
+    [SerializeField]
+    private Vector3 leftActorDialoguePosition;
+    [SerializeField]
+    private Vector3 rightActorDialoguePosition;
+
     [SerializeField]
     private Animator animator;
 
@@ -63,7 +71,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        actorDialogueBox.SetActive(false);
+        actorDialogueBox.gameObject.SetActive(false);
         narratorDialogueBox.SetActive(false);
         SwitchDialougeState(DialogueType.Narrator);
     }
@@ -173,7 +181,7 @@ public class DialogueManager : MonoBehaviour
                 break;
 
             case DialogueType.Actor:
-                actorDialogueBox.SetActive(false);
+                actorDialogueBox.gameObject.SetActive(false);
                 break;
         }
 
@@ -190,12 +198,15 @@ public class DialogueManager : MonoBehaviour
                 break;
 
             case DialogueType.Actor:
-                actorDialogueBox.SetActive(true);
+                actorDialogueBox.gameObject.SetActive(true);
                 //activeContinueTextObject = actorContinueTextObject;
                 activeDialogueText = actorDialogueText;
 
+                actorImage.rectTransform.sizeDelta = new Vector2(currentDialouge.actor.actorSprite.rect.width, currentDialouge.actor.actorSprite.rect.height) / 1.55f;
+                actorNameText.text = currentDialouge.actor.actorName;
+
                 actorImage.sprite = currentDialouge.actor.actorSprite;
-                if (!currentDialouge.facingRight)
+                if (!currentDialouge.actorFacingRight)
                 {
                     actorImage.rectTransform.eulerAngles = new Vector3(0, 180, 0);
                 }
@@ -203,8 +214,16 @@ public class DialogueManager : MonoBehaviour
                 {
                     actorImage.rectTransform.eulerAngles = new Vector3(0, 0, 0);
                 }
-                actorImage.rectTransform.sizeDelta = new Vector2(currentDialouge.actor.actorSprite.rect.width, currentDialouge.actor.actorSprite.rect.height) / 1.55f; 
-                actorNameText.text = currentDialouge.actor.actorName;
+                if (currentDialouge.actorOnLeftSide)
+                {
+                    actorImage.rectTransform.anchoredPosition = leftActorImagePosition;
+                    actorDialogueText.rectTransform.anchoredPosition = leftActorDialoguePosition;
+                }
+                else
+                {
+                    actorImage.rectTransform.anchoredPosition = rightActorImagePosition;
+                    actorDialogueText.rectTransform.anchoredPosition = rightActorDialoguePosition;
+                }
                 break;
         }
 

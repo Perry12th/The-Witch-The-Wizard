@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
+      m_MaxTextureSize: 4096
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 1
@@ -48,23 +48,56 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 4e6a41125aeff634a9eb9f40583d7953, type: 3}
     - {fileID: 2800000, guid: 0425e39610695d942877170219f6831d, type: 3}
     - {fileID: 2800000, guid: 138c682e7ac584d408d5318a90f87173, type: 3}
+    - {fileID: 2800000, guid: e30003fc479edd04e845e049b8214a4b, type: 3}
+    - {fileID: 2800000, guid: 0b902bb1371105941af56c0a72a8db58, type: 3}
+    - {fileID: 2800000, guid: 1c09d0904f5fd614d9420ac339e98818, type: 3}
+    - {fileID: 2800000, guid: 53516cc77fe388947b08b262a5243bc3, type: 3}
+    - {fileID: 2800000, guid: ae97d81cb0528474fa73f0b5fba6f34b, type: 3}
+    - {fileID: 2800000, guid: 2476ee030da34db49ae9c397fddd202e, type: 3}
+    - {fileID: 2800000, guid: fb8e4115897c8ef47b473e773557928c, type: 3}
+    - {fileID: 2800000, guid: 0592567466bd7204cb25e1c9ff0a6d73, type: 3}
+    - {fileID: 2800000, guid: bd87a0365e90dad40a34d9b2d9290210, type: 3}
+    - {fileID: 2800000, guid: dce3c24965987dc489fc8ea6861aba58, type: 3}
+    - {fileID: 2800000, guid: 300d6bcf411987d45b945bba9bdf4f08, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 1c09d0904f5fd614d9420ac339e98818, type: 3}
+  - {fileID: 21300000, guid: 0b902bb1371105941af56c0a72a8db58, type: 3}
   - {fileID: 21300000, guid: 4e6a41125aeff634a9eb9f40583d7953, type: 3}
+  - {fileID: 21300000, guid: 2476ee030da34db49ae9c397fddd202e, type: 3}
+  - {fileID: 21300000, guid: 0592567466bd7204cb25e1c9ff0a6d73, type: 3}
+  - {fileID: 21300000, guid: fb8e4115897c8ef47b473e773557928c, type: 3}
   - {fileID: 21300000, guid: d8c9391503c14384d878b8d7e7ebf9a3, type: 3}
   - {fileID: 21300000, guid: d2fa28b51a6e509459efd0a44f1ac31d, type: 3}
+  - {fileID: 21300000, guid: bd87a0365e90dad40a34d9b2d9290210, type: 3}
   - {fileID: 21300000, guid: 0425e39610695d942877170219f6831d, type: 3}
+  - {fileID: 21300000, guid: 53516cc77fe388947b08b262a5243bc3, type: 3}
+  - {fileID: 21300000, guid: dce3c24965987dc489fc8ea6861aba58, type: 3}
   - {fileID: 21300000, guid: c5e13bbab59a4394cad41a6a6853f26d, type: 3}
+  - {fileID: 21300000, guid: ae97d81cb0528474fa73f0b5fba6f34b, type: 3}
+  - {fileID: 21300000, guid: e30003fc479edd04e845e049b8214a4b, type: 3}
   - {fileID: 21300000, guid: 138c682e7ac584d408d5318a90f87173, type: 3}
+  - {fileID: 21300000, guid: 300d6bcf411987d45b945bba9bdf4f08, type: 3}
   m_PackedSpriteNamesToIndex:
+  - WW_PandoraPortraitsWitch_Neutral
+  - WW_PandoraPortraitsWitch_Sad
   - WW_SuzyPortraits_Idle(1)
+  - WW_PandoraPortraitsWitch_AngryIcon
+  - WW_PandoraPortraits_Neutral
+  - WW_PandoraPortraits_Sad
   - WW_SuzyPortraits_Disgruntled
   - WW_SuzyPortraits_Happy
+  - WW_PandoraPortraits_Happy
   - WW_SuzyPortraits_Sad
+  - WW_PandoraPortraitsWitch_Happy
+  - WW_PandoraPortraits_AngryIcon
   - WW_SuzyPortraits_Furious
+  - WW_PandoraPortraitsWitch_Angry
+  - WW_Portraits_Clown
   - WW_SuzyPortraits_Surprised
+  - WW_PandoraPortraits_Angry
   m_Tag: ActorPortraits
   m_IsVariant: 0

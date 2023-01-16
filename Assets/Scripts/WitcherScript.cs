@@ -19,11 +19,17 @@ public class WitcherScript : MonoBehaviour, IDamagable
     [SerializeField]
     private GameObject lightingFlash;
     [SerializeField]
+    private GameObject suzyCat;
+    [SerializeField]
     private Transform projectileSpawnPoint;
     [SerializeField]
     private Transform smokePoofSpawnPoint;
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private Animator suzyAnimator;
+    [SerializeField]
+    private Animator catAnimator;
     [SerializeField]
     private GameObject model;
     [SerializeField]
@@ -38,6 +44,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private CameraScript cameraScript;
     [SerializeField]
     private List<Renderer> renderers;
+    [SerializeField] 
+    private List<Renderer> catRenderers;
     [Header("Mats and Layers")]
     [SerializeField]
     private PhysicMaterial frictionMaterial;
@@ -95,6 +103,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private float charmSpellCost = 20.0f;
     [SerializeField]
     private float snowBallCost = 20.0f;
+    [SerializeField]
+    private float catSpellCost = 20.0f;
     [Header("UI")]
     [SerializeField]
     private Sprite fullHeartSprite;
@@ -125,6 +135,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private bool hasFireball = false;
     private bool hasLighting = false;
     private bool hasCharm = false;
+    private bool hasCat = false;
+    private bool inCatForm = false;
     private bool doubleJumpEnabled = false;
     private bool canDoubleJump = true;
     //private bool canJump = true;
@@ -155,7 +167,9 @@ public class WitcherScript : MonoBehaviour, IDamagable
     {
         checkpoint = transform.position;
         life = maxLife;
-        manaAmount = 0; 
+        manaAmount = 0;
+        anim = suzyAnimator;
+
         UpdateHealthUI();
         pauseMenu.SetActive(false);
 
@@ -164,7 +178,9 @@ public class WitcherScript : MonoBehaviour, IDamagable
             hasSnowball = true;
             hasFireball = true;
             hasLighting = true;
+            hasCharm = true;
             doubleJumpEnabled = true;
+            hasCat = true;
             //canTakeDamage = false;
         }
     }
@@ -222,7 +238,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 {
                     if (rb.velocity.y > 0 && isGrounded && !Input.GetKey(KeyCode.Space))
                     {
-                        rb.velocity = new Vector3(0, 0, 0);
+                        //rb.velocity = new Vector3(0, 0, 0);
                     }
                     else
                     {
@@ -288,6 +304,21 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 characterCollider.material = frictionMaterial;
             }
 
+            if (Input.GetKeyDown(KeyCode.K) && hasCat && manaAmount >= catSpellCost)
+            {
+                if (!suzyCat.activeSelf)
+                {
+                    characterCollider.material = frictionMaterial;
+                    anim.SetTrigger("CatSpell");
+                    isAttacking = true;
+                }
+                else
+                {
+                    TransformFromCat();
+                }
+                
+            }
+
             if (Input.GetKeyDown(KeyCode.F) && hasFireball && manaAmount >= fireBallSpellCost)
             {
                 //characterCollider.material = FrictionMaterial;
@@ -305,7 +336,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
             if ((Input.GetKeyDown(KeyCode.Space) && (isGrounded || canDoubleJump)))
             {
-                if (!isGrounded)
+                if (!isGrounded && !inCatForm)
                 {
                     StopCoroutine(DisableGroundCheck());
                     StartCoroutine(DisableGroundCheck());
@@ -314,13 +345,20 @@ public class WitcherScript : MonoBehaviour, IDamagable
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
                     anim.SetTrigger("DoubleJump");
                 }
-                else
+                else if (!inCatForm)
                 {
                     StopCoroutine(DisableGroundCheck());
                     StartCoroutine(DisableGroundCheck());
                     isJumping = true;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
                     anim.SetTrigger("Jump");
+                }
+                else if (isGrounded && inCatForm)
+                {
+                    Debug.Log("CatJump");
+                    anim.SetTrigger("Jump");
+                    isJumping = true;
+                    StartCoroutine(SuzyCatJump());
                 }
             }
 
@@ -381,7 +419,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         }
 
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-        anim.SetFloat("SpeedY", Mathf.Abs(rb.velocity.y));
+        anim.SetFloat("SpeedY", rb.velocity.y);
         anim.SetBool("Grounded", isGrounded);
     }
     public void FlipLeft()
@@ -402,7 +440,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         if (ground)
         {
             isJumping = !ground;
-            anim.ResetTrigger("Jump");
+            //anim.ResetTrigger("Jump");
             anim.ResetTrigger("DoubleJump");
             //canJump = true;
             canDoubleJump = doubleJumpEnabled;
@@ -412,17 +450,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private void GroundCheck()
     {
         RaycastHit raycastHit;
-        // Physics.BoxCast(groundCheckBox.bounds.center, groundCheckBox.bounds.size, Vector3.down, out raycastHit, Quaternion.identity, groundDistanceCheck, groundCollisionMask);
         Physics.Raycast(characterCollider.bounds.center, Vector3.down, out raycastHit, groundDistanceCheck, groundCollisionMask);
         if (raycastHit.collider != null)
         {
             SetGrounded(true);
-            //Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, raycastHit.normal);
-            //Vector3 adjustedVelocity = slopeRotation * rb.velocity;
-            //if (adjustedVelocity.y < Mathf.Epsilon)
-            //{
-            //    rb.velocity = adjustedVelocity;
-            //}
             currentVelocity = rb.velocity;
             if (!isClimbing && Mathf.Abs(rb.velocity.x) > 1.0f)
             {
@@ -443,6 +474,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         {
             StopAllCoroutines();
             FinishGhosting();
+            TransformFromCat();
             DialogueManager.instance.EndDialogue();
             cameraScript.ResetCamera(false);
             anim.SetTrigger("Death");
@@ -481,7 +513,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Vine"))
+        if (other.CompareTag("Vine") && !inCatForm)
         {
             isClimbing = true;
             anim.SetBool("IsClimbing", true);
@@ -723,6 +755,26 @@ public class WitcherScript : MonoBehaviour, IDamagable
         characterCollider.material = frictionLessMaterial;
     }
 
+    public void TransformToCat()
+    {
+        suzyCat.SetActive(true);
+        EnableSuzyRenderers(false);
+        anim = catAnimator;
+        Debug.Log(anim.runtimeAnimatorController);
+        isAttacking = false;
+        inCatForm = true;
+    }
+
+    public void TransformFromCat()
+    {
+        SpawnCatSpellPoof();
+        EnableSuzyRenderers(true);
+        suzyCat.SetActive(false);
+        anim = suzyAnimator;
+        isAttacking = false;
+        inCatForm = false;
+    }
+
     public void SetDialogue(Conversation newConversation)
     {
         conversation = newConversation;
@@ -774,7 +826,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         {
             PlayerDeath();
         }
-        else
+        else 
         {
             StartGhosting();
         }
@@ -817,20 +869,42 @@ public class WitcherScript : MonoBehaviour, IDamagable
         while (timer < ghostDuration)
         {
             timer += flashDuration;
-            EnableRenderers(false);
+            if (inCatForm)
+            {
+                EnableSuzyCatRenders(false);
+            }
+            else
+            {
+                EnableSuzyRenderers(false);
+            }
             yield return new WaitForSeconds(flashDuration);
             timer += flashDuration;
-            EnableRenderers(true);
+            if (inCatForm)
+            {
+                EnableSuzyCatRenders(true);
+            }
+            else
+            {
+                EnableSuzyRenderers(true);
+            }
             yield return new WaitForSeconds(flashDuration);
         }
         FinishGhosting();
     }
 
-    private void EnableRenderers(bool enabled)
+    private void EnableSuzyRenderers(bool enabled)
     {
         foreach(Renderer renderer in renderers)
         {
-            renderer.enabled = enabled;
+            renderer.gameObject.SetActive(enabled);
+        }
+    }
+
+    private void EnableSuzyCatRenders(bool enabled)
+    {
+        foreach (Renderer renderer in catRenderers)
+        {
+            renderer.gameObject.SetActive(enabled);
         }
     }
 
@@ -843,7 +917,14 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private void FinishGhosting()
     {
         gameObject.layer = creatureMask;
-        EnableRenderers(true);
+        if (inCatForm)
+        {
+            EnableSuzyCatRenders(true);
+        }
+        else
+        {
+            EnableSuzyRenderers(true);
+        }
     }
 
     private void RegenMana()
@@ -987,5 +1068,19 @@ public class WitcherScript : MonoBehaviour, IDamagable
     public void SpawnSmokePoof()
     {
         EffectsManager.instance.SpawnSmokePoof(smokePoofSpawnPoint);
+    }
+
+    public void SpawnCatSpellPoof()
+    {
+        EffectsManager.instance.SpawnCatSpellPoof(smokePoofSpawnPoint);
+    }
+
+    public IEnumerator SuzyCatJump()
+    {
+        yield return new WaitForSeconds(0.25f);
+        StopCoroutine(DisableGroundCheck());
+        StartCoroutine(DisableGroundCheck());
+        isJumping = true;
+        rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
     }
 }
