@@ -324,7 +324,7 @@ RectTransform:
   - {fileID: 5610750736978272832}
   - {fileID: 1929429482713191425}
   m_Father: {fileID: 8742576726624169439}
-  m_RootOrder: 19
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -348,7 +348,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -1785,9 +1785,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: UnPauseGame
+      - m_Target: {fileID: 8221338277869238118}
+        m_TargetAssemblyTypeName: WitcherScript, Assembly-CSharp
+        m_MethodName: ExitPauseMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8052,9 +8052,9 @@ Transform:
   - {fileID: 2203568498614545552}
   - {fileID: 9140449393011733571}
   - {fileID: 9140449392302239482}
-  - {fileID: 9140449391527520085}
-  - {fileID: 3365912565921860776}
   - {fileID: 386271376}
+  - {fileID: 3365912565921860776}
+  - {fileID: 9140449391527520085}
   - {fileID: 2623199241942750461}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -8100,7 +8100,7 @@ MonoBehaviour:
   smokePoofSpawnPoint: {fileID: 3365912565921860776}
   anim: {fileID: 9140449391213709881}
   suzyAnimator: {fileID: 9140449391213709881}
-  catAnimator: {fileID: 0}
+  catAnimator: {fileID: 2686309293437010741}
   model: {fileID: 8221338277869238117}
   characterCollider: {fileID: 8221338277869238119}
   aimLine: {fileID: 9140449393011733570}
@@ -8121,8 +8121,6 @@ MonoBehaviour:
   - {fileID: 5528219648599681733}
   - {fileID: 557925766436673785}
   - {fileID: 8759585899335828340}
-  - {fileID: 2469685088399764138}
-  - {fileID: 6527707832455007854}
   catRenderers:
   - {fileID: 7727511486508260410}
   - {fileID: 7373510768253156240}
@@ -8136,13 +8134,13 @@ MonoBehaviour:
   frictionLessMaterial: {fileID: 13400000, guid: 7fb23821e1c0def4eb6ae38447249835, type: 2}
   aimLineCollisionMask:
     serializedVersion: 2
-    m_Bits: 2064
+    m_Bits: 2065
   groundCollisionMask:
     serializedVersion: 2
     m_Bits: 2048
   enemyElecticalCollisionMask:
     serializedVersion: 2
-    m_Bits: 6145
+    m_Bits: 6161
   creatureMask: 12
   ghostMask: 8
   speed: 14
@@ -8155,8 +8153,8 @@ MonoBehaviour:
   groundDistanceCheck: 2
   disableGroundCheckTime: 0.2
   maxLife: 5
-  ghostDuration: 3
-  flashDuration: 0.3
+  ghostDuration: 5
+  flashDuration: 0.2
   maxMana: 100
   manaRegenRate: 10
   fireBallSpellCost: 20
@@ -8184,8 +8182,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 7fb23821e1c0def4eb6ae38447249835, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.23
-  m_Height: 1.05
+  m_Radius: 0.22
+  m_Height: 1.1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &8221338277869238116
@@ -8874,11 +8872,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9140449391527520082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.68994796, z: 0.707}
+  m_LocalPosition: {x: -0, y: 0.7, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8742576726624169439}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9140449392302159230
 GameObject:
@@ -9426,14 +9424,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3539e5dc6917e524fbc58097c1a06dc9, type: 3}
---- !u!1 &3399278063398293063 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2444811268760516602, guid: 3539e5dc6917e524fbc58097c1a06dc9, type: 3}
-  m_PrefabInstance: {fileID: 1063165648042310077}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2623199241942750461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3073256262866562368, guid: 3539e5dc6917e524fbc58097c1a06dc9, type: 3}
+  m_PrefabInstance: {fileID: 1063165648042310077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7727511486508260410 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7348956805070251399, guid: 3539e5dc6917e524fbc58097c1a06dc9, type: 3}
   m_PrefabInstance: {fileID: 1063165648042310077}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &7373510768253156240 stripped
@@ -9471,8 +9469,8 @@ SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8194187642822946968, guid: 3539e5dc6917e524fbc58097c1a06dc9, type: 3}
   m_PrefabInstance: {fileID: 1063165648042310077}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &7727511486508260410 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7348956805070251399, guid: 3539e5dc6917e524fbc58097c1a06dc9, type: 3}
+--- !u!1 &3399278063398293063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2444811268760516602, guid: 3539e5dc6917e524fbc58097c1a06dc9, type: 3}
   m_PrefabInstance: {fileID: 1063165648042310077}
   m_PrefabAsset: {fileID: 0}

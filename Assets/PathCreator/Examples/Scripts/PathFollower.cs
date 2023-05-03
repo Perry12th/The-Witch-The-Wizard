@@ -16,7 +16,12 @@ namespace PathCreation.Examples
         [SerializeField]
         private bool isGoingLeft = true;
         [SerializeField]
-        private bool usingPathRotation = false;
+        private bool usingPathRotation;
+
+        [SerializeField] private bool snapToPathRotation = true;
+        [SerializeField] private float damping = 10;
+
+        private Vector3 targetEulerAngle;
 
         void Start() {
             if (pathCreator != null)
@@ -25,10 +30,10 @@ namespace PathCreation.Examples
                 pathCreator.pathUpdated += OnPathChanged;
                 distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                Vector3 pathEulerAngle = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction).eulerAngles;
+                targetEulerAngle = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction).eulerAngles;
                 if (usingPathRotation)
                 {
-                    transform.eulerAngles = pathEulerAngle;
+                    transform.eulerAngles = targetEulerAngle;
                 }
                 enabled = false;
             }
@@ -40,19 +45,15 @@ namespace PathCreation.Examples
             {
                 distanceTravelled += speed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                Vector3 pathEulerAngle = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction).eulerAngles;
-                if (usingPathRotation)
+                targetEulerAngle = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction).eulerAngles;
+                if (snapToPathRotation)
                 {
-                    transform.eulerAngles = pathEulerAngle;
+                    transform.eulerAngles = targetEulerAngle;
                 }
-                //if (isGoingLeft)
-                //{
-                //    transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
-                //}
-                //else
-                //{ 
-                //    transform.localEulerAngles = new Vector3(-transform.localEulerAngles.x, -transform.localEulerAngles.y, -transform.localEulerAngles.z);
-                //}
+                else
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetEulerAngle), Time.deltaTime * damping);
+                }
             }
         }
 

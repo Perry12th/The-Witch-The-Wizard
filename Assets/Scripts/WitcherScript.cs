@@ -285,7 +285,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
             }
             else
             {
-                rb.useGravity = true;
+                if (canMove)
+                {
+                    rb.useGravity = true;
+                }
                 rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
             }
 
@@ -338,8 +341,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
             {
                 if (!isGrounded && !inCatForm)
                 {
-                    StopCoroutine(DisableGroundCheck());
-                    StartCoroutine(DisableGroundCheck());
+                    StopCoroutine(DisableGroundCheck(disableGroundCheckTime));
+                    StartCoroutine(DisableGroundCheck(disableGroundCheckTime));
                     canDoubleJump = false;
                     isJumping = true;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
@@ -347,15 +350,16 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 }
                 else if (!inCatForm)
                 {
-                    StopCoroutine(DisableGroundCheck());
-                    StartCoroutine(DisableGroundCheck());
+                    StopCoroutine(DisableGroundCheck(disableGroundCheckTime));
+                    StartCoroutine(DisableGroundCheck(disableGroundCheckTime));
                     isJumping = true;
                     rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
                     anim.SetTrigger("Jump");
                 }
                 else if (isGrounded && inCatForm)
                 {
-                    Debug.Log("CatJump");
+                    StopCoroutine(DisableGroundCheck(disableGroundCheckTime));
+                    StartCoroutine(DisableGroundCheck(0.40f));
                     anim.SetTrigger("Jump");
                     isJumping = true;
                     StartCoroutine(SuzyCatJump());
@@ -440,9 +444,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         if (ground)
         {
             isJumping = !ground;
-            //anim.ResetTrigger("Jump");
             anim.ResetTrigger("DoubleJump");
-            //canJump = true;
             canDoubleJump = doubleJumpEnabled;
         }
     }
@@ -643,10 +645,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
          aimLine.SetEndPoint(hitPoint);    
     }
 
-    private IEnumerator DisableGroundCheck()
+    private IEnumerator DisableGroundCheck(float disableTime)
     {
         performGroundCheck = false;
-        yield return new WaitForSeconds(disableGroundCheckTime);
+        yield return new WaitForSeconds(disableTime);
         performGroundCheck = true;
     }
 
@@ -760,7 +762,6 @@ public class WitcherScript : MonoBehaviour, IDamagable
         suzyCat.SetActive(true);
         EnableSuzyRenderers(false);
         anim = catAnimator;
-        Debug.Log(anim.runtimeAnimatorController);
         isAttacking = false;
         inCatForm = true;
     }
@@ -1078,8 +1079,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
     public IEnumerator SuzyCatJump()
     {
         yield return new WaitForSeconds(0.25f);
-        StopCoroutine(DisableGroundCheck());
-        StartCoroutine(DisableGroundCheck());
+        SetGrounded(false);
         isJumping = true;
         rb.velocity = (rb.velocity.x * Vector3.right) + Vector3.up * jumpSpeed;
     }

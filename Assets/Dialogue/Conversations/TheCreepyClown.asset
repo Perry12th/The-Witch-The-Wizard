@@ -18,3 +18,8 @@ MonoBehaviour:
     actorFacingRight: 1
     actorOnLeftSide: 0
     sentence: Why do dreams always end when you get to the good part?
+  - dialogueType: 1
+    actor: {fileID: 11400000, guid: 534462b3b028cc24289e42fb28327656, type: 2}
+    actorFacingRight: 1
+    actorOnLeftSide: 0
+    sentence: No matter, I'll be seeing you soon, little witch.

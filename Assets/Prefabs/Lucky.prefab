@@ -26532,6 +26532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4220784799822097934}
   - component: {fileID: 4402695335730661883}
+  - component: {fileID: 3381883772869217716}
   m_Layer: 0
   m_Name: Lucky
   m_TagString: Untagged
@@ -26576,6 +26577,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3381883772869217716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591882134005216436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f80f29db2cfc244cac5783ab049e536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloons:
+  - {fileID: 7864698237994126130}
+  - {fileID: 3272159456808614674}
+  - {fileID: 1664977480731101243}
+  balloonPopEffect: {fileID: 7267374564196864752, guid: 21adf94aff0733046bbb632e5eda8d5f, type: 3}
+  balloonRespawnPoofPoint: {fileID: 3827499257672026139}
+  balloonRespawnPoof: {fileID: 9005887252282614538, guid: 661b81d97218f4842afbe2e2fc0a5acc, type: 3}
+  animator: {fileID: 4402695335730661883}
+  flightSpeed: 3
+  magicalAttack: {fileID: 9087989135458950589, guid: 3968248b82be3d248b1bb73781224ff5, type: 3}
+  attackCooldown: 5
+  attackReady: 1
+  clownState: 0
+  maxHealth: 3
 --- !u!1 &3599168675793882995
 GameObject:
   m_ObjectHideFlags: 0
