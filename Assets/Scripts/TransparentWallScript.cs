@@ -23,7 +23,6 @@ public class TransparentWallScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
         if (other.CompareTag("Player"))
         {
             foreach (MeshRenderer renderer in meshRenderers)

@@ -56,7 +56,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 5, z: 5}
-  m_Center: {x: 0, y: 2.5, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &17541811430692218
 GameObject:
   m_ObjectHideFlags: 0
@@ -7597,7 +7597,7 @@ Transform:
   m_GameObject: {fileID: 2845799501724138274}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 93.59741, y: 5.37, z: 0.059}
-  m_LocalScale: {x: 2.8, y: 2.8, z: 2.8}
+  m_LocalScale: {x: 2.7999997, y: 2.8, z: 2.7999997}
   m_Children:
   - {fileID: 8337254583412780034}
   - {fileID: 7266769263022078969}
@@ -7645,12 +7645,13 @@ MonoBehaviour:
   popInSpotter: {fileID: 1711389234623085417}
   collider: {fileID: 8822363946953920265}
   fireballSpawn: {fileID: 5659883056398249924}
-  targetTransform: {fileID: 5659883056971103137}
   animator: {fileID: 2845799501724138273}
   charmParticles1: {fileID: 3662561065447272472}
   charmParticles2: {fileID: 5258640200002231422}
   charmTime: 20
   charmEnableTime: 1
+  facingRight: 0
+  rotationTime: 0.5
 --- !u!65 &8822363946953920265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12819,8 +12820,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 6.607797, z: 16.873789}
-  m_Center: {x: -4.6749468e-15, y: 3.3038986, z: 0}
+  m_Size: {x: 1, y: 6.6, z: 16}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &4762548798198915051
 GameObject:
   m_ObjectHideFlags: 0
@@ -15181,7 +15182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5659883056398249925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14, y: -0.68, z: 0.01}
+  m_LocalPosition: {x: -0.288, y: -0.267, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9172843856356917008}

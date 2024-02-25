@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 4481039951865544230}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &140931755613717640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 442229713806287765}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &1744427343468080938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 3283756156341956954}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &2037449794572140421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,6 +1443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 5630530696839821810}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &2209174726968416809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,6 +1935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 8879061499045375783}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &3326939139430914768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,6 +2094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 2517631200693584445}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &3437326861562604146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 8777527946450333861}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &3443798775776996092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,6 +2412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 456834140246731878}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &3947998761524628322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2648,6 +2656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 501966796647821768}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &4285378593353373808
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,6 +3107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 8213094586160694626}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &4647677968271639938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,6 +3266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 3703525251968888521}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &4831601979008939731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,6 +3608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 5770527139772967457}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &5524618891810163774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,6 +3979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 3824414967521766713}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &6103681495124844386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,6 +4138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 726715945162411335}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &6205999578832079116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4283,6 +4297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 6775681384518421263}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &6430843631436708301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4526,6 +4541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 6096832393370571936}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &6661710430633385028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4684,6 +4700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 3580282007906884736}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &6954687808210689416
 GameObject:
   m_ObjectHideFlags: 0
@@ -4842,6 +4859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 2651807329882671001}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &6961317539271501697
 GameObject:
   m_ObjectHideFlags: 0
@@ -5000,6 +5018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 8922625535765223713}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &7118065722738645895
 GameObject:
   m_ObjectHideFlags: 0
@@ -5338,6 +5357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 119106752207604919}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}
 --- !u!1 &7486861150989215238
 GameObject:
   m_ObjectHideFlags: 0
@@ -6149,6 +6169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 1911327928430804437}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &8395185503675159249
 GameObject:
   m_ObjectHideFlags: 0
@@ -6529,6 +6550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 658608368278342036}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &8786996185475636909
 GameObject:
   m_ObjectHideFlags: 0
@@ -6903,6 +6925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 1503430833432347889}
+  powerdMaterial: {fileID: 2100000, guid: fc728a3e628885d4da559a8a3609600a, type: 2}
 --- !u!1 &9214175244187537868
 GameObject:
   m_ObjectHideFlags: 0
@@ -7061,3 +7084,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ferrisWheelScript: {fileID: 464879203}
   wheelLight: {fileID: 6963232472014472885}
+  powerdMaterial: {fileID: 2100000, guid: 9090a310fd8072948b9f741615bda285, type: 2}

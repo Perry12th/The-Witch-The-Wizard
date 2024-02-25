@@ -10,6 +10,7 @@ public class CameraScript : MonoBehaviour
     private float zoomDuration;
     [SerializeField]
     private Vector3 startingOffset;
+    [SerializeField] private BoxCollider boundsCollider;
     private Transform currentTarget;
     private Vector3 currentOffset;
     private bool trackingTarget = true;
@@ -23,6 +24,42 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (boundsCollider)
+        {
+            Vector3 delta = Vector3.zero;
+            float dx = currentTarget.position.x - transform.position.x;
+            // X axis
+            if (dx > boundsCollider.bounds.extents.x || dx < -boundsCollider.bounds.extents.x)
+            {
+                if (transform.position.x < currentTarget.position.x)
+                {
+                    delta.x = dx - boundsCollider.bounds.extents.x;
+                }
+                else
+                {
+                    delta.x = dx + boundsCollider.bounds.extents.x;
+                }
+            }
+
+            float dy = currentTarget.position.y - transform.position.y;
+            // Y Axis
+            if (dy > boundsCollider.bounds.extents.y || dy < -boundsCollider.bounds.extents.y)
+            {
+                if (transform.position.y < transform.position.y)
+                {
+                    delta.y = dy - boundsCollider.bounds.extents.y;
+                }
+                else
+                {
+                    delta.y = dy + boundsCollider.bounds.extents.y;
+                }
+
+            }
+            Debug.Log("Dx:" +dx + "Dy:"+dy + "Delta:" + delta + "BoundsCollider:"+boundsCollider.bounds.extents);
+            // Move the camera
+            transform.position += delta;
+        }
+
         if (trackingTarget)
         {
             gameObject.transform.position = currentTarget.position + currentOffset;

@@ -140,7 +140,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private bool doubleJumpEnabled = false;
     private bool canDoubleJump = true;
     //private bool canJump = true;
-    private bool isClimbing = false;
+    private bool onVine = false;
     private bool isAttacking = false;
     private bool isAiming = false;
     private bool isShootingLighting = false;
@@ -153,6 +153,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private Vector3 hitPoint;
     private Vector3 checkpoint;
     public Vector3 currentVelocity;
+    private static readonly int OnVine = Animator.StringToHash("OnVine");
+    private static readonly int IsClimbing = Animator.StringToHash("IsClimbing");
 
     public enum SpellType
     { 
@@ -216,16 +218,17 @@ public class WitcherScript : MonoBehaviour, IDamagable
             }
             if (Input.GetKey(KeyCode.A))
             {
-                if (lookingRight && !isClimbing)
+                if (lookingRight && !onVine)
                 {
                     lookingRight = false;
                     FlipLeft();
                 }
+                
                 rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                if (!lookingRight && !isClimbing)
+                if (!lookingRight && !onVine)
                 {
                     lookingRight = true;
                     FlipRight();
@@ -251,22 +254,23 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 }
             }
 
-            if (isClimbing)
+            if (onVine)
             {
                 rb.useGravity = false;
                 if (Input.GetKey(KeyCode.W))
                 {
                     rb.velocity = new Vector3(rb.velocity.x, climbSpeed, 0);
+                    anim.SetBool(IsClimbing, true);
                     if (!lookingRight)
                     {
                         FlipRight();
                         lookingRight = true;
                     }
                 }
-                else
-                if (Input.GetKey(KeyCode.S))
+                else if (Input.GetKey(KeyCode.S))
                 {
                     rb.velocity = new Vector3(rb.velocity.x, -climbSpeed, 0);
+                    anim.SetBool(IsClimbing, true);
                     if (!lookingRight)
                     {
                         FlipRight();
@@ -276,6 +280,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 else
                 {
                     rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                    anim.SetBool(IsClimbing, false);
                     if (!lookingRight && !isGrounded)
                     {
                         FlipRight();
@@ -457,7 +462,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         {
             SetGrounded(true);
             currentVelocity = rb.velocity;
-            if (!isClimbing && Mathf.Abs(rb.velocity.x) > 1.0f)
+            if (!onVine && Mathf.Abs(rb.velocity.x) > 1.0f)
             {
                 Vector3 adjustedVelocity = Vector3.ProjectOnPlane(rb.velocity, raycastHit.normal);
                 rb.velocity = adjustedVelocity;
@@ -517,8 +522,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     {
         if (other.CompareTag("Vine") && !inCatForm)
         {
-            isClimbing = true;
-            anim.SetBool("IsClimbing", true);
+            onVine = true;
+            anim.SetBool(OnVine, true);
         }
         else
         if (other.CompareTag("Slippery"))
@@ -546,8 +551,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
         else
         if (other.CompareTag("Vine"))
         {
-            isClimbing = false;
-            anim.SetBool("IsClimbing", false);
+            onVine = false;
+            anim.SetBool(OnVine, false);
         }
     }
 

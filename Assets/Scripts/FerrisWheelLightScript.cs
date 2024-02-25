@@ -10,9 +10,13 @@ public class FerrisWheelLightScript : MonoBehaviour
     [SerializeField]
     private Light wheelLight;
 
+    [SerializeField] private Material powerdMaterial;
+    private MeshRenderer meshRenderer;
+
     private void Start()
     {
         wheelLight.enabled = false;
+        meshRenderer = GetComponent<MeshRenderer>();
         ferrisWheelScript.OnPoweredUp.AddListener(OnPowered);
     }
 
@@ -21,5 +25,6 @@ public class FerrisWheelLightScript : MonoBehaviour
     private void OnPowered()
     {
         wheelLight.enabled = true;
+        meshRenderer.material = powerdMaterial;
     }
 }

@@ -75,7 +75,7 @@ namespace PathCreation.Examples
 
         public void SetUsingPathRotation(bool usingFullPathRotation)
         {
-            usingPathRotation = usingFullPathRotation;
+            usingPathRotation = snapToPathRotation = usingFullPathRotation;
         }
 
         public bool IsUsingPathRotation()

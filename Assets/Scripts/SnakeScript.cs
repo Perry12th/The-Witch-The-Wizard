@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
 {
@@ -12,11 +12,9 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
     [SerializeField]
     private PlayerSpotter popInSpotter;
     [SerializeField]
-    private BoxCollider collider;
+    private new BoxCollider collider;
     [SerializeField]
     private Transform fireballSpawn;
-    [SerializeField]
-    private Transform targetTransform;
     [SerializeField]
     private Animator animator;
     [SerializeField]
@@ -27,13 +25,24 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
     private float charmTime;
     [SerializeField]
     private float charmEnableTime;
+    [SerializeField] 
+    private bool facingRight;
+    [SerializeField] 
+    private float rotationTime;
     private SugarBallScript activeFireBall;
     private int charmLevel;
-    private const int maxCharm = 3;
+    private const int MaxCharm = 3;
     private bool canFire;
     private bool canCharm;
     private bool fullyCharmed;
     private Vector3 lastPlayerPosition;
+    private static readonly int In = Animator.StringToHash("PopIn");
+    private static readonly int Out = Animator.StringToHash("PopOut");
+    private static readonly int LightCharmed = Animator.StringToHash("LightCharmed");
+    private static readonly int Charmed = Animator.StringToHash("Charmed");
+    private static readonly int HeavyCharmed = Animator.StringToHash("HeavyCharmed");
+    private static readonly int Idle = Animator.StringToHash("Idle");
+    private static readonly int FireBack = Animator.StringToHash("FireBack");
 
     public void OnEnable()
     {
@@ -49,62 +58,89 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
         popInSpotter.playerLeft -= PopIn;
     }
 
+    public void Update()
+    {
+        if (!popInSpotter.playerWithinRange || fullyCharmed) return;
+            
+        if (transform.position.x > popInSpotter.player.transform.position.x && facingRight)
+        {
+            StartCoroutine(RotateToPoint(rotationTime,-90));
+        }
+        else if (transform.position.x < popInSpotter.player.transform.position.x && !facingRight)
+        {
+            StartCoroutine(RotateToPoint(rotationTime,90));
+        }
+    }
+
+    private IEnumerator RotateToPoint(float rotateTime, float rotateTargetY)
+    {
+        float counter = 0;
+        Quaternion currentRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, rotateTargetY, 0);
+        while (counter < rotateTime)
+        {
+            transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, counter / rotateTime);
+            counter += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        transform.rotation = targetRotation;
+        facingRight = !facingRight;
+    }
 
     private void PopIn()
     {
-        if (!popInSpotter.playerWithinRange)
-        {
-            collider.enabled = false;
-            animator.SetTrigger("PopIn");
-        }
+        if (popInSpotter.playerWithinRange) return;
+        collider.enabled = false;
+        animator.SetTrigger(In);
     }
 
     private void PopOut()
     {
-        if (!collider.enabled)
-        {
-            collider.enabled = true;
-            animator.SetTrigger("PopOut");
-        }
+        if (collider.enabled) return;
+        collider.enabled = true;
+        animator.SetTrigger(Out);
     }
 
     public void ApplyCharm()
     {
-        if (canCharm && charmLevel < maxCharm)
-        {
-            charmLevel = Mathf.Clamp(charmLevel + 1, 0, maxCharm);
+        if (!canCharm || charmLevel >= MaxCharm) return;
+        
+        charmLevel = Mathf.Clamp(charmLevel + 1, 0, MaxCharm);
 
-            switch (charmLevel)
-            {
-                case 1:
-                    animator.SetTrigger("LightCharmed");
-                    StartCoroutine(CharmTimer());
-                    break;
-                case 2:
-                    animator.SetTrigger("Charmed");
-                    StopCoroutine(CharmTimer());
-                    StartCoroutine(CharmTimer());
-                    break;
-                case 3:
-                    charmParticles1.Play();
-                    charmParticles2.Play();
-                    fullyCharmed = true;
-                    animator.SetTrigger("HeavyCharmed");
-                    StopCoroutine(CharmTimer());
-                    StartCoroutine(CharmTimer());
-                    break;
-            }
-            canCharm = false;
-            StartCoroutine(CharmEnabler());
+        switch (charmLevel)
+        {
+            case 1:
+                animator.SetTrigger(LightCharmed);
+                StartCoroutine(CharmTimer());
+                break;
+            case 2:
+                animator.SetTrigger(Charmed);
+                StopCoroutine(CharmTimer());
+                StartCoroutine(CharmTimer());
+                break;
+            case 3:
+                charmParticles1.Play();
+                charmParticles2.Play();
+                fullyCharmed = true;
+                collider.enabled = false;
+                animator.SetTrigger(HeavyCharmed);
+                StopCoroutine(CharmTimer());
+                StartCoroutine(CharmTimer());
+                break;
         }
+        canCharm = false;
+        StopCoroutine(CharmTimer());
+        StartCoroutine(CharmEnabler());
     }
 
-    public void LowerCharm()
+    private void LowerCharm()
     {
+        StopAllCoroutines();
         charmLevel = 0;
+        collider.enabled = true;
         fullyCharmed = false;
         charmParticles1.Stop();
-        animator.SetTrigger("Idle");
+        animator.SetTrigger(Idle);
         charmParticles2.Stop();
     }
 
@@ -120,7 +156,7 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
             CheckIfPlayerInRange();
             StopCoroutine(CharmTimer());
             charmLevel = 0;
-            animator.SetTrigger("FireBack");
+            animator.SetTrigger(FireBack);
         }
     }
 
@@ -134,7 +170,7 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
 
     public void Recover()
     {
-        animator.SetTrigger("Idle");
+        animator.SetTrigger(Idle);
         canFire = true;
     }
 
