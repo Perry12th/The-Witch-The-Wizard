@@ -24,11 +24,9 @@ public class PlayerSpotter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player?.gameObject)
-        {
-            playerWithinRange = false;
-            player = null;
-            playerLeft?.Invoke();
-        }
+        if (player == null || other.gameObject != player.gameObject) return;
+        playerWithinRange = false;
+        player = null;
+        playerLeft?.Invoke();
     }
 }

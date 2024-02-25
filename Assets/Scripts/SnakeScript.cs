@@ -29,6 +29,7 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
     private bool facingRight;
     [SerializeField] 
     private float rotationTime;
+    private bool isRotating;
     private SugarBallScript activeFireBall;
     private int charmLevel;
     private const int MaxCharm = 3;
@@ -60,7 +61,7 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
 
     public void Update()
     {
-        if (!popInSpotter.playerWithinRange || fullyCharmed) return;
+        if (!popInSpotter.playerWithinRange || fullyCharmed || isRotating) return;
             
         if (transform.position.x > popInSpotter.player.transform.position.x && facingRight)
         {
@@ -75,8 +76,12 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
     private IEnumerator RotateToPoint(float rotateTime, float rotateTargetY)
     {
         float counter = 0;
+        
         Quaternion currentRotation = transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0, rotateTargetY, 0);
+
+        isRotating = true;
+        
         while (counter < rotateTime)
         {
             transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, counter / rotateTime);
@@ -84,11 +89,15 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
             yield return new WaitForEndOfFrame();
         }
         transform.rotation = targetRotation;
+        
         facingRight = !facingRight;
+
+        isRotating = false;
     }
 
     private void PopIn()
     {
+        Debug.Log("PopIn" + gameObject.name);
         if (popInSpotter.playerWithinRange) return;
         collider.enabled = false;
         animator.SetTrigger(In);
