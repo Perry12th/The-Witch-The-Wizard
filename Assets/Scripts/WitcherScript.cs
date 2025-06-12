@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.VFX;
 using DigitalRuby.LightningBolt;
+using UnityEngine.Events;
 
 public class WitcherScript : MonoBehaviour, IDamagable
 {
@@ -156,6 +157,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
     private static readonly int OnVine = Animator.StringToHash("OnVine");
     private static readonly int IsClimbing = Animator.StringToHash("IsClimbing");
 
+    public UnityEvent resetToCheckPoint;
+
     public enum SpellType
     { 
         SNOWBALL,
@@ -223,8 +226,11 @@ public class WitcherScript : MonoBehaviour, IDamagable
                     lookingRight = false;
                     FlipLeft();
                 }
-                
-                rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
+
+                var velocity = rb.velocity;
+                velocity += new Vector3(-speed * Time.deltaTime * 2, 0, 0);
+                velocity = new Vector3(Mathf.Clamp(velocity.x, -speed, speed), rb.velocity.y, 0);
+                rb.velocity = velocity;
             }
             else if (Input.GetKey(KeyCode.D))
             {
@@ -233,7 +239,10 @@ public class WitcherScript : MonoBehaviour, IDamagable
                     lookingRight = true;
                     FlipRight();
                 }
-                rb.velocity = new Vector3(speed, rb.velocity.y, 0);
+                var velocity = rb.velocity;
+                velocity += new Vector3(speed * Time.deltaTime * 2, 0, 0);
+                velocity = new Vector3(Mathf.Clamp(velocity.x, -speed, speed), rb.velocity.y, 0);
+                rb.velocity = velocity;
             }
             else
             {
@@ -241,7 +250,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 {
                     if (rb.velocity.y > 0 && isGrounded && !Input.GetKey(KeyCode.Space))
                     {
-                        //rb.velocity = new Vector3(0, 0, 0);
+                        rb.velocity = new Vector3(0, 0, 0);
                     }
                     else
                     {
@@ -250,7 +259,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
                 }
                 else
                 {
-                    rb.velocity = new Vector3(rb.velocity.x * slipperyFriction, rb.velocity.y, 0);
+                    rb.velocity = new Vector3(rb.velocity.x * slipperyFriction, rb.velocity.y * slipperyFriction, 0);
                 }
             }
 
@@ -420,11 +429,11 @@ public class WitcherScript : MonoBehaviour, IDamagable
 
         if (rb.velocity.y < 0 && !isGrounded)
         {
-            rb.velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector3.up * (Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime);
         }
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump") && !isGrounded)
         {
-            rb.velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector3.up * (Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime);
         }
 
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
@@ -462,7 +471,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
         {
             SetGrounded(true);
             currentVelocity = rb.velocity;
-            if (!onVine && Mathf.Abs(rb.velocity.x) > 1.0f)
+            if (!onVine && !isSlippery && Mathf.Abs(rb.velocity.x) > 1.0f)
             {
                 Vector3 adjustedVelocity = Vector3.ProjectOnPlane(rb.velocity, raycastHit.normal);
                 rb.velocity = adjustedVelocity;
@@ -496,7 +505,8 @@ public class WitcherScript : MonoBehaviour, IDamagable
         transform.position = checkpoint;
         RecoverHeath(maxLife);
         AllowMovement(true);
-        //ShowUI();
+        ShowUI();
+        resetToCheckPoint?.Invoke();
     }
 
     public void ReleaseFireball()
@@ -509,7 +519,7 @@ public class WitcherScript : MonoBehaviour, IDamagable
     {
         DrainMana(charmSpellCost);
         CharmPoofScript charmPoof = Instantiate(charmEffect, projectileSpawnPoint.transform.position, projectileSpawnPoint.transform.rotation).GetComponent<CharmPoofScript>();
-        charmPoof.setFacing(lookingRight ? true : false);
+        charmPoof.setFacing(lookingRight);
     }   
 
     public void Recover()
@@ -523,6 +533,9 @@ public class WitcherScript : MonoBehaviour, IDamagable
         if (other.CompareTag("Vine") && !inCatForm)
         {
             onVine = true;
+            var position = transform.position;
+            position = new Vector3(other.transform.position.x, position.y, position.z);
+            transform.position = position;
             anim.SetBool(OnVine, true);
         }
         else
@@ -562,10 +575,21 @@ public class WitcherScript : MonoBehaviour, IDamagable
         {
             ApplyDamage(maxLife);
         }
-
+        if (collision.gameObject.CompareTag("Slippery"))
+        {
+            isSlippery = true;
+        }
         if (collision.gameObject.CompareTag("TSnowball"))
         {
             ApplyDamage();
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Slippery"))
+        {
+            isSlippery = false;
         }
     }
 

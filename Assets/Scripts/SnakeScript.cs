@@ -97,7 +97,6 @@ public class SnakeScript : MonoBehaviour, IDamagable, ICharmable
 
     private void PopIn()
     {
-        Debug.Log("PopIn" + gameObject.name);
         if (popInSpotter.playerWithinRange) return;
         collider.enabled = false;
         animator.SetTrigger(In);

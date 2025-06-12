@@ -376,6 +376,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
 --- !u!4 &34928502 stripped
@@ -3200,6 +3204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrogGreen (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
 --- !u!4 &257659756 stripped
@@ -4983,6 +4991,10 @@ PrefabInstance:
     - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
       propertyPath: m_Center.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6397565232769231333, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
       propertyPath: m_UseGravity
@@ -9496,6 +9508,10 @@ PrefabInstance:
       objectReference: {fileID: 4300000, guid: 154d40b72b4f6384d9843d77d158d917, type: 2}
     - target: {fileID: 5078339920597351625, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078339920597351626, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5078339920597351631, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
@@ -14568,6 +14584,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrogGreen (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
 --- !u!4 &1457102692 stripped
@@ -17920,6 +17940,14 @@ PrefabInstance:
       propertyPath: wallDistanceCheck
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5078339920597351626, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078339920597351627, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 5078339920597351631, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: m_Name
       value: FrogPurple (4)
@@ -20042,6 +20070,10 @@ PrefabInstance:
       propertyPath: wallDistanceCheck
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5078339920597351626, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5078339920597351631, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: m_Name
       value: FrogPurple (3)
@@ -21731,6 +21763,10 @@ PrefabInstance:
     - target: {fileID: 5078339920597351625, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: wallDistanceCheck
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078339920597351626, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5078339920597351627, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: m_UseGravity
@@ -25980,6 +26016,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300000, guid: 154d40b72b4f6384d9843d77d158d917, type: 2}
+    - target: {fileID: 5078339920597351626, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5078339920597351631, guid: 405a9aa628e2119459e8ad0ffa19e492, type: 3}
       propertyPath: m_Name
       value: FrogPurple
@@ -26330,6 +26370,22 @@ PrefabInstance:
     - target: {fileID: 6397565232769231330, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
       propertyPath: m_Name
       value: FrogGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_Center.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231332, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397565232769231333, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}
+      propertyPath: m_Constraints
+      value: 122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9cf2626ce3c7b49a1c28d9d4886a70, type: 3}

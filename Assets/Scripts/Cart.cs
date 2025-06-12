@@ -1,9 +1,6 @@
-﻿using System;
-using PathCreation.Examples;
+﻿using PathCreation.Examples;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Cart : MonoBehaviour
 {
@@ -27,7 +24,12 @@ public class Cart : MonoBehaviour
     [SerializeField] private Vector3 blastForce;
     [SerializeField] bool powered;
 
-    public new  void Start()
+    public void Start()
+    {
+        SetUpCart();
+    }
+
+    private void SetUpCart()
     {
         rightEyeLight.enabled = false;
         leftEyeLight.enabled = false;
